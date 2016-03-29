@@ -61,8 +61,8 @@ agit.elem.EntityEditForm = function(entityName, fields)
                 if (res.success)
                 {
                     var successMsg = values.id
-                        ? agit.intl.L10n.t("The object was updated successfully.")
-                        : agit.intl.L10n.t("The object was created successfully.");
+                        ? agit.intl.t("The object was updated successfully.")
+                        : agit.intl.t("The object was created successfully.");
 
                     agit.srv("messageHandler").showMessage(new agit.common.Message(successMsg, "success"));
 

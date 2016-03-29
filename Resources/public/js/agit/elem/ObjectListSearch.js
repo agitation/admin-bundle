@@ -82,14 +82,14 @@ agit.elem.ObjectListSearch._fields =
 {
     name :
     {
-        label : agit.intl.L10n.t("Name"),
+        label : agit.intl.t("Name"),
         name : "name",
         element : new agit.field.Text($("<input type='text' class='form-control input-sm'>"))
     },
 
     status :
     {
-        label : agit.intl.L10n.t("Status"),
+        label : agit.intl.t("Status"),
         name : "statusList",
         element : new agit.field.Select({
             size: 3,
@@ -97,9 +97,9 @@ agit.elem.ObjectListSearch._fields =
             "data-type": "int",
             "class": "form-control input-sm"
         }, [
-            { value: 1, text: agit.intl.L10n.t("active"), selected : true },
-            { value: 0, text: agit.intl.L10n.t("inactive"), selected : true },
-            { value: -1, text: agit.intl.L10n.t("deleted") }
+            { value: 1, text: agit.intl.t("active"), selected : true },
+            { value: 0, text: agit.intl.t("inactive"), selected : true },
+            { value: -1, text: agit.intl.t("deleted") }
         ])
     }
 };

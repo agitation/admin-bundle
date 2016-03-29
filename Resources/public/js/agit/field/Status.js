@@ -3,9 +3,9 @@ agit.ns("agit.field");
 (function(){
     var
         defaultOptions = [
-            { value:  1, text: agit.intl.L10n.t("active") },
-            { value:  0, text: agit.intl.L10n.t("inactive") },
-            { value: -1, text: agit.intl.L10n.t("deleted") }
+            { value:  1, text: agit.intl.t("active") },
+            { value:  0, text: agit.intl.t("inactive") },
+            { value: -1, text: agit.intl.t("deleted") }
         ],
 
         statusField = function(options)

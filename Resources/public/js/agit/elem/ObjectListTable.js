@@ -121,7 +121,7 @@ agit.elem.ObjectListTable = function(exporter, columns, actions)
         $header.append($("<th>").addClass(columns[key].style).text(columns[key].title));
     });
 
-    actions.length && $header.append($("<th class='actions'>").text(agit.intl.L10n.t("Actions")));
+    actions.length && $header.append($("<th class='actions'>").text(agit.intl.t("Actions")));
     $elem.showNoResultsRow();
 
     return $elem;
@@ -201,7 +201,7 @@ agit.elem.ObjectListTable._filters =
 
     datetime : function(item, fieldName)
     {
-        return $("<span class='datetime'></span>").text(agit.intl.L10n.formatDay(item[fieldName]));
+        return $("<span class='datetime'></span>").text(agit.intl.formatDay(item[fieldName]));
     },
 
     reference : function(item, fieldName)
@@ -218,9 +218,9 @@ agit.elem.ObjectListTable._filters =
     {
         var statusValues =
         {
-            "-1" : "<span class='deleted'>" + agit.intl.L10n.t("deleted") + "</span>",
-             "0" : "<span class='inactive'>" + agit.intl.L10n.t("inactive") + "</span>",
-             "1" : "<span class='active'>" + agit.intl.L10n.t("active") + "</span>"
+            "-1" : "<span class='deleted'>" + agit.intl.t("deleted") + "</span>",
+             "0" : "<span class='inactive'>" + agit.intl.t("inactive") + "</span>",
+             "1" : "<span class='active'>" + agit.intl.t("active") + "</span>"
         };
 
         return statusValues[item[fieldName]];
@@ -229,19 +229,19 @@ agit.elem.ObjectListTable._filters =
 
 agit.elem.ObjectListTable._columns =
 {
-    id :            { title : agit.intl.L10n.t("ID"), filter: agit.elem.ObjectListTable._filters.id, style: "right" },
+    id :            { title : agit.intl.t("ID"), filter: agit.elem.ObjectListTable._filters.id, style: "right" },
     num :           { title : "#", style: "right" },
-    name :          { title : agit.intl.L10n.t("Name"), filter: agit.elem.ObjectListTable._filters.text },
-    description :   { title : agit.intl.L10n.t("Description"), filter: agit.elem.ObjectListTable._filters.text },
+    name :          { title : agit.intl.t("Name"), filter: agit.elem.ObjectListTable._filters.text },
+    description :   { title : agit.intl.t("Description"), filter: agit.elem.ObjectListTable._filters.text },
     reference :     { title : "", filter: agit.elem.ObjectListTable._filters.reference },
-    email :         { title : agit.intl.L10n.t("E-mail"), filter: agit.elem.ObjectListTable._filters.email },
-    status :        { title : agit.intl.L10n.t("Status"), filter : agit.elem.ObjectListTable._filters.status }
+    email :         { title : agit.intl.t("E-mail"), filter: agit.elem.ObjectListTable._filters.email },
+    status :        { title : agit.intl.t("Status"), filter : agit.elem.ObjectListTable._filters.status }
 };
 
 agit.elem.ObjectListTable._actions =
 {
     edit : {
-        title: agit.intl.L10n.t("edit"),
+        title: agit.intl.t("edit"),
         icon : "fa fa-edit",
         createAction : function($link, item) {
             $link.attr("href", "#!/edit/form/" + item.id);
@@ -249,7 +249,7 @@ agit.elem.ObjectListTable._actions =
     },
 
     duplicate : {
-        title : agit.intl.L10n.t("duplicate"),
+        title : agit.intl.t("duplicate"),
         icon : "fa fa-copy",
         createAction : function($link) {
             $link.click(function(){
@@ -259,7 +259,7 @@ agit.elem.ObjectListTable._actions =
     },
 
     remove : {
-        title : agit.intl.L10n.t("delete"),
+        title : agit.intl.t("delete"),
         icon : "fa fa-trash",
         createAction : function($link, item) {
 
@@ -273,7 +273,7 @@ agit.elem.ObjectListTable._actions =
 
                     var name = item.name ? agit.tool.fmt.out(item.name) : item.id;
 
-                    if (window.confirm(agit.tool.fmt.sprintf(agit.intl.L10n.t("Are you sure you want to delete `%s`?"), name)))
+                    if (window.confirm(agit.tool.fmt.sprintf(agit.intl.t("Are you sure you want to delete `%s`?"), name)))
                     {
                         agit.srv("api").doCall(
                             item.getName() + ".delete",
@@ -284,7 +284,7 @@ agit.elem.ObjectListTable._actions =
                                     $link.getTable().removeItem(item.id);
 
                                     agit.srv("messageHandler").showMessage(new agit.common.Message(
-                                        agit.intl.L10n.t("The object was deleted successfully."),
+                                        agit.intl.t("The object was deleted successfully."),
                                         "success"
                                     ));
                                 }
