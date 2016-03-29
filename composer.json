@@ -1,0 +1,26 @@
+{
+    "name": "agitation/profile-bundle",
+    "type": "symfony-bundle",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.9",
+        "symfony/symfony": "2.8.*",
+        "agitation/api-bundle": "dev-master",
+        "agitation/page-bundle": "dev-master",
+        "agitation/ui-bundle": "dev-master",
+        "agitation/user-bundle": "dev-master",
+        "agitation/profile-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agit\\AdminBundle\\": ""
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AGITsol GmbH",
+            "homepage": "http://www.agitsol.com/"
+        }
+    ]
+}

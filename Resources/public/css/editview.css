@@ -1,0 +1,28 @@
+/* HEADER */
+
+.editview-header                        { margin-bottom: 20px; }
+.editview-header p                      { margin: 10px 0 0; }
+
+
+
+/* FORM */
+
+.editview-form                              {}
+
+.editview-form table                        { width: 100%; }
+.editview-form th                           { vertical-align: top; padding: 20px 40px 20px 20px; font-weight: normal; background: #f2f2f2; border: 1px solid #fff; width: 1%; }
+.editview-form td                           { padding: 10px; background: #f9f9f9; border: 1px solid #fff; }
+.editview-form tfoot td                     { background: #fff; padding-top: 30px; vertical-align: middle; white-space: nowrap; }
+.editview-form tfoot button                 { margin-right: 15px; }
+
+.editview-form th label                     { display: block; margin: 0; font-weight: bold; white-space: nowrap; }
+.editview-form th .optional                 { font-size: .93em; }
+
+.editview-form textarea                     { min-height: 80px; }
+.editview-form input[type=number]           { text-align: right; }
+
+.editview-form input[readonly]              { border: 1px solid #f9f9f9; padding-left: 0; background: #f9f9f9; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; }
+.editview-form input[readonly].unset        { color: #999; }
+
+.editview-form .explain                     { font-size: .9em; color: #555; }
+.editview-form p.explain                    { margin: 10px 0 0; }

@@ -1,0 +1,67 @@
+{% extends ["::page.protected.html.twig", "AppBundle:Include:page.protected.html.twig", "AgitUiBundle:Include:page.protected.html.twig"] %}
+
+{% block area_css %}
+    {% stylesheets
+        "@AgitAdminBundle/Resources/public/css/page.css"
+        "@AgitUiBundle/Resources/public/css/message.bubbles.css"
+        "@AgitAdminBundle/Resources/public/css/tooltip.css"
+        "@AgitAdminBundle/Resources/public/css/forms.css"
+        "@AgitAdminBundle/Resources/public/css/listview.css"
+        "@AgitAdminBundle/Resources/public/css/editview.css"
+
+        filter="?uglifycss"
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+
+    {% block area_extra_css %}{% endblock %}
+{% endblock %}
+
+{% block header %}
+    {% embed "AgitUiBundle:Include:include.header.html.twig" %}
+        {% block menu %}
+            {% import "AgitUiBundle:Include:macro.menu.html.twig" as nav %}
+            {{ nav.menu(getPageTree("/admin")) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block area_js %}
+    {% javascripts
+        "@AgitUiBundle/Resources/public/js/agit/misc/msgh/Bubbles.js"
+        "@AgitUiBundle/Resources/public/js/agit/field/Boolean.js"
+        "@AgitUiBundle/Resources/public/js/agit/field/EntitySelect.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/Status.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/SublistAdd.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/LoadableEntitySelect.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/Multilang.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/Readonly.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/Sublist.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/SublistRow.js"
+        "@AgitAdminBundle/Resources/public/js/agit/field/OneToMany.js"
+        "@AgitAdminBundle/Resources/public/js/agit/context/ObjectListView.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/ObjectListExporter.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/ObjectListTable.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/ObjectListHeader.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/ObjectListSearch.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/EntityEditHeader.js"
+        "@AgitAdminBundle/Resources/public/js/agit/elem/EntityEditForm.js"
+        "@AgitAdminBundle/Resources/public/js/ctl/init.js"
+
+        filter="?uglifyjs2"
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+
+    {% block area_extra_js %}{% endblock %}
+{% endblock %}
+
+{% block area_templates %}
+    {% include "AgitUiBundle:Include:include.message.bubble.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.tooltip.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.listview.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.editview.html.twig" %}
+
+    {% block area_extra_templates %}{% endblock %}
+{% endblock %}

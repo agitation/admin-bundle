@@ -1,0 +1,64 @@
+/* HEADER */
+
+.listview-header                        { margin-bottom: 20px; overflow: hidden; }
+.listview-header h2                     { margin: 0; }
+
+
+.listview-header .goto input            { width: 85px !important; }
+
+@media (min-width: 480px) {
+    .listview-header h2                 { float: left; }
+    .listview-header .actions           { overflow: hidden; }
+    .listview-header .action            { float: right; margin-left: 15px; }
+}
+
+
+
+/* SEARCH FORM */
+
+.listview-search table                      { margin: 0; background: #f6f6f6; border-collapse: collapse; width: 100%; }
+.listview-search td                         { padding: 10px; background: #f6f6f6; border: 0; vertical-align: top; text-align: left;  }
+.listview-search td.caption                 { background: #eee; font-weight: 300; font-size: 20px; height: 20px; color: #888; padding: 30px 30px 0 10px; white-space: nowrap }
+.listview-search td.field                   { max-width: 190px; padding-left: 20px; line-height: 15px; }
+.listview-search td.field.autowidth         { max-width: none; white-space: nowrap }
+.listview-search label                      { display: block; height: 15px; margin: 2px 0 3px; white-space: nowrap; color: #777; font-weight: normal }
+.listview-search input[type=text],
+.listview-search select                     { width: 140px; display: inline-block; }
+.listview-search select                     { max-height: 80px; overflow-y: auto; }
+.listview-search td.expand                  { width: 90% /*expand as far as possible for alignment */}
+.listview-search td.actions                 { padding: 30px 50px 13px 20px; }
+.listview-search td.actions a               { display: block; font-size: 0.9em; white-space: nowrap }
+.listview-search td.group table,
+.listview-search td.group table td          { margin: 0; padding: 0; }
+
+
+
+
+/* TABLE */
+
+.listview-table                             { margin: 30px 0 0; }
+.listview-table .extra                      { overflow: hidden; }
+.listview-table .exporter                   { float: right; }
+.listview-table table                       { width: 100%; margin: 0; }
+.listview-table tbody tr:hover              { background: #f9f9f9; }
+.listview-table th, .listview-table td      { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
+.listview-table th                          { background: #222; color: #fff; border: 0; padding: 8px 10px }
+.listview-table tr.noresults td             { text-align: center; color: #888 }
+.listview-table .center                     { text-align: center; }
+.listview-table td.left,
+.listview-table th.left                     { text-align: left; }
+.listview-table td.right,
+.listview-table th.right                    { text-align: right; }
+
+.listview-table tfoot                       { display: none; }
+.listview-table tfoot td                    { font-weight: bold; background: #f4f4f4; border-bottom: 1px solid #aaa; }
+
+.listview-table .action                     { white-space: nowrap; margin: 0 15px 3px 0; }
+.listview-table .action:last-child          { margin-right: 0; }
+.listview-table td.actions a                { display: inline-block; margin: 0 1em 0 0 }
+.listview-table td.actions a.invisible      { visibility: hidden; }
+.listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
+.listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
+.listview-table span.active                 { color: #388e38; }
+.listview-table span.inactive               { color: #777; }
+.listview-table span.deleted                { color: #822; }
