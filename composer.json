@@ -1,5 +1,5 @@
 {
-    "name": "agitation/profile-bundle",
+    "name": "agitation/admin-bundle",
     "type": "symfony-bundle",
     "minimum-stability": "dev",
     "require": {
