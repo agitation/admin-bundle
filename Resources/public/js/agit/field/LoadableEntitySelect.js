@@ -47,7 +47,8 @@ agit.ns("agit.field");
         else
             this.addIntro();
 
-        this.setOptions(options);
+
+        agit.field.Select.prototype.setOptions.call(this, options);
     };
 
     // add an entity which is part of a parent entity and might not be in the
