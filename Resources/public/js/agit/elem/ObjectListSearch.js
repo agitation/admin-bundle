@@ -9,7 +9,7 @@ agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
         $submit = $actions.find("button"),
         $reset =  $actions.find("a"),
         searchCallback = function(){},
-        $fieldList = {},
+        $fields = {},
         defaultValues = {},
         fieldIdCounter = 0,
 
@@ -17,7 +17,7 @@ agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
         {
             var values = {};
 
-            $.each($fieldList, function(name, $field){
+            $.each($fields, function(name, $field){
                 values[name] = $field.getValue();
             });
 
@@ -34,10 +34,10 @@ agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
 
         field.element.attr("id", fieldId);
         $td.append($(agit.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
-        $td.append($fieldList[field.name] = field.element);
+        $td.append($fields[field.name] = field.element);
 
         $td.addClass(field.name).insertBefore($actions);
-        $fieldList[field.name].is("[type=hidden]") && $td.addClass("hidden");
+        $fields[field.name].is("[type=hidden]") && $td.addClass("hidden");
     };
 
     fields.forEach(function(field){
@@ -53,7 +53,7 @@ agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
     };
 
     $reset.click(function() {
-        $.each($fieldList, function(name, $field){
+        $.each($fields, function(name, $field){
             if ($field.reset)
                 $field.reset();
             else
@@ -69,7 +69,7 @@ agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
     agit.srv("state").registerViewElement("/list/search", function(request){
         if (request instanceof Object)
             Object.keys(defaultValues).forEach(function(key){
-               $fieldList[key].setValue(request[key] !== undefined ? request[key] : defaultValues[key]);
+               $fields[key].setValue(request[key] !== undefined ? request[key] : defaultValues[key]);
             });
 
         searchCallback();
@@ -90,7 +90,7 @@ agit.elem.ObjectListSearch._fields =
     status :
     {
         label : agit.intl.t("Status"),
-        name : "statusList",
+        name : "status",
         element : new agit.field.Select({
             size: 3,
             multiple: "multiple",
