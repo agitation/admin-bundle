@@ -278,8 +278,9 @@ agit.elem.ObjectListTable._actions =
                         agit.srv("api").doCall(
                             item.getName() + ".delete",
                             item.id,
-                            function(res) {
-                                if (res.success)
+                            function(res, status)
+                            {
+                                if (status === 200)
                                 {
                                     $link.getTable().removeItem(item.id);
 
@@ -288,8 +289,7 @@ agit.elem.ObjectListTable._actions =
                                         "success"
                                     ));
                                 }
-                            },
-                            { fullResponse : true }
+                            }
                         );
                     }
                 });

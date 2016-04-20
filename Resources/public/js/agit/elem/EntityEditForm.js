@@ -56,9 +56,9 @@ agit.elem.EntityEditForm = function(entityName, fields)
         apiService.doCall(
             entityName + "." + (values.id ? "update" : "create"),
             values,
-            function(res)
+            function(res, status)
             {
-                if (res.success)
+                if (status === 200)
                 {
                     var successMsg = values.id
                         ? agit.intl.t("The object was updated successfully.")
@@ -70,8 +70,7 @@ agit.elem.EntityEditForm = function(entityName, fields)
 
                     values.id || agit.srv("state").update("/edit/form", res.payload.id);
                 }
-            },
-            { fullResponse : true }
+            }
         );
 
     });
