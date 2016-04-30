@@ -44,7 +44,7 @@ agit.ns("agit.field");
 
         if (value instanceof Array)
         {
-            value.forEach(function(val){
+            value.forEach(val => {
                 this.addRow(this.createRow(val));
             });
         }
