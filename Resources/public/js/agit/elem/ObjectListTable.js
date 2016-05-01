@@ -214,6 +214,11 @@ agit.elem.ObjectListTable._filters =
         return $("<a class='email'></a>").attr("href", item[fieldName]).text(item[fieldName]);
     },
 
+    location : function(item, fieldName)
+    {
+        return agit.tool.fmt.sprintf("%s × %s", item.location.lat, item.location.lon);
+    },
+
     status : function(item, fieldName)
     {
         var statusValues =
@@ -235,6 +240,7 @@ agit.elem.ObjectListTable._columns =
     description :   { title : agit.intl.t("Description"), filter: agit.elem.ObjectListTable._filters.text },
     reference :     { title : "", filter: agit.elem.ObjectListTable._filters.reference },
     email :         { title : agit.intl.t("E-mail"), filter: agit.elem.ObjectListTable._filters.email },
+    location :      { title : agit.intl.t("Location"), filter: agit.elem.ObjectListTable._filters.location },
     status :        { title : agit.intl.t("Status"), filter : agit.elem.ObjectListTable._filters.status }
 };
 

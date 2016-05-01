@@ -1,0 +1,2 @@
+.location-field                 { height: 300px; width: 100%; padding: 0 /* overwrite padding from .form-control */; }
+.location-marker                { font-size: 3em; color: #1694ff; text-shadow: 0px 0px 3px #fff, 1px 1px 6px rgba(100, 100, 100, 0.8); cursor: default }
