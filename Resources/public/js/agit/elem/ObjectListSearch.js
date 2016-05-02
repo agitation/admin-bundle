@@ -1,110 +1,115 @@
 agit.ns("agit.elem");
 
-agit.elem.ObjectListSearch = function(endpointName, fields, isDefault)
-{
-    var
-        apiService = agit.srv("api"),
-        $elem = agit.tool.tpl(".listview-search"),
-        $actions = $elem.find("td.actions"),
-        $submit = $actions.find("button"),
-        $reset =  $actions.find("a"),
-        searchCallback = function(){},
-        $fields = {},
-        defaultValues = {},
-        fieldIdCounter = 0,
+(function(){
+var
+    fieldIdCounter = 0,
 
-        getValues = function()
+    availableFields =
+    {
+        name :
         {
-            var values = {};
+            label : agit.intl.t("Name"),
+            name : "name",
+            element : new agit.field.Text($("<input type='text' class='form-control input-sm'>"))
+        },
 
-            $.each($fields, function(name, $field){
-                values[name] = $field.getValue();
+        status :
+        {
+            label : agit.intl.t("Status"),
+            name : "status",
+            element : new agit.field.Select({
+                size: 3,
+                multiple: "multiple",
+                "data-type": "int",
+                "class": "form-control input-sm"
+            }, [
+                { value: 1, text: agit.intl.t("active"), selected : true },
+                { value: 0, text: agit.intl.t("inactive"), selected : true },
+                { value: -1, text: agit.intl.t("deleted") }
+            ])
+        }
+    },
+
+    getValues = function()
+    {
+        var values = {};
+
+        $.each(this.$fields, function(name, $field){
+            values[name] = $field.getValue();
+        });
+
+        return values;
+    },
+
+    listSearch = function(endpointName, fields, isDefault)
+    {
+        this.extend(this, agit.tool.tpl(".listview-search"));
+        this.searchCallback = function(){};
+        this.endpointName = endpointName;
+        this.$fields = {};
+        this.defaultValues = {};
+
+        var
+            $actions = this.find("td.actions"),
+            $reset = $actions.find("a");
+
+        fields.forEach(field => {
+            this.addField(field);
+        });
+
+        $reset.click(() => {
+            $.each(this.$fields, function(name, $field){
+                if ($field.reset)
+                    $field.reset();
+                else
+                    $field.setValue(this.defaultValues[name]);
             });
+        });
 
-            return values;
-        };
+        this.submit(ev => {
+            agit.common.Form.stopEvent(ev);
+            this.searchCallback();
+        });
 
-    $elem.addField = function(field)
+        agit.srv("state").registerViewElement("/list/search", request => {
+            if (request instanceof Object)
+                Object.keys(this.defaultValues).forEach(function(key){
+                   this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
+                });
+
+            this.searchCallback();
+        }, isDefault);
+    };
+
+    listSearch.prototype = Object.create(jQuery.prototype);
+
+    listSearch.prototype.addField = function(field)
     {
         var
             $td = $("<td class='field'>"),
             fieldId = "listsearch" + fieldIdCounter++;
 
-        defaultValues[field.name] = field.element.getValue();
+        this.defaultValues[field.name] = field.element.getValue();
 
         field.element.attr("id", fieldId);
         $td.append($(agit.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
-        $td.append($fields[field.name] = field.element);
-
+        $td.append(this.$fields[field.name] = field.element);
         $td.addClass(field.name).insertBefore($actions);
-        $fields[field.name].is("[type=hidden]") && $td.addClass("hidden");
+        this.$fields[field.name].is("[type=hidden]") && $td.addClass("hidden");
     };
 
-    fields.forEach(function(field){
-        $elem.addField(field);
-    });
-
-    $elem.setSearchCallback = function(callback)
+    listSearch.prototype.setSearchCallback = function(callback)
     {
-        searchCallback = function()
+        this.searchCallback = function()
         {
-            apiService.doCall(endpointName, getValues(), callback);
+            agit.srv("api").doCall(this.endpointName, getValues.call(this), callback);
         };
     };
 
-    $reset.click(function() {
-        $.each($fields, function(name, $field){
-            if ($field.reset)
-                $field.reset();
-            else
-                $field.setValue(defaultValues[name]);
-        });
-    });
-
-    $elem.submit(function(ev) {
-        agit.common.Form.stopEvent(ev);
-        searchCallback();
-    });
-
-    agit.srv("state").registerViewElement("/list/search", function(request){
-        if (request instanceof Object)
-            Object.keys(defaultValues).forEach(function(key){
-               $fields[key].setValue(request[key] !== undefined ? request[key] : defaultValues[key]);
-            });
-
-        searchCallback();
-    }, isDefault);
-
-    return $elem;
-};
-
-agit.elem.ObjectListSearch._fields =
-{
-    name :
+    listSearch.getField = function(name)
     {
-        label : agit.intl.t("Name"),
-        name : "name",
-        element : new agit.field.Text($("<input type='text' class='form-control input-sm'>"))
-    },
+        return availableFields[name];
+    };
 
-    status :
-    {
-        label : agit.intl.t("Status"),
-        name : "status",
-        element : new agit.field.Select({
-            size: 3,
-            multiple: "multiple",
-            "data-type": "int",
-            "class": "form-control input-sm"
-        }, [
-            { value: 1, text: agit.intl.t("active"), selected : true },
-            { value: 0, text: agit.intl.t("inactive"), selected : true },
-            { value: -1, text: agit.intl.t("deleted") }
-        ])
-    }
-};
-
-agit.elem.ObjectListSearch.getField = function(name)
-{
-    return agit.elem.ObjectListSearch._fields[name];
-};
+    agit.elem.ObjectListSearch = listSearch;
+})();
