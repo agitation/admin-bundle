@@ -1,27 +1,7 @@
 <template>
-    <span class="multilang">
-        <input type="text" class="form-control" value="">
-        <textarea class="form-control"></textarea>
-
-        <span class="langs">
-            <a class="lang" tabindex="1" data-locale="de_DE"><i class="fa fa-caret-down"></i><span></span></a>
-            <a class="lang" tabindex="2" data-locale="en_GB"><i class="fa fa-caret-down"></i><span></span></a>
-            <a class="lang" tabindex="3" data-locale="fr_FR"><i class="fa fa-caret-down"></i><span></span></a>
-        </span>
-    </span>
-
-    <div class="readonly">
-        <span class="empty">{{ t("This value will be set on the server after saving the object.") }}</span>
+    <div class="location-field form-control" tabindex="">
+        <p class="explain">{{ t("Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker.") }}</p>
     </div>
 
-    <div class="sublist">
-        <p class="empty">{{ t("Please add one or more entries to this list.") }}</p>
-
-        <p class="add input-group">
-            <select class="form-control"></select>
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">{{ t("add") }}</button>
-            </span>
-        </p>
-    </div>
+    <i class="location-marker fa fa-map-marker"></i>
 </template>

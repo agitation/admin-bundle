@@ -4,7 +4,6 @@ agit.ns("agit.field");
     var locationField = function()
     {
         var
-            self = this,
             $map = new agit.elem.Map(),
             $marker = agit.tool.tpl(".location-marker");
 
@@ -22,10 +21,10 @@ agit.ns("agit.field");
 
         this.map.addOverlay(this.marker);
 
-        this.map.on("click", function(ev) {
+        this.map.on("click", ev => {
             var location = ol.proj.transform(ev.coordinate, "EPSG:3857", "EPSG:4326");
             this.currentLocation = { lon : location[0], lat : location[1] };
-            self.marker.setPosition(ev.coordinate);
+            this.marker.setPosition(ev.coordinate);
         });
     };
 
