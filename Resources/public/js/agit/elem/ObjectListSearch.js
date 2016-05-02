@@ -6,17 +6,15 @@ var
 
     availableFields =
     {
-        name :
+        text :
         {
-            label : agit.intl.t("Name"),
-            name : "name",
+            label : agit.intl.t("Text"),
             element : new agit.field.Text($("<input type='text' class='form-control input-sm'>"))
         },
 
         status :
         {
             label : agit.intl.t("Status"),
-            name : "status",
             element : new agit.field.Select({
                 size: 3,
                 multiple: "multiple",
@@ -47,18 +45,18 @@ var
         this.searchCallback = function(){};
         this.endpointName = endpointName;
         this.$fields = {};
+        this.$actions = this.find("td.actions");
         this.defaultValues = {};
 
         var
-            $actions = this.find("td.actions"),
-            $reset = $actions.find("a");
+            $reset = this.$actions.find("a");
 
-        fields.forEach(field => {
-            this.addField(field);
+        Object.keys(fields).forEach(key => {
+            this.addField(key, fields[key]);
         });
 
         $reset.click(() => {
-            $.each(this.$fields, function(name, $field){
+            $.each(this.$fields, (name, $field) => {
                 if ($field.reset)
                     $field.reset();
                 else
@@ -83,19 +81,19 @@ var
 
     listSearch.prototype = Object.create(jQuery.prototype);
 
-    listSearch.prototype.addField = function(field)
+    listSearch.prototype.addField = function(key, field)
     {
         var
             $td = $("<td class='field'>"),
             fieldId = "listsearch" + fieldIdCounter++;
 
-        this.defaultValues[field.name] = field.element.getValue();
+        this.defaultValues[key] = field.element.getValue();
 
         field.element.attr("id", fieldId);
         $td.append($(agit.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
-        $td.append(this.$fields[field.name] = field.element);
-        $td.addClass(field.name).insertBefore($actions);
-        this.$fields[field.name].is("[type=hidden]") && $td.addClass("hidden");
+        $td.append(this.$fields[key] = field.element);
+        $td.addClass(key).insertBefore(this.$actions);
+        this.$fields[key].is("[type=hidden]") && $td.addClass("hidden");
     };
 
     listSearch.prototype.setSearchCallback = function(callback)
