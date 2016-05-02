@@ -158,7 +158,7 @@ agit.elem.ObjectListTable.getAction = function(name, extra)
         extra || {});
 };
 
-agit.elem.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "" };
+agit.elem.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "", secondary : false };
 agit.elem.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "" };
 
 agit.elem.ObjectListTable._filters =
@@ -199,9 +199,22 @@ agit.elem.ObjectListTable._filters =
         return list.join(", ");
     },
 
+    date : function(item, fieldName)
+    {
+        var
+            dateTimeObj = item[fieldName],
+            date = new Date(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day);
+
+        return $("<span class='date'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y")));
+    },
+
     datetime : function(item, fieldName)
     {
-        return $("<span class='datetime'></span>").text(agit.intl.formatDay(item[fieldName]));
+        var
+            dateTimeObj = item[fieldName],
+            date = new Date(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute);
+
+        return $("<span class='datetime'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y H:i")));
     },
 
     reference : function(item, fieldName)
@@ -209,9 +222,9 @@ agit.elem.ObjectListTable._filters =
         return agit.tool.fmt.out(item[fieldName].name);
     },
 
-    email : function(item, fieldName)
+    user : function(item, fieldName)
     {
-        return $("<a class='email'></a>").attr("href", item[fieldName]).text(item[fieldName]);
+        return $("<a class='email'></a>").attr("href", "mailto:" + item[fieldName].email).text(item[fieldName].name);
     },
 
     location : function(item, fieldName)
@@ -237,9 +250,11 @@ agit.elem.ObjectListTable._columns =
     id :            { title : agit.intl.t("ID"), filter: agit.elem.ObjectListTable._filters.id, style: "right" },
     num :           { title : "#", style: "right" },
     name :          { title : agit.intl.t("Name"), filter: agit.elem.ObjectListTable._filters.text },
+    date :          { title : agit.intl.t("Date"), filter: agit.elem.ObjectListTable._filters.date },
+    datetime :      { title : agit.intl.t("Date"), filter: agit.elem.ObjectListTable._filters.datetime },
     description :   { title : agit.intl.t("Description"), filter: agit.elem.ObjectListTable._filters.text },
     reference :     { title : "", filter: agit.elem.ObjectListTable._filters.reference },
-    email :         { title : agit.intl.t("E-mail"), filter: agit.elem.ObjectListTable._filters.email },
+    user :          { title : agit.intl.t("User"), filter: agit.elem.ObjectListTable._filters.user },
     location :      { title : agit.intl.t("Location"), filter: agit.elem.ObjectListTable._filters.location },
     status :        { title : agit.intl.t("Status"), filter : agit.elem.ObjectListTable._filters.status }
 };
