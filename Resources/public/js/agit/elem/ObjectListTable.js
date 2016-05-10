@@ -203,7 +203,7 @@ agit.elem.ObjectListTable._filters =
     {
         var
             dateTimeObj = item[fieldName],
-            date = new Date(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day);
+            date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day));
 
         return $("<span class='date'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y")));
     },
@@ -212,7 +212,7 @@ agit.elem.ObjectListTable._filters =
     {
         var
             dateTimeObj = item[fieldName],
-            date = new Date(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute);
+            date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute));
 
         return $("<span class='datetime'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y H:i")));
     },
