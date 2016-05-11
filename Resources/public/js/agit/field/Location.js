@@ -5,9 +5,9 @@ agit.ns("agit.field");
     {
         var
             $map = new agit.elem.Map(),
-            $marker = agit.tool.tpl(".location-marker");
+            $marker = agit.tool.tpl("agitadmin-location-field", ".location-marker");
 
-        this.extend(this, agit.tool.tpl(".location-field")).prepend($map);
+        this.extend(this, agit.tool.tpl("agitadmin-location-field", ".location-field")).prepend($map);
 
         this.map = $map.ol;
 

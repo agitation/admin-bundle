@@ -18,7 +18,7 @@ agit.ns("agit.field");
 
         oneToManyField = function($list, $add)
         {
-            this.extend(this, agit.tool.tpl(".sublist"));
+            this.extend(this, agit.tool.tpl("agitadmin-forms", ".sublist"));
 
             this.$list = $list;
             this.$add = $add;

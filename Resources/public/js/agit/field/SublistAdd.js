@@ -4,7 +4,7 @@ agit.ns("agit.field");
     var
         sublistAddField = function(entityName, childEntityName, childEntityPropertyName)
         {
-            this.extend(this, agit.tool.tpl(".sublist .add"));
+            this.extend(this, agit.tool.tpl("agitadmin-forms", ".sublist .add"));
 
             var
                 self = this,

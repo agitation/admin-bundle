@@ -3,7 +3,7 @@ agit.ns("agit.elem");
 agit.elem.EntityEditForm = function(entityName, fields)
 {
     var
-        $form = agit.tool.tpl(".editview-form"),
+        $form = agit.tool.tpl("agitadmin-editview", ".editview-form"),
         $table = $form.find("table"),
         $tbody = $form.find("tbody").empty(),
         apiService = agit.srv("api"),
@@ -22,7 +22,7 @@ agit.elem.EntityEditForm = function(entityName, fields)
     Object.keys(fields).forEach(function(key){
         var
             field = fields[key],
-            $row = agit.tool.tpl(".editview-form tbody tr");
+            $row = agit.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
 
         $row.find("th label").text(field.label);
         $row.find("td").html(field.element);

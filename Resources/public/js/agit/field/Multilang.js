@@ -44,7 +44,7 @@ agit.ns("agit.field");
         multilangField = function(useTextarea)
         {
             var
-                $field = agit.tool.tpl(".multilang")
+                $field = agit.tool.tpl("agitadmin-forms", ".multilang")
                     .find(useTextarea ? "input" : "textarea").remove().end(),
                 self = this;
 

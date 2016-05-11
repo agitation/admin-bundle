@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     $('body').tooltip({
         selector: "[data-toggle='tooltip']",
-        template: agit.tool.tpl(".tooltip"),
+        template: agit.tool.tpl("agitadmin-tooltip", ".tooltip"),
         container: 'body',
         animation : false
     });

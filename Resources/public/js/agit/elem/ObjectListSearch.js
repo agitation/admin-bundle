@@ -41,7 +41,7 @@ var
 
     listSearch = function(endpointName, fields, isDefault)
     {
-        this.extend(this, agit.tool.tpl(".listview-search"));
+        this.extend(this, agit.tool.tpl("agitadmin-listview", ".listview-search"));
         this.searchCallback = function(){};
         this.endpointName = endpointName;
         this.$fields = {};

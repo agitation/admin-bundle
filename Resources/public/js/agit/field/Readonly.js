@@ -4,7 +4,7 @@ agit.ns("agit.field");
     var
         readonlyField = function(filter, returnRealValue)
         {
-            this.extend(this, agit.tool.tpl(".readonly"));
+            this.extend(this, agit.tool.tpl("agitadmin-forms", ".readonly"));
             this.valueFilter = filter;
             this.returnRealValue = returnRealValue;
             this.currentValue = null;
@@ -16,7 +16,7 @@ agit.ns("agit.field");
     {
         if (value === null)
         {
-            this.html(agit.tool.tpl(".readonly .empty"));
+            this.html(agit.tool.tpl("agitadmin-forms", ".readonly .empty"));
         }
         else
         {

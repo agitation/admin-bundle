@@ -3,7 +3,7 @@ agit.ns("agit.elem");
 agit.elem.ObjectListTable = function(exporter, columns, actions)
 {
     var
-        $elem = agit.tool.tpl(".listview-table"),
+        $elem = agit.tool.tpl("agitadmin-listview", ".listview-table"),
         $table = $elem.find("table"),
         $tbody = $table.find("tbody"),
         $header = $table.find("thead tr"),
@@ -109,7 +109,7 @@ agit.elem.ObjectListTable = function(exporter, columns, actions)
 
     $elem.showNoResultsRow = function()
     {
-        var $row = agit.tool.tpl(".listview-table tr.noresults");
+        var $row = agit.tool.tpl("agitadmin-listview", "tr.noresults");
 
         $row.find("td").attr("colspan", Object.keys(columns).length + (actions.length ? 1 : 0));
 
