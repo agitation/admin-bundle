@@ -90,7 +90,7 @@ ag.ns("ag.admin.field");
     multilangField.prototype.setValue = function(value)
     {
         var
-            langObject = agit.intl.mlStringToObj(value),
+            langObject = ag.intl.mlStringToObj(value),
             self = this;
 
         // NOTE: we cannot simply replace this.langValues with langObject, because
@@ -118,7 +118,7 @@ ag.ns("ag.admin.field");
     multilangField.prototype.getValue = function()
     {
         collectValues.call(this);
-        return agit.intl.mlObjToString(this.langValues);
+        return ag.intl.mlObjToString(this.langValues);
     };
 
     ag.admin.field.Multilang = multilangField;

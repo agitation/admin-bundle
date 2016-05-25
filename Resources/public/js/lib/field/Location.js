@@ -49,7 +49,7 @@ ag.ns("ag.admin.field");
     locationField.prototype.getValue = function()
     {
         if (!this.currentLocation)
-            throw new ag.ui.error.FormError(agit.intl.t("Please select a location."));
+            throw new ag.ui.error.FormError(ag.intl.t("Please select a location."));
 
         return new ag.api.Object("common.v1/Location", this.currentLocation);
     };

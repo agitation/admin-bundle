@@ -8,22 +8,22 @@ var
     {
         text :
         {
-            label : agit.intl.t("Text"),
+            label : ag.intl.t("Text"),
             element : new ag.ui.field.Text($("<input type='text' class='form-control input-sm'>"))
         },
 
         status :
         {
-            label : agit.intl.t("Status"),
+            label : ag.intl.t("Status"),
             element : new ag.ui.field.Select({
                 size: 3,
                 multiple: "multiple",
                 "data-type": "int",
                 "class": "form-control input-sm"
             }, [
-                { value: 1, text: agit.intl.t("active"), selected : true },
-                { value: 0, text: agit.intl.t("inactive"), selected : true },
-                { value: -1, text: agit.intl.t("deleted") }
+                { value: 1, text: ag.intl.t("active"), selected : true },
+                { value: 0, text: ag.intl.t("inactive"), selected : true },
+                { value: -1, text: ag.intl.t("deleted") }
             ])
         }
     },

@@ -61,8 +61,8 @@ ag.admin.EntityEditForm = function(entityName, fields)
                 if (status === 200)
                 {
                     var successMsg = values.id
-                        ? agit.intl.t("The object was updated successfully.")
-                        : agit.intl.t("The object was created successfully.");
+                        ? ag.intl.t("The object was updated successfully.")
+                        : ag.intl.t("The object was created successfully.");
 
                     ag.srv("messageHandler").showMessage(new ag.common.Message(successMsg, "success"));
 

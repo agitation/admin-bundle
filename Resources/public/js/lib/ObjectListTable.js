@@ -121,7 +121,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
         $header.append($("<th>").addClass(columns[key].style).text(columns[key].title));
     });
 
-    actions.length && $header.append($("<th class='actions'>").text(agit.intl.t("Actions")));
+    actions.length && $header.append($("<th class='actions'>").text(ag.intl.t("Actions")));
     $elem.showNoResultsRow();
 
     return $elem;
@@ -205,7 +205,7 @@ ag.admin.ObjectListTable._filters =
             dateTimeObj = item[fieldName],
             date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day));
 
-        return $("<span class='date'></span>").text(ag.ui.tool.date.format(date, agit.intl.t("d/m/Y")));
+        return $("<span class='date'></span>").text(ag.ui.tool.date.format(date, ag.intl.t("d/m/Y")));
     },
 
     datetime : function(item, fieldName)
@@ -214,7 +214,7 @@ ag.admin.ObjectListTable._filters =
             dateTimeObj = item[fieldName],
             date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute));
 
-        return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, agit.intl.t("d/m/Y H:i")));
+        return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, ag.intl.t("d/m/Y H:i")));
     },
 
     reference : function(item, fieldName)
@@ -236,9 +236,9 @@ ag.admin.ObjectListTable._filters =
     {
         var statusValues =
         {
-            "-1" : "<span class='deleted'>" + agit.intl.t("deleted") + "</span>",
-             "0" : "<span class='inactive'>" + agit.intl.t("inactive") + "</span>",
-             "1" : "<span class='active'>" + agit.intl.t("active") + "</span>"
+            "-1" : "<span class='deleted'>" + ag.intl.t("deleted") + "</span>",
+             "0" : "<span class='inactive'>" + ag.intl.t("inactive") + "</span>",
+             "1" : "<span class='active'>" + ag.intl.t("active") + "</span>"
         };
 
         return statusValues[item[fieldName]];
@@ -247,22 +247,22 @@ ag.admin.ObjectListTable._filters =
 
 ag.admin.ObjectListTable._columns =
 {
-    id :            { title : agit.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right" },
+    id :            { title : ag.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right" },
     num :           { title : "#", style: "right" },
-    name :          { title : agit.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text },
-    date :          { title : agit.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
-    datetime :      { title : agit.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
-    description :   { title : agit.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text },
+    name :          { title : ag.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text },
+    date :          { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
+    datetime :      { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
+    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text },
     reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference },
-    user :          { title : agit.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user },
-    location :      { title : agit.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location },
-    status :        { title : agit.intl.t("Status"), filter : ag.admin.ObjectListTable._filters.status }
+    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user },
+    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location },
+    status :        { title : ag.intl.t("Status"), filter : ag.admin.ObjectListTable._filters.status }
 };
 
 ag.admin.ObjectListTable._actions =
 {
     edit : {
-        title: agit.intl.t("edit"),
+        title: ag.intl.t("edit"),
         icon : "fa fa-edit",
         createAction : function($link, item) {
             $link.attr("href", "#!/edit/form/" + item.id);
@@ -270,7 +270,7 @@ ag.admin.ObjectListTable._actions =
     },
 
     duplicate : {
-        title : agit.intl.t("duplicate"),
+        title : ag.intl.t("duplicate"),
         icon : "fa fa-copy",
         createAction : function($link) {
             $link.click(function(){
@@ -280,7 +280,7 @@ ag.admin.ObjectListTable._actions =
     },
 
     remove : {
-        title : agit.intl.t("delete"),
+        title : ag.intl.t("delete"),
         icon : "fa fa-trash",
         createAction : function($link, item) {
 
@@ -294,7 +294,7 @@ ag.admin.ObjectListTable._actions =
 
                     var name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id;
 
-                    if (window.confirm(ag.ui.tool.fmt.sprintf(agit.intl.t("Are you sure you want to delete `%s`?"), name)))
+                    if (window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to delete `%s`?"), name)))
                     {
                         ag.srv("api").doCall(
                             item.getName() + ".delete",
@@ -306,7 +306,7 @@ ag.admin.ObjectListTable._actions =
                                     $link.getTable().removeItem(item.id);
 
                                     ag.srv("messageHandler").showMessage(new ag.common.Message(
-                                        agit.intl.t("The object was deleted successfully."),
+                                        ag.intl.t("The object was deleted successfully."),
                                         "success"
                                     ));
                                 }

@@ -3,9 +3,9 @@ ag.ns("ag.admin.field");
 (function(){
     var
         defaultOptions = [
-            { value:  1, text: agit.intl.t("active") },
-            { value:  0, text: agit.intl.t("inactive") },
-            { value: -1, text: agit.intl.t("deleted") }
+            { value:  1, text: ag.intl.t("active") },
+            { value:  0, text: ag.intl.t("inactive") },
+            { value: -1, text: ag.intl.t("deleted") }
         ],
 
         statusField = function(options)
