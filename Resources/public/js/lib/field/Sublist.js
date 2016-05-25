@@ -63,5 +63,5 @@ ag.ns("ag.admin.field");
         return values;
     };
 
-    tx.admin.field.Sublist = sublistField;
+    ag.admin.field.Sublist = sublistField;
 })();

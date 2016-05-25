@@ -30,5 +30,5 @@ ag.ns("ag.admin.field");
         this.onRemoveCallback = callback;
     };
 
-    tx.admin.field.SublistRow = sublistRowField;
+    ag.admin.field.SublistRow = sublistRowField;
 })();
