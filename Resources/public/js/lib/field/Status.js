@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
@@ -10,11 +10,11 @@ agit.ns("agit.field");
 
         statusField = function(options)
         {
-            this.extend(this, agit.field.Select.call(this, {}, options || defaultOptions));
+            this.extend(this, ag.ui.field.Select.call(this, {}, options || defaultOptions));
             this.attr("data-type", "int");
         };
 
-    statusField.prototype = Object.create(agit.field.Select.prototype);
+    statusField.prototype = Object.create(ag.ui.field.Select.prototype);
 
-    agit.field.Status = statusField;
+    ag.admin.field.Status = statusField;
 })();

@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
@@ -44,13 +44,13 @@ agit.ns("agit.field");
         multilangField = function(useTextarea)
         {
             var
-                $field = agit.tool.tpl("agitadmin-forms", ".multilang")
+                $field = ag.ui.tool.tpl("agitadmin-forms", ".multilang")
                     .find(useTextarea ? "input" : "textarea").remove().end(),
                 self = this;
 
             this.extend(this, $field);
 
-            this.$input = new agit.field.Text($field.find("input, textarea"));
+            this.$input = new ag.ui.field.Text($field.find("input, textarea"));
             this.$langTabs = $field.find(".langs a");
             this.$currentTab;
             this.langValues = {};
@@ -85,7 +85,7 @@ agit.ns("agit.field");
             });
         };
 
-    multilangField.prototype = Object.create(agit.field.Field.prototype);
+    multilangField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     multilangField.prototype.setValue = function(value)
     {
@@ -121,5 +121,5 @@ agit.ns("agit.field");
         return agit.intl.mlObjToString(this.langValues);
     };
 
-    agit.field.Multilang = multilangField;
+    ag.admin.field.Multilang = multilangField;
 })();

@@ -1,4 +1,4 @@
-agit.ns("agit.elem");
+ag.ns("ag.admin");
 
 (function(){
 var
@@ -9,13 +9,13 @@ var
         text :
         {
             label : agit.intl.t("Text"),
-            element : new agit.field.Text($("<input type='text' class='form-control input-sm'>"))
+            element : new ag.ui.field.Text($("<input type='text' class='form-control input-sm'>"))
         },
 
         status :
         {
             label : agit.intl.t("Status"),
-            element : new agit.field.Select({
+            element : new ag.ui.field.Select({
                 size: 3,
                 multiple: "multiple",
                 "data-type": "int",
@@ -41,7 +41,7 @@ var
 
     listSearch = function(endpointName, fields, isDefault)
     {
-        this.extend(this, agit.tool.tpl("agitadmin-listview", ".listview-search"));
+        this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-search"));
         this.searchCallback = function(){};
         this.endpointName = endpointName;
         this.$fields = {};
@@ -65,11 +65,11 @@ var
         });
 
         this.submit(ev => {
-            agit.common.Form.stopEvent(ev);
+            ag.ui.ctxt.Form.stopEvent(ev);
             this.searchCallback();
         });
 
-        agit.srv("state").registerViewElement("/list/search", request => {
+        ag.srv("state").registerViewElement("/list/search", request => {
             if (request instanceof Object)
                 Object.keys(this.defaultValues).forEach(function(key){
                    this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
@@ -90,7 +90,7 @@ var
         this.defaultValues[key] = field.element.getValue();
 
         field.element.attr("id", fieldId);
-        $td.append($(agit.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
+        $td.append($(ag.ui.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
         $td.append(this.$fields[key] = field.element);
         $td.addClass(key).insertBefore(this.$actions);
         this.$fields[key].is("[type=hidden]") && $td.addClass("hidden");
@@ -100,7 +100,7 @@ var
     {
         this.searchCallback = function()
         {
-            agit.srv("api").doCall(this.endpointName, getValues.call(this), callback);
+            ag.srv("api").doCall(this.endpointName, getValues.call(this), callback);
         };
     };
 
@@ -109,5 +109,5 @@ var
         return availableFields[name];
     };
 
-    agit.elem.ObjectListSearch = listSearch;
+    ag.admin.ObjectListSearch = listSearch;
 })();

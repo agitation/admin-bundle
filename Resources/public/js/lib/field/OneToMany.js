@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
@@ -18,7 +18,7 @@ agit.ns("agit.field");
 
         oneToManyField = function($list, $add)
         {
-            this.extend(this, agit.tool.tpl("agitadmin-forms", ".sublist"));
+            this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".sublist"));
 
             this.$list = $list;
             this.$add = $add;
@@ -38,7 +38,7 @@ agit.ns("agit.field");
             });
         };
 
-    oneToManyField.prototype = Object.create(agit.field.Field.prototype);
+    oneToManyField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     oneToManyField.prototype.setValue = function(value)
     {
@@ -58,5 +58,5 @@ agit.ns("agit.field");
         return this.$list.getValue();
     };
 
-    agit.field.OneToMany = oneToManyField;
+    ag.admin.field.OneToMany = oneToManyField;
 })();

@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
@@ -12,9 +12,9 @@ agit.ns("agit.field");
         {
             var
                 self = this,
-                dummyEntity = new agit.api.Object(objectName);
+                dummyEntity = new ag.api.Object(objectName);
 
-            this.extend(this, agit.field.EntitySelect.call(this, $select));
+            this.extend(this, ag.ui.field.EntitySelect.call(this, $select));
 
             this.hiddenEntities = [];
             this.nullOption = nullOption;
@@ -22,13 +22,13 @@ agit.ns("agit.field");
             if (dummyEntity.getPropMeta("id").type === "number")
                 this.attr("data-type", "int");
 
-            agit.srv("preloader").loadEntity(objectName, function(entities){
-                self.entities = new agit.common.Collection(entities);
+            ag.srv("preloader").loadEntity(objectName, function(entities){
+                self.entities = new ag.common.Collection(entities);
                 self.refresh();
             });
         };
 
-    entitySelectField.prototype = Object.create(agit.field.EntitySelect.prototype);
+    entitySelectField.prototype = Object.create(ag.ui.field.EntitySelect.prototype);
 
     entitySelectField.prototype.refresh = function()
     {
@@ -48,7 +48,7 @@ agit.ns("agit.field");
             this.addIntro();
 
 
-        agit.field.Select.prototype.setOptions.call(this, options);
+        ag.ui.field.Select.prototype.setOptions.call(this, options);
     };
 
     // add an entity which is part of a parent entity and might not be in the
@@ -93,5 +93,5 @@ agit.ns("agit.field");
         return this.entities.length - this.hiddenEntities.length;
     };
 
-    agit.field.LoadableEntitySelect = entitySelectField;
+    ag.admin.field.LoadableEntitySelect = entitySelectField;
 })();

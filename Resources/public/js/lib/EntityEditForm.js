@@ -1,12 +1,12 @@
-agit.ns("agit.elem");
+ag.ns("ag.admin");
 
-agit.elem.EntityEditForm = function(entityName, fields)
+ag.admin.EntityEditForm = function(entityName, fields)
 {
     var
-        $form = agit.tool.tpl("agitadmin-editview", ".editview-form"),
+        $form = ag.ui.tool.tpl("agitadmin-editview", ".editview-form"),
         $table = $form.find("table"),
         $tbody = $form.find("tbody").empty(),
-        apiService = agit.srv("api"),
+        apiService = ag.srv("api"),
 
         entity, // currently saved state of the entity. NOT TO BE MODIFIED!
 
@@ -22,7 +22,7 @@ agit.elem.EntityEditForm = function(entityName, fields)
     Object.keys(fields).forEach(function(key){
         var
             field = fields[key],
-            $row = agit.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
+            $row = ag.ui.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
 
         $row.find("th label").text(field.label);
         $row.find("td").html(field.element);
@@ -31,21 +31,21 @@ agit.elem.EntityEditForm = function(entityName, fields)
         $tbody.append($row);
     });
 
-    agit.srv("state").registerViewElement("/edit/form", function(request){
+    ag.srv("state").registerViewElement("/edit/form", function(request){
         if (request === "new")
-            fillForm(new agit.api.Object(entityName));
+            fillForm(new ag.api.Object(entityName));
 
         else if (request && !isNaN(request))
             apiService.doCall(entityName + ".get", request, fillForm);
     });
 
     $form.on("reset", function(ev){
-        agit.common.Form.stopEvent(ev);
+        ag.ui.ctxt.Form.stopEvent(ev);
         fillForm(entity);
     });
 
     $form.on("submit", function(ev){
-        agit.common.Form.stopEvent(ev);
+        ag.ui.ctxt.Form.stopEvent(ev);
 
         var values = {};
 
@@ -64,11 +64,11 @@ agit.elem.EntityEditForm = function(entityName, fields)
                         ? agit.intl.t("The object was updated successfully.")
                         : agit.intl.t("The object was created successfully.");
 
-                    agit.srv("messageHandler").showMessage(new agit.common.Message(successMsg, "success"));
+                    ag.srv("messageHandler").showMessage(new ag.common.Message(successMsg, "success"));
 
                     fillForm(res.payload);
 
-                    values.id || agit.srv("state").update("/edit/form", res.payload.id);
+                    values.id || ag.srv("state").update("/edit/form", res.payload.id);
                 }
             }
         );

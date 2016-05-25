@@ -1,13 +1,13 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var locationField = function()
     {
         var
-            $map = new agit.elem.Map(),
-            $marker = agit.tool.tpl("agitadmin-location-field", ".location-marker");
+            $map = new ag.ui.elem.Map(),
+            $marker = ag.ui.tool.tpl("agitadmin-location-field", ".location-marker");
 
-        this.extend(this, agit.tool.tpl("agitadmin-location-field", ".location-field")).prepend($map);
+        this.extend(this, ag.ui.tool.tpl("agitadmin-location-field", ".location-field")).prepend($map);
 
         this.map = $map.ol;
 
@@ -28,7 +28,7 @@ agit.ns("agit.field");
         });
     };
 
-    locationField.prototype = Object.create(agit.field.Field.prototype);
+    locationField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     locationField.prototype.setValue = function(value)
     {
@@ -49,10 +49,10 @@ agit.ns("agit.field");
     locationField.prototype.getValue = function()
     {
         if (!this.currentLocation)
-            throw new agit.error.FormError(agit.intl.t("Please select a location."));
+            throw new ag.ui.error.FormError(agit.intl.t("Please select a location."));
 
-        return new agit.api.Object("common.v1/Location", this.currentLocation);
+        return new ag.api.Object("common.v1/Location", this.currentLocation);
     };
 
-    agit.field.Location = locationField;
+    ag.admin.field.Location = locationField;
 })();

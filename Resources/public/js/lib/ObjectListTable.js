@@ -1,16 +1,16 @@
-agit.ns("agit.elem");
+ag.ns("ag.admin");
 
-agit.elem.ObjectListTable = function(exporter, columns, actions)
+ag.admin.ObjectListTable = function(exporter, columns, actions)
 {
     var
-        $elem = agit.tool.tpl("agitadmin-listview", ".listview-table"),
+        $elem = ag.ui.tool.tpl("agitadmin-listview", ".listview-table"),
         $table = $elem.find("table"),
         $tbody = $table.find("tbody"),
         $header = $table.find("thead tr"),
         $tfoot = $table.find("tfoot"),
         $footer = $tfoot.find("tr"),
 
-        entities = new agit.common.Collection(),
+        entities = new ag.common.Collection(),
         rowCount = 0,
 
         fillRow = function($row, item)
@@ -109,7 +109,7 @@ agit.elem.ObjectListTable = function(exporter, columns, actions)
 
     $elem.showNoResultsRow = function()
     {
-        var $row = agit.tool.tpl("agitadmin-listview", "tr.noresults");
+        var $row = ag.ui.tool.tpl("agitadmin-listview", "tr.noresults");
 
         $row.find("td").attr("colspan", Object.keys(columns).length + (actions.length ? 1 : 0));
 
@@ -127,41 +127,41 @@ agit.elem.ObjectListTable = function(exporter, columns, actions)
     return $elem;
 };
 
-agit.elem.ObjectListTable.getFilter = function(name)
+ag.admin.ObjectListTable.getFilter = function(name)
 {
-    return agit.elem.ObjectListTable._filters[name];
+    return ag.admin.ObjectListTable._filters[name];
 };
 
-agit.elem.ObjectListTable.getColumn = function(name, extra)
+ag.admin.ObjectListTable.getColumn = function(name, extra)
 {
     return $.extend(
         {},
-        agit.elem.ObjectListTable._columnTpl,
-        agit.elem.ObjectListTable._columns[name],
+        ag.admin.ObjectListTable._columnTpl,
+        ag.admin.ObjectListTable._columns[name],
         extra || {});
 };
 
-agit.elem.ObjectListTable.createColumn = function(options)
+ag.admin.ObjectListTable.createColumn = function(options)
 {
     return $.extend(
         {},
-        agit.elem.ObjectListTable._columnTpl,
+        ag.admin.ObjectListTable._columnTpl,
         options);
 };
 
-agit.elem.ObjectListTable.getAction = function(name, extra)
+ag.admin.ObjectListTable.getAction = function(name, extra)
 {
     return $.extend(
         {},
-        agit.elem.ObjectListTable._actionTpl,
-        agit.elem.ObjectListTable._actions[name],
+        ag.admin.ObjectListTable._actionTpl,
+        ag.admin.ObjectListTable._actions[name],
         extra || {});
 };
 
-agit.elem.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "", secondary : false };
-agit.elem.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "" };
+ag.admin.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "", secondary : false };
+ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "" };
 
-agit.elem.ObjectListTable._filters =
+ag.admin.ObjectListTable._filters =
 {
     id : function(item)
     {
@@ -170,7 +170,7 @@ agit.elem.ObjectListTable._filters =
 
     text : function(item, fieldName)
     {
-        return agit.tool.fmt.out(item[fieldName]);
+        return ag.ui.tool.fmt.out(item[fieldName]);
     },
 
     code : function(item, fieldName)
@@ -185,7 +185,7 @@ agit.elem.ObjectListTable._filters =
 
     childName : function(item, fieldName)
     {
-        return item[fieldName] ? agit.tool.fmt.out(item[fieldName].name) : "–";
+        return item[fieldName] ? ag.ui.tool.fmt.out(item[fieldName].name) : "–";
     },
 
     scalarList : function(item, fieldName)
@@ -193,7 +193,7 @@ agit.elem.ObjectListTable._filters =
         var list = [];
 
         $.each(item[fieldName], function(k, item){
-            list.push(agit.tool.fmt.out(item));
+            list.push(ag.ui.tool.fmt.out(item));
         });
 
         return list.join(", ");
@@ -205,7 +205,7 @@ agit.elem.ObjectListTable._filters =
             dateTimeObj = item[fieldName],
             date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day));
 
-        return $("<span class='date'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y")));
+        return $("<span class='date'></span>").text(ag.ui.tool.date.format(date, agit.intl.t("d/m/Y")));
     },
 
     datetime : function(item, fieldName)
@@ -214,12 +214,12 @@ agit.elem.ObjectListTable._filters =
             dateTimeObj = item[fieldName],
             date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute));
 
-        return $("<span class='datetime'></span>").text(agit.tool.date.format(date, agit.intl.t("d/m/Y H:i")));
+        return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, agit.intl.t("d/m/Y H:i")));
     },
 
     reference : function(item, fieldName)
     {
-        return agit.tool.fmt.out(item[fieldName].name);
+        return ag.ui.tool.fmt.out(item[fieldName].name);
     },
 
     user : function(item, fieldName)
@@ -229,7 +229,7 @@ agit.elem.ObjectListTable._filters =
 
     location : function(item, fieldName)
     {
-        return agit.tool.fmt.sprintf("%s × %s", item.location.lat, item.location.lon);
+        return ag.ui.tool.fmt.sprintf("%s × %s", item.location.lat, item.location.lon);
     },
 
     status : function(item, fieldName)
@@ -245,21 +245,21 @@ agit.elem.ObjectListTable._filters =
     }
 };
 
-agit.elem.ObjectListTable._columns =
+ag.admin.ObjectListTable._columns =
 {
-    id :            { title : agit.intl.t("ID"), filter: agit.elem.ObjectListTable._filters.id, style: "right" },
+    id :            { title : agit.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right" },
     num :           { title : "#", style: "right" },
-    name :          { title : agit.intl.t("Name"), filter: agit.elem.ObjectListTable._filters.text },
-    date :          { title : agit.intl.t("Date"), filter: agit.elem.ObjectListTable._filters.date },
-    datetime :      { title : agit.intl.t("Date"), filter: agit.elem.ObjectListTable._filters.datetime },
-    description :   { title : agit.intl.t("Description"), filter: agit.elem.ObjectListTable._filters.text },
-    reference :     { title : "", filter: agit.elem.ObjectListTable._filters.reference },
-    user :          { title : agit.intl.t("User"), filter: agit.elem.ObjectListTable._filters.user },
-    location :      { title : agit.intl.t("Location"), filter: agit.elem.ObjectListTable._filters.location },
-    status :        { title : agit.intl.t("Status"), filter : agit.elem.ObjectListTable._filters.status }
+    name :          { title : agit.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text },
+    date :          { title : agit.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
+    datetime :      { title : agit.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
+    description :   { title : agit.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text },
+    reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference },
+    user :          { title : agit.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user },
+    location :      { title : agit.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location },
+    status :        { title : agit.intl.t("Status"), filter : ag.admin.ObjectListTable._filters.status }
 };
 
-agit.elem.ObjectListTable._actions =
+ag.admin.ObjectListTable._actions =
 {
     edit : {
         title: agit.intl.t("edit"),
@@ -292,11 +292,11 @@ agit.elem.ObjectListTable._actions =
             {
                 $link.click(function(){
 
-                    var name = item.name ? agit.tool.fmt.out(item.name) : item.id;
+                    var name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id;
 
-                    if (window.confirm(agit.tool.fmt.sprintf(agit.intl.t("Are you sure you want to delete `%s`?"), name)))
+                    if (window.confirm(ag.ui.tool.fmt.sprintf(agit.intl.t("Are you sure you want to delete `%s`?"), name)))
                     {
-                        agit.srv("api").doCall(
+                        ag.srv("api").doCall(
                             item.getName() + ".delete",
                             item.id,
                             function(res, status)
@@ -305,7 +305,7 @@ agit.elem.ObjectListTable._actions =
                                 {
                                     $link.getTable().removeItem(item.id);
 
-                                    agit.srv("messageHandler").showMessage(new agit.common.Message(
+                                    ag.srv("messageHandler").showMessage(new ag.common.Message(
                                         agit.intl.t("The object was deleted successfully."),
                                         "success"
                                     ));

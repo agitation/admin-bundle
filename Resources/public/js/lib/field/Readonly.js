@@ -1,22 +1,22 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
         readonlyField = function(filter, returnRealValue)
         {
-            this.extend(this, agit.tool.tpl("agitadmin-forms", ".readonly"));
+            this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".readonly"));
             this.valueFilter = filter;
             this.returnRealValue = returnRealValue;
             this.currentValue = null;
         };
 
-    readonlyField.prototype = Object.create(agit.field.Field.prototype);
+    readonlyField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     readonlyField.prototype.setValue = function(value)
     {
         if (value === null)
         {
-            this.html(agit.tool.tpl("agitadmin-forms", ".readonly .empty"));
+            this.html(ag.ui.tool.tpl("agitadmin-forms", ".readonly .empty"));
         }
         else
         {
@@ -36,5 +36,5 @@ agit.ns("agit.field");
             return this.returnRealValue ? this.currentValue : null;
     };
 
-    agit.field.Readonly = readonlyField;
+    ag.admin.field.Readonly = readonlyField;
 })();

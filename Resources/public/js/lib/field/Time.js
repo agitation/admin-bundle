@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
@@ -27,7 +27,7 @@ agit.ns("agit.field");
 
         numberToTime = function(number)
         {
-            return agit.tool.fmt.sprintf("%s:%s", Math.floor(number / 60), agit.tool.fmt.numpad(number % 60, 2));
+            return ag.ui.tool.fmt.sprintf("%s:%s", Math.floor(number / 60), ag.ui.tool.fmt.numpad(number % 60, 2));
         },
 
         timeField = function($field, returnAsMinutes)
@@ -42,7 +42,7 @@ agit.ns("agit.field");
             this.returnAsMinutes = returnAsMinutes;
         };
 
-    timeField.prototype = Object.create(agit.field.Field.prototype);
+    timeField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     timeField.prototype.setValue = function(value)
     {
@@ -58,5 +58,5 @@ agit.ns("agit.field");
         return this.returnAsMinutes ? time : { hour : Math.floor(time / 60), minute : time % 60 };
     };
 
-    agit.field.Time = timeField;
+    ag.ui.field.Time = timeField;
 })();

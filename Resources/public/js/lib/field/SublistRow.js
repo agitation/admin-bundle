@@ -1,4 +1,4 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var sublistRowField = function($tpl)
@@ -12,7 +12,7 @@ agit.ns("agit.field");
         });
     };
 
-    sublistRowField.prototype = Object.create(agit.field.Field.prototype);
+    sublistRowField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     sublistRowField.prototype.setValue = function(value)
     {
@@ -30,5 +30,5 @@ agit.ns("agit.field");
         this.onRemoveCallback = callback;
     };
 
-    agit.field.SublistRow = sublistRowField;
+    tx.admin.field.SublistRow = sublistRowField;
 })();

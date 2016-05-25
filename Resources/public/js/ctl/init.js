@@ -1,17 +1,17 @@
 $(document).ready(function() {
     var
-        ind = new agit.misc.OverlayIndicator(window),
-        msgH = new agit.misc.msgh.Bubbles();
+        ind = new ag.ui.elem.OverlayIndicator(window),
+        msgH = new ag.ui.elem.BubblesMessageHandler();
 
-    agit.srv("state", new agit.context.State());
-    agit.srv("messageHandler", msgH);
-    agit.srv("indicator", ind);
-    agit.srv("api", new agit.common.Api(ind, msgH));
-    agit.srv("preloader", new agit.common.Preloader());
+    ag.srv("state", new ag.ui.ctxt.State());
+    ag.srv("messageHandler", msgH);
+    ag.srv("indicator", ind);
+    ag.srv("api", new ag.api.Api(ind, msgH));
+    ag.srv("preloader", new ag.api.Preloader());
 
     $('body').tooltip({
         selector: "[data-toggle='tooltip']",
-        template: agit.tool.tpl("agitadmin-tooltip", ".tooltip"),
+        template: ag.ui.tool.tpl("agitadmin-tooltip", ".tooltip"),
         container: 'body',
         animation : false
     });

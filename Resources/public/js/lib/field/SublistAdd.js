@@ -1,17 +1,17 @@
-agit.ns("agit.field");
+ag.ns("ag.admin.field");
 
 (function(){
     var
         sublistAddField = function(entityName, childEntityName, childEntityPropertyName)
         {
-            this.extend(this, agit.tool.tpl("agitadmin-forms", ".sublist .add"));
+            this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".sublist .add"));
 
             var
                 self = this,
                 $selectField = this.find("select");
 
             if (childEntityName && childEntityPropertyName)
-                this.$select = new agit.field.LoadableEntitySelect(childEntityName, $selectField);
+                this.$select = new ag.admin.field.LoadableEntitySelect(childEntityName, $selectField);
             else
                 $selectField.remove();
 
@@ -29,14 +29,14 @@ agit.ns("agit.field");
 
                 if (selected !== null)
                 {
-                    obj = new agit.api.Object(entityName, data);
+                    obj = new ag.api.Object(entityName, data);
                     self.objectAdded(obj);
                     self.onAddCallback(obj);
                 }
             });
         };
 
-    sublistAddField.prototype = Object.create(agit.field.Field.prototype);
+    sublistAddField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     // registers callbacks to the adding event
     sublistAddField.prototype.onAdd = function(callback)
@@ -69,5 +69,5 @@ agit.ns("agit.field");
         this.$select && this.$select.unhideAllEntities();
     };
 
-    agit.field.SublistAdd = sublistAddField;
+    ag.admin.field.SublistAdd = sublistAddField;
 })();

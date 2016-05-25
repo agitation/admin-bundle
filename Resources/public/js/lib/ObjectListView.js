@@ -1,8 +1,8 @@
-agit.ns("agit.context");
+ag.ns("ag.admin");
 
-agit.context.ObjectListView = function($header, $search, $table)
+ag.admin.ObjectListView = function($header, $search, $table)
 {
-    var $view = new agit.context.View($header, $search, $table);
+    var $view = new ag.ui.ctxt.View($header, $search, $table);
 
     $search.setSearchCallback(function(result){
         $table.truncate();
