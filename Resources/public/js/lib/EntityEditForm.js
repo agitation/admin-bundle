@@ -40,12 +40,12 @@ ag.admin.EntityEditForm = function(entityName, fields)
     });
 
     $form.on("reset", function(ev){
-        ag.ui.ctxt.Form.stopEvent(ev);
+        ag.ui.ctxt.Form.prototype.stopEvent(ev);
         fillForm(entity);
     });
 
     $form.on("submit", function(ev){
-        ag.ui.ctxt.Form.stopEvent(ev);
+        ag.ui.ctxt.Form.prototype.stopEvent(ev);
 
         var values = {};
 

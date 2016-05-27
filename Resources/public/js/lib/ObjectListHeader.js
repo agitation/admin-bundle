@@ -10,9 +10,11 @@ ag.admin.ObjectListHeader = function()
     $editForm.submit(function(ev){
         var id = $input.getValue();
 
-        ag.ui.ctxt.Form.stopEvent(ev);
+        ag.ui.ctxt.Form.prototype.stopEvent(ev);
         id && ag.srv("state").switchTo("/edit/form", id);
     });
 
     return $elem;
 };
+
+ag.admin.ObjectListHeader.prototype = Object.create(jQuery.prototype);

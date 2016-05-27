@@ -65,7 +65,7 @@ var
         });
 
         this.submit(ev => {
-            ag.ui.ctxt.Form.stopEvent(ev);
+            this.stopEvent(ev);
             this.searchCallback();
         });
 
@@ -79,7 +79,7 @@ var
         }, isDefault);
     };
 
-    listSearch.prototype = Object.create(jQuery.prototype);
+    listSearch.prototype = Object.create(ag.ui.ctxt.Form.prototype);
 
     listSearch.prototype.addField = function(key, field)
     {
