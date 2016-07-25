@@ -1,16 +1,21 @@
 ag.ns("ag.admin");
 
-ag.admin.ObjectListView = function($header, $search, $table)
-{
-    var $view = new ag.ui.ctxt.View($header, $search, $table);
+(function(){
+var
+    objectListView = function(blocks)
+    {
+        ag.ui.ctxt.View.apply(this, arguments);
 
-    $search.setSearchCallback(function(result){
-        $table.truncate();
+        blocks.search.setSearchCallback(function(result){
+            blocks.table.truncate();
 
-        result && result.length && result.forEach(function(item){
-            $table.addItem(item);
+            result && result.length && result.forEach(function(item){
+                blocks.table.addItem(item);
+            });
         });
-    });
+    };
 
-    return $view;
-};
+objectListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
+
+ag.admin.ObjectListView = objectListView;
+})();

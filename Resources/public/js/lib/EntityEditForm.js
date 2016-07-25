@@ -18,10 +18,10 @@ var
         this.extend(this, ag.ui.tool.tpl("agitadmin-editview", ".editview-form"));
 
         var
-            $tbody = this.find("tbody").empty(),
-            apiService = ag.srv("api");
+            $tbody = this.find("tbody").empty();
 
             this.entityName = entityName;
+            this.fields = fields;
             this.entity = {}; // currently saved state of the entity. NOT TO BE MODIFIED!
 
         Object.keys(fields).forEach(function(key){
@@ -50,7 +50,7 @@ var
                 values[key] = fields[key].element.getValue();
             });
 
-            apiService.doCall(
+            ag.srv("api").doCall(
                 entityName + "." + (values.id ? "update" : "create"),
                 values,
                 function(res, status)
@@ -65,25 +65,26 @@ var
 
                         fillForm.call(this, res.payload);
 
-                        values.id || ag.srv("state").update("/edit/form", res.payload.id);
+                        values.id || ag.srv("state").update("/edit", res.payload.id);
                     }
                 }
             );
         });
     };
 
-    entityForm.prototype = Object.create(ag.ui.ctxt.Form.prototype);
+entityForm.prototype = Object.create(ag.ui.ctxt.Form.prototype);
 
-    entityForm.prototype.getAction = function()
-    {
-        return (request) => {
-            if (request === "new")
-                fillForm.call(this, new ag.api.Object(this.entityName));
+entityForm.prototype.getAction = function()
+{
+    return (request) => {
+        if (request === "new")
+            fillForm.call(this, new ag.api.Object(this.entityName));
 
-            else if (request && !isNaN(request))
-                apiService.doCall(this.entityName + ".get", request, fillForm.bind(this));
-        }
-    };
+        else if (request && !isNaN(request))
+            ag.srv("api").doCall(this.entityName + ".get", request, fillForm.bind(this));
+    }
+};
 
-    ag.admin.EntityEditForm = entityForm;
+ag.admin.EntityEditForm = entityForm;
+
 })();

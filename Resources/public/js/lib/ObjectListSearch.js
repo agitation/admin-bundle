@@ -39,7 +39,7 @@ var
         return values;
     },
 
-    listSearch = function(endpointName, fields, isDefault)
+    listSearch = function(endpointName, fields)
     {
         this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-search"));
         this.searchCallback = function(){};

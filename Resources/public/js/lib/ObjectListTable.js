@@ -265,7 +265,7 @@ ag.admin.ObjectListTable._actions =
         title: ag.intl.t("edit"),
         icon : "fa fa-edit",
         createAction : function($link, item) {
-            $link.attr("href", "#!/edit/form/" + item.id);
+            $link.attr("href", "#!/edit/" + item.id);
         }
     },
 

@@ -11,7 +11,7 @@ ag.admin.ObjectListHeader = function()
         var id = $input.getValue();
 
         ag.ui.ctxt.Form.prototype.stopEvent(ev);
-        id && ag.srv("state").switchTo("/edit/form", id);
+        id && ag.srv("state").switchTo("/edit", id);
     });
 
     return $elem;
