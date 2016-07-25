@@ -68,15 +68,6 @@ var
             this.stopEvent(ev);
             this.searchCallback();
         });
-
-        ag.srv("state").registerViewElement("/list/search", request => {
-            if (request instanceof Object)
-                Object.keys(this.defaultValues).forEach(function(key){
-                   this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
-                });
-
-            this.searchCallback();
-        }, isDefault);
     };
 
     listSearch.prototype = Object.create(ag.ui.ctxt.Form.prototype);
@@ -102,6 +93,18 @@ var
         {
             ag.srv("api").doCall(this.endpointName, getValues.call(this), callback);
         };
+    };
+
+    listSearch.prototype.getAction = function()
+    {
+        return (request) => {
+            if (request instanceof Object)
+                Object.keys(this.defaultValues).forEach(function(key){
+                   this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
+                });
+
+            this.searchCallback();
+        }
     };
 
     listSearch.getField = function(name)

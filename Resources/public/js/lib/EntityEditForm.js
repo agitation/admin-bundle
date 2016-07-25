@@ -31,14 +31,6 @@ ag.admin.EntityEditForm = function(entityName, fields)
         $tbody.append($row);
     });
 
-    ag.srv("state").registerViewElement("/edit/form", function(request){
-        if (request === "new")
-            fillForm(new ag.api.Object(entityName));
-
-        else if (request && !isNaN(request))
-            apiService.doCall(entityName + ".get", request, fillForm);
-    });
-
     $form.on("reset", function(ev){
         ag.ui.ctxt.Form.prototype.stopEvent(ev);
         fillForm(entity);
@@ -72,8 +64,18 @@ ag.admin.EntityEditForm = function(entityName, fields)
                 }
             }
         );
-
     });
+
+    $form.getAction = function()
+    {
+        return (request) => {
+            if (request === "new")
+                fillForm(new ag.api.Object(entityName));
+
+            else if (request && !isNaN(request))
+                apiService.doCall(entityName + ".get", request, fillForm);
+        }
+    };
 
     return $form;
 };
