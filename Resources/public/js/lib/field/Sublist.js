@@ -27,7 +27,7 @@ ag.ns("ag.admin.field");
 
     sublistField.prototype.addRow = function($row)
     {
-        $row.onRemove(function($row) {
+        $row.onRemove($row => {
             this.list.splice(this.list.indexOf($row), 1);
             this.list.length || this.addClass("empty");
             this.onRemoveCallback($row.getValue());
@@ -56,7 +56,7 @@ ag.ns("ag.admin.field");
     {
         var values = [];
 
-        this.list.forEach(function($row){
+        this.list.forEach($row => {
             values.push($row.getValue());
         });
 

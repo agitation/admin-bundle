@@ -6,7 +6,7 @@ ag.ns("ag.admin.field");
         this.extend(this, $tpl || $("<tbody>"));
         this.onRemoveCallback = function(){};
 
-        this.find(".remove button").click(function(){
+        this.find(".remove button").click(() => {
             this.onRemoveCallback(this);
             this.remove();
         });

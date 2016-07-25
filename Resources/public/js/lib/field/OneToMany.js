@@ -27,12 +27,12 @@ ag.ns("ag.admin.field");
             this.find(".add").remove();
             this.append([$list, $add]);
 
-            $add.onAdd(function(obj){
+            $add.onAdd(obj => {
                 $list.addRow($list.createRow(obj));
                 toggleList.call(this, 1);
             });
 
-            $list.onRemove(function(obj){
+            $list.onRemove(obj => {
                 $add.objectRemoved(obj);
                 toggleList.call(this, $list.getCount());
             });
@@ -46,7 +46,7 @@ ag.ns("ag.admin.field");
         this.$list.setValue(value);
         this.$add.reset();
 
-        value.forEach(function(obj){
+        value.forEach(obj => {
             this.$add.objectAdded(obj);
         });
 
