@@ -1,81 +1,89 @@
 ag.ns("ag.admin");
 
-ag.admin.EntityEditForm = function(entityName, fields)
-{
-    var
-        $form = ag.ui.tool.tpl("agitadmin-editview", ".editview-form"),
-        $table = $form.find("table"),
-        $tbody = $form.find("tbody").empty(),
-        apiService = ag.srv("api"),
+(function(){
+var
+    fillForm = function(entity)
+    {
+        var fields = this.fields;
 
-        entity, // currently saved state of the entity. NOT TO BE MODIFIED!
+        this.entity = entity;
 
-        fillForm = function(ent)
-        {
-            entity = ent;
+        entity && Object.keys(fields).forEach(function(key){
+            entity[key] !== undefined && fields[key].element.setValue(entity[key]);
+        });
+    },
 
-            entity && Object.keys(fields).forEach(function(key){
-                entity[key] !== undefined && fields[key].element.setValue(entity[key]);
-            });
-        };
+    entityForm = function(entityName, fields)
+    {
+        this.extend(this, ag.ui.tool.tpl("agitadmin-editview", ".editview-form"));
 
-    Object.keys(fields).forEach(function(key){
         var
-            field = fields[key],
-            $row = ag.ui.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
+            $tbody = this.find("tbody").empty(),
+            apiService = ag.srv("api");
 
-        $row.find("th label").text(field.label);
-        $row.find("td").html(field.element);
-
-        field.optional || $row.find("th .optional").remove();
-        $tbody.append($row);
-    });
-
-    $form.on("reset", function(ev){
-        ag.ui.ctxt.Form.prototype.stopEvent(ev);
-        fillForm(entity);
-    });
-
-    $form.on("submit", function(ev){
-        ag.ui.ctxt.Form.prototype.stopEvent(ev);
-
-        var values = {};
+            this.entityName = entityName;
+            this.entity = {}; // currently saved state of the entity. NOT TO BE MODIFIED!
 
         Object.keys(fields).forEach(function(key){
-            values[key] = fields[key].element.getValue();
+            var
+                field = fields[key],
+                $row = ag.ui.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
+
+            $row.find("th label").text(field.label);
+            $row.find("td").html(field.element);
+
+            field.optional || $row.find("th .optional").remove();
+            $tbody.append($row);
         });
 
-        apiService.doCall(
-            entityName + "." + (values.id ? "update" : "create"),
-            values,
-            function(res, status)
-            {
-                if (status === 200)
+        this.on("reset", ev => {
+            this.stopEvent(ev);
+            fillForm.call(this, this.entity);
+        });
+
+        this.on("submit", ev => {
+            var values = {};
+
+            this.stopEvent(ev);
+
+            Object.keys(fields).forEach(function(key){
+                values[key] = fields[key].element.getValue();
+            });
+
+            apiService.doCall(
+                entityName + "." + (values.id ? "update" : "create"),
+                values,
+                function(res, status)
                 {
-                    var successMsg = values.id
-                        ? ag.intl.t("The object was updated successfully.")
-                        : ag.intl.t("The object was created successfully.");
+                    if (status === 200)
+                    {
+                        var successMsg = values.id
+                            ? ag.intl.t("The object was updated successfully.")
+                            : ag.intl.t("The object was created successfully.");
 
-                    ag.srv("messageHandler").showMessage(new ag.common.Message(successMsg, "success"));
+                        ag.srv("messageHandler").showMessage(new ag.common.Message(successMsg, "success"));
 
-                    fillForm(res.payload);
+                        fillForm.call(this, res.payload);
 
-                    values.id || ag.srv("state").update("/edit/form", res.payload.id);
+                        values.id || ag.srv("state").update("/edit/form", res.payload.id);
+                    }
                 }
-            }
-        );
-    });
+            );
+        });
+    };
 
-    $form.getAction = function()
+    entityForm.prototype = Object.create(ag.ui.ctxt.Form.prototype);
+
+    entityForm.prototype.getAction = function()
     {
         return (request) => {
             if (request === "new")
-                fillForm(new ag.api.Object(entityName));
+                fillForm.call(this, new ag.api.Object(this.entityName));
 
             else if (request && !isNaN(request))
-                apiService.doCall(entityName + ".get", request, fillForm);
+                apiService.doCall(this.entityName + ".get", request, fillForm.bind(this));
         }
     };
 
-    return $form;
-};
+    ag.admin.EntityEditForm = entityForm;
+})();
