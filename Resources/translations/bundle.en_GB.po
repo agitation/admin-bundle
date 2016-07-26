@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"nplurals=2; plural=(n != 1);\n"
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:61
+msgid "The object was updated successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:62
+msgid "The object was created successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListSearch.js:11
+msgid "Text"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListSearch.js:18
+msgid "include deleted items"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:13
+msgid "The object was deleted successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:27
+msgid "The object was restored successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:162
+msgid "Actions"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:246
+msgid "d/m/Y"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:255
+msgid "d/m/Y H:i"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:278
+msgid "Name"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:279
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:280
+msgid "Date"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:281
+msgid "Description"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:283
+msgid "User"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:284
+msgid "Location"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:285
+msgid "Status"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:300
+msgid "duplicate"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:312
+msgid "delete"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:326
+msgid "restore"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:337
+#, javascript-format
+msgid "Are you sure you want to delete `%s`?"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:52
+msgid "Please select a location."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:6
+msgid "active"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:7
+msgid "inactive"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:8
+msgid "deleted"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
+msgid "Overview"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:33
+msgid "create new"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+msgid "ID"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
+msgid "edit"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:59
+msgid "Search"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:65
+msgid "Update list"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:69
+msgid "Reset parameters"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:91
+msgid "This list is currently empty. Please modify your search or create a new object."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
+msgid "Edit"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
+msgid "back to overview"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
+msgid "(optional)"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+msgid "reset"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
+msgid "submit"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
+msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:26
+msgid "This value will be set on the server after saving the object."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
+msgid "Please add one or more entries to this list."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:41
+msgid "add"
+msgstr ""
