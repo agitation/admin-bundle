@@ -292,7 +292,7 @@ ag.admin.ObjectListTable._actions =
         icon : "fa fa-edit",
         createAction : function($link, item) {
             item.deleted && $link.addClass("invisible");
-            $link.attr("href", "#!/edit/" + item.id);
+            $link.attr("href", "#!/edit?" + item.id);
         }
     },
 
