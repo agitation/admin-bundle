@@ -9,22 +9,13 @@ var
         text :
         {
             label : ag.intl.t("Text"),
-            element : new ag.ui.field.Text($("<input type='text' class='form-control input-sm'>"))
+            element : new ag.ui.field.Text(null, { "class" : "form-control input-sm" })
         },
 
-        status :
+        deleted :
         {
-            label : ag.intl.t("Status"),
-            element : new ag.ui.field.Select({
-                size: 3,
-                multiple: "multiple",
-                "data-type": "int",
-                "class": "form-control input-sm"
-            }, [
-                { value: 1, text: ag.intl.t("active"), selected : true },
-                { value: 0, text: ag.intl.t("inactive"), selected : true },
-                { value: -1, text: ag.intl.t("deleted") }
-            ])
+            label : "",
+            element : new ag.ui.field.Boolean(ag.intl.t("include deleted items"))
         }
     },
 
