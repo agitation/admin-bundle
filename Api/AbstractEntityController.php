@@ -47,11 +47,11 @@ abstract class AbstractEntityController extends BaseController
             }
         }
 
-        // if ($requestObject instanceof DeletedInterface && !$requestObject->get("deleted"))
-        // {
-        //     $query->andWhere("e.deleted = ?101");
-        //     $query->setParameter(101, false);
-        // }
+        if ($requestObject instanceof DeletedInterface && !$requestObject->get("deleted"))
+        {
+            $query->andWhere("e.deleted = ?101");
+            $query->setParameter(101, false);
+        }
 
         return $query;
     }
