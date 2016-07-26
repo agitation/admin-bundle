@@ -1,15 +1,7 @@
-
-
 /* READONLY */
+
 .readonly                                                   { }
 .readonly .empty                                            { color: #aaa; font-style: italic }
-
-
-
-/* BOOLEAN */
-.boolean                                                    { padding-top: 5px; }
-.boolean *                                                  { display: inline-block; vertical-align: top; }
-.boolean input                                              { margin: 0 .7em 0 0; }
 
 
 /* SUBLIST */
