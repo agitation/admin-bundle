@@ -1,5 +1,38 @@
 ag.ns("ag.admin");
 
+(function(){
+
+var
+    deleteUndeleteCall = function(type, $link, item)
+    {
+        ag.srv("api").doCall(
+            item.getName() + "." + type,
+            item.id,
+            function(res, status)
+            {
+                var successMessage = ag.intl.t("The object was deleted successfully.");
+
+                if (status === 200)
+                {
+                    if (item.deleted === undefined)
+                    {
+                        $link.getTable().removeItem(item.id);
+                    }
+                    else
+                    {
+                        item.deleted = (type === "delete");
+                        $link.getTable().updateItem(item);
+
+                        if (type === "undelete")
+                            successMessage = ag.intl.t("The object was restored successfully.");
+                    }
+
+                    ag.srv("messageHandler").alert(successMessage, "success");
+                }
+            }
+        );
+    };
+
 ag.admin.ObjectListTable = function(exporter, columns, actions)
 {
     var
@@ -16,6 +49,11 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
         fillRow = function($row, item)
         {
             $row.empty();
+
+            if (item.deleted)
+                $row.addClass("deleted");
+            else
+                $row.removeClass("deleted");
 
             Object.keys(columns).forEach(function(key){
                 var
@@ -230,18 +268,6 @@ ag.admin.ObjectListTable._filters =
     location : function(item, fieldName)
     {
         return ag.ui.tool.fmt.sprintf("%s × %s", item.location.lat, item.location.lon);
-    },
-
-    status : function(item, fieldName)
-    {
-        var statusValues =
-        {
-            "-1" : "<span class='deleted'>" + ag.intl.t("deleted") + "</span>",
-             "0" : "<span class='inactive'>" + ag.intl.t("inactive") + "</span>",
-             "1" : "<span class='active'>" + ag.intl.t("active") + "</span>"
-        };
-
-        return statusValues[item[fieldName]];
     }
 };
 
@@ -265,6 +291,7 @@ ag.admin.ObjectListTable._actions =
         title: ag.intl.t("edit"),
         icon : "fa fa-edit",
         createAction : function($link, item) {
+            item.deleted && $link.addClass("invisible");
             $link.attr("href", "#!/edit/" + item.id);
         }
     },
@@ -272,7 +299,9 @@ ag.admin.ObjectListTable._actions =
     duplicate : {
         title : ag.intl.t("duplicate"),
         icon : "fa fa-copy",
-        createAction : function($link) {
+        createAction : function($link, item) {
+            item.deleted && $link.addClass("invisible");
+
             $link.click(function(){
                 throw "Not implemented yet.";
             });
@@ -284,38 +313,34 @@ ag.admin.ObjectListTable._actions =
         icon : "fa fa-trash",
         createAction : function($link, item) {
 
-            if (item.status === -1)
+            var
+                actionType = "delete",
+                needConfirmation = true;
+
+            if (item.deleted !== undefined)
             {
-                $link.addClass("invisible");
+                if (item.deleted)
+                {
+                    $link
+                        .find("i").attr("class", "fa fa-trash-o").end()
+                        .find("span").text(ag.intl.t("restore"));
+
+                    actionType = "undelete";
+                }
+
+                needConfirmation = false;
             }
-            else
-            {
-                $link.click(function(){
 
-                    var name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id;
+            $link.click(function(){
+                var name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id;
 
-                    if (window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to delete `%s`?"), name)))
-                    {
-                        ag.srv("api").doCall(
-                            item.getName() + ".delete",
-                            item.id,
-                            function(res, status)
-                            {
-                                if (status === 200)
-                                {
-                                    $link.getTable().removeItem(item.id);
-
-                                    ag.srv("messageHandler").showMessage(new ag.common.Message(
-                                        ag.intl.t("The object was deleted successfully."),
-                                        "success"
-                                    ));
-                                }
-                            }
-                        );
-                    }
-                });
-
-            }
+                if (!needConfirmation || window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to delete `%s`?"), name)))
+                {
+                    deleteUndeleteCall(actionType, $link, item);
+                }
+            });
         }
     }
 };
+
+})();

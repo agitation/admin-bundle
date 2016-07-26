@@ -49,6 +49,7 @@
 .listview-table th.left                     { text-align: left; }
 .listview-table td.right,
 .listview-table th.right                    { text-align: right; }
+.listview-table tr.deleted td               { color: #daa }
 
 .listview-table tfoot                       { display: none; }
 .listview-table tfoot td                    { font-weight: bold; background: #f4f4f4; border-bottom: 1px solid #aaa; }
@@ -59,6 +60,5 @@
 .listview-table td.actions a.invisible      { visibility: hidden; }
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
 .listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
-.listview-table span.active                 { color: #388e38; }
-.listview-table span.inactive               { color: #777; }
-.listview-table span.deleted                { color: #822; }
+
+.listview-table tr.deleted td.actions a      { color: #aaa }
