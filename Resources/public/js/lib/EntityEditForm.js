@@ -4,13 +4,15 @@ ag.ns("ag.admin");
 var
     fillForm = function(entity)
     {
-        var fields = this.fields;
-
         this.entity = entity;
 
-        entity && Object.keys(fields).forEach(function(key){
-            entity[key] !== undefined && fields[key].element.setValue(entity[key]);
+        entity && Object.keys(this.fields).forEach(key => {
+            entity[key] !== undefined &&
+                this.fields[key].element.setValue(entity[key]) &&
+                this.fields[key].element.change(); // is that a good idea? circular deps? side effects?
         });
+
+        this.trigger("agit.entityform.update");
     },
 
     entityForm = function(entityName, fields)
@@ -24,7 +26,7 @@ var
             this.fields = fields;
             this.entity = {}; // currently saved state of the entity. NOT TO BE MODIFIED!
 
-        Object.keys(fields).forEach(function(key){
+        Object.keys(fields).forEach(key => {
             var
                 field = fields[key],
                 $row = ag.ui.tool.tpl("agitadmin-editview", ".editview-form tbody tr");
@@ -46,26 +48,25 @@ var
 
             this.stopEvent(ev);
 
-            Object.keys(fields).forEach(function(key){
+            Object.keys(fields).forEach(key => {
                 values[key] = fields[key].element.getValue();
             });
 
             ag.srv("api").doCall(
                 entityName + "." + (values.id ? "update" : "create"),
                 values,
-                function(res, status)
-                {
+                (result, status) => {
                     if (status === 200)
                     {
                         var successMsg = values.id
                             ? ag.intl.t("The object was updated successfully.")
                             : ag.intl.t("The object was created successfully.");
 
-                        ag.srv("messageHandler").showMessage(new ag.common.Message(successMsg, "success"));
+                        ag.srv("messageHandler").alert(successMsg, "success");
 
-                        fillForm.call(this, res.payload);
+                        fillForm.call(this, result);
 
-                        values.id || ag.srv("state").update("/edit", res.payload.id);
+                        values.id || ag.srv("state").update("/edit", result.id);
                     }
                 }
             );
