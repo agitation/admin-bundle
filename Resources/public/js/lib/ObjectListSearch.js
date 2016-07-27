@@ -67,12 +67,12 @@ var
     {
         var
             $td = $("<td class='field'>"),
-            fieldId = "listsearch" + fieldIdCounter++;
+            fieldId = "ag-admin-objectlistsearch-" + fieldIdCounter++;
 
         this.defaultValues[key] = field.element.getValue();
 
         field.element.attr("id", fieldId);
-        $td.append($(ag.ui.tool.fmt.sprintf("<label for='%s'>%s</label>", fieldId, field.label)));
+        $td.append($(ag.ui.tool.fmt.sprintf("<label class='caption' for='%s'>%s</label>", fieldId, field.label)));
         $td.append(this.$fields[key] = field.element);
         $td.addClass(key).insertBefore(this.$actions);
         this.$fields[key].is("[type=hidden]") && $td.addClass("hidden");
