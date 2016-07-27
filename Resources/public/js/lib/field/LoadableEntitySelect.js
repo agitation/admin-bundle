@@ -10,9 +10,7 @@ ag.ns("ag.admin.field");
 
         entitySelectField = function(objectName, $select, nullOption)
         {
-            var
-                self = this,
-                dummyEntity = new ag.api.Object(objectName);
+            var dummyEntity = new ag.api.Object(objectName);
 
             this.extend(this, ag.ui.field.EntitySelect.call(this, $select));
 
@@ -22,9 +20,9 @@ ag.ns("ag.admin.field");
             if (dummyEntity.getPropMeta("id").type === "number")
                 this.attr("data-type", "int");
 
-            ag.srv("preloader").loadEntity(objectName, function(entities){
-                self.entities = new ag.common.Collection(entities);
-                self.refresh();
+            ag.srv("preloader").loadEntity(objectName, entities => {
+                this.entities = new ag.common.Collection(entities);
+                this.refresh();
             });
         };
 
@@ -33,11 +31,7 @@ ag.ns("ag.admin.field");
     entitySelectField.prototype.refresh = function()
     {
         var
-            self = this,
-            list = this.entities.sort().filter(function(entity){
-                return self.hiddenEntities.indexOf(entity.id) === -1;
-            }),
-
+            list = this.entities.sort().filter(entity => this.hiddenEntities.indexOf(entity.id) === -1),
             options = this.entitiesToOptions(list);
 
         this.empty();
@@ -47,8 +41,10 @@ ag.ns("ag.admin.field");
         else
             this.addIntro();
 
-
         ag.ui.field.Select.prototype.setOptions.call(this, options);
+
+        if (this.currentValue && this.containsOption(this.currentValue))
+            this.setValue(this.currentValue);
     };
 
     // add an entity which is part of a parent entity and might not be in the
@@ -70,6 +66,13 @@ ag.ns("ag.admin.field");
     entitySelectField.prototype.unhideEntity = function(entity)
     {
         this.hiddenEntities.splice(this.hiddenEntities.indexOf(getId(entity)), 1);
+        this.refresh();
+    };
+
+    // hide a fixed set of entities (and only that set)
+    entitySelectField.prototype.hideEntities = function(entities)
+    {
+        this.hiddenEntities = entities.map(entity => getId(entity));
         this.refresh();
     };
 
