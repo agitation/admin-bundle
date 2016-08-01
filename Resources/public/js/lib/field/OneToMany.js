@@ -25,10 +25,11 @@ ag.ns("ag.admin.field");
             this.emptyHint = this.find("p.empty");
 
             this.append([$list, $add]);
+            toggleList.call(this, false);
 
             this.on("ag.admin.sublist.add", (ev, obj) => {
                 $list.triggerHandler("ag.admin.sublist.add", obj);
-                toggleList.call(this, 1);
+                toggleList.call(this, true);
             });
 
             this.on("ag.admin.sublist.remove", (ev, obj) => {

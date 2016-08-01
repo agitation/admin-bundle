@@ -6,19 +6,16 @@ ag.ns("ag.admin.field");
         this.extend(this, $tpl);
         this.list = [];
 
+        // check if row factory method is present
+        if (typeof(this.createRow) !== "function")
+            throw new Error("The createRow method must be implemented!");
+
         this.on("ag.admin.sublist.add", (ev, obj) => {
             this.addRow(this.createRow(obj));
         });
-
-
     };
 
     sublistField.prototype = Object.create(ag.ui.field.Field.prototype);
-
-    sublistField.prototype.createRow = function(obj)
-    {
-        return new tx.admin.field.SublistRow();
-    };
 
     sublistField.prototype.getCount = function()
     {
@@ -34,8 +31,6 @@ ag.ns("ag.admin.field");
 
         this.removeClass("empty").append($row);
         this.list.push($row);
-
-        // this.trigger("ag.admin.sublist.add", $row.getValue());
     };
 
     sublistField.prototype.setValue = function(value)
