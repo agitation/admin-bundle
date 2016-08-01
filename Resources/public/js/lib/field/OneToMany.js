@@ -6,13 +6,13 @@ ag.ns("ag.admin.field");
         {
             if (on)
             {
-                this.$emptyHint.hide();
-                this.$list.show();
+                this.emptyHint.hide();
+                this.list.show();
             }
             else
             {
-                this.$list.hide();
-                this.$emptyHint.show();
+                this.list.hide();
+                this.emptyHint.show();
             }
         },
 
@@ -20,20 +20,19 @@ ag.ns("ag.admin.field");
         {
             this.extend(this, $tpl || ag.ui.tool.tpl("agitadmin-forms", ".sublist"));
 
-            this.$list = $list;
-            this.$add = $add;
-            this.$emptyHint = this.find("p.empty");
+            this.list = $list;
+            this.add = $add;
+            this.emptyHint = this.find("p.empty");
 
-            this.find(".add").remove();
             this.append([$list, $add]);
 
-            $add.onAdd(obj => {
+            $add.on("ag.admin.sublist.add", (ev, obj) => {
                 $list.addRow($list.createRow(obj));
                 toggleList.call(this, 1);
             });
 
-            $list.onRemove(obj => {
-                $add.objectRemoved(obj);
+            $list.on("ag.admin.sublist.remove", (ev, $row) => {
+                $add.trigger("ag.admin.sublist.remove", [$row]);
                 toggleList.call(this, $list.getCount());
             });
         };
@@ -42,20 +41,16 @@ ag.ns("ag.admin.field");
 
     oneToManyField.prototype.setValue = function(value)
     {
-        toggleList.call(this, value.length);
-        this.$list.setValue(value);
-        this.$add.reset();
-
-        value.forEach(obj => {
-            this.$add.objectAdded(obj);
-        });
+        this.list.setValue([]);
+        this.add.reset();
+        value.forEach(obj => this.add.trigger("ag.admin.sublist.add", obj));
 
         return this;
     };
 
     oneToManyField.prototype.getValue = function()
     {
-        return this.$list.getValue();
+        return this.list.getValue();
     };
 
     ag.admin.field.OneToMany = oneToManyField;

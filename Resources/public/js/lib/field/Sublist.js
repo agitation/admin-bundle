@@ -5,7 +5,6 @@ ag.ns("ag.admin.field");
     {
         this.extend(this, $tpl);
         this.list = [];
-        this.onRemoveCallback = function(){};
     };
 
     sublistField.prototype = Object.create(ag.ui.field.Field.prototype);
@@ -15,11 +14,6 @@ ag.ns("ag.admin.field");
         return new tx.admin.field.SublistRow();
     };
 
-    sublistField.prototype.onRemove = function(callback)
-    {
-        this.onRemoveCallback = callback;
-    };
-
     sublistField.prototype.getCount = function()
     {
         return this.list.length;
@@ -27,13 +21,12 @@ ag.ns("ag.admin.field");
 
     sublistField.prototype.addRow = function($row)
     {
-        $row.onRemove($row => {
+        $row.on("ag.admin.sublist.remove", (ev, $row) => {
             this.list.splice(this.list.indexOf($row), 1);
             this.list.length || this.addClass("empty");
-            this.onRemoveCallback($row.getValue());
         });
 
-        this.append($row).removeClass("empty");
+        this.removeClass("empty").append($row);
         this.list.push($row);
     };
 

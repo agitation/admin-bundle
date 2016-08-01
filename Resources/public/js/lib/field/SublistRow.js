@@ -4,10 +4,9 @@ ag.ns("ag.admin.field");
     var sublistRowField = function($tpl)
     {
         this.extend(this, $tpl || $("<tbody>"));
-        this.onRemoveCallback = function(){};
 
-        this.find(".remove button").click(() => {
-            this.onRemoveCallback(this);
+        this.find(".remove button").click(ev => {
+            this.trigger("ag.admin.sublist.remove", [this]);
             this.remove();
         });
     };
@@ -23,11 +22,6 @@ ag.ns("ag.admin.field");
     sublistRowField.prototype.getValue = function()
     {
         return this.getValues();
-    };
-
-    sublistRowField.prototype.onRemove = function(callback)
-    {
-        this.onRemoveCallback = callback;
     };
 
     ag.admin.field.SublistRow = sublistRowField;
