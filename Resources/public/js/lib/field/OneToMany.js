@@ -16,9 +16,9 @@ ag.ns("ag.admin.field");
             }
         },
 
-        oneToManyField = function($list, $add)
+        oneToManyField = function($list, $add, $tpl)
         {
-            this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".sublist"));
+            this.extend(this, $tpl || ag.ui.tool.tpl("agitadmin-forms", ".sublist"));
 
             this.$list = $list;
             this.$add = $add;
