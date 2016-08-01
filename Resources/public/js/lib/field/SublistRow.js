@@ -6,7 +6,7 @@ ag.ns("ag.admin.field");
         this.extend(this, $tpl || $("<tbody>"));
 
         this.find(".remove button").click(ev => {
-            this.trigger("ag.admin.sublist.remove", [this]);
+            this.trigger("ag.admin.sublist.remove", this.getValue());
             this.remove();
         });
     };

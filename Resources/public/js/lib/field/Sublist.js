@@ -5,6 +5,12 @@ ag.ns("ag.admin.field");
     {
         this.extend(this, $tpl);
         this.list = [];
+
+        this.on("ag.admin.sublist.add", (ev, obj) => {
+            this.addRow(this.createRow(obj));
+        });
+
+
     };
 
     sublistField.prototype = Object.create(ag.ui.field.Field.prototype);
@@ -21,13 +27,15 @@ ag.ns("ag.admin.field");
 
     sublistField.prototype.addRow = function($row)
     {
-        $row.on("ag.admin.sublist.remove", (ev, $row) => {
+        $row.on("ag.admin.sublist.remove", (ev, obj) => {
             this.list.splice(this.list.indexOf($row), 1);
             this.list.length || this.addClass("empty");
         });
 
         this.removeClass("empty").append($row);
         this.list.push($row);
+
+        // this.trigger("ag.admin.sublist.add", $row.getValue());
     };
 
     sublistField.prototype.setValue = function(value)

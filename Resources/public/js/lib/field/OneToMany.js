@@ -26,13 +26,13 @@ ag.ns("ag.admin.field");
 
             this.append([$list, $add]);
 
-            $add.on("ag.admin.sublist.add", (ev, obj) => {
-                $list.addRow($list.createRow(obj));
+            this.on("ag.admin.sublist.add", (ev, obj) => {
+                $list.triggerHandler("ag.admin.sublist.add", obj);
                 toggleList.call(this, 1);
             });
 
-            $list.on("ag.admin.sublist.remove", (ev, $row) => {
-                $add.trigger("ag.admin.sublist.remove", [$row]);
+            this.on("ag.admin.sublist.remove", (ev, obj) => {
+                $add.triggerHandler("ag.admin.sublist.remove", obj);
                 toggleList.call(this, $list.getCount());
             });
         };

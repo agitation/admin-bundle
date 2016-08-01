@@ -39,8 +39,7 @@ ag.ns("ag.admin.field");
                 }
             });
 
-            this.on("ag.admin.sublist.remove", (ev, $row) => {
-                var obj = $row.getValue();
+            this.on("ag.admin.sublist.remove", (ev, obj) => {
                 if (this.childEntityPropertyName && obj[this.childEntityPropertyName])
                 {
                     this.$select.unhideEntity(obj[this.childEntityPropertyName]);
