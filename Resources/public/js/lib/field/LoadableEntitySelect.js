@@ -79,7 +79,7 @@ ag.ns("ag.admin.field");
     // hide all available entities
     entitySelectField.prototype.hideAllEntities = function()
     {
-        this.hiddenEntities = this.entities.gets().map(function(entity){ return entity.id; });
+        this.hiddenEntities = this.entities.getList().map(function(entity){ return entity.id; });
         this.refresh();
     };
 
