@@ -45,6 +45,8 @@ ag.ns("ag.admin.field");
 
         if (this.currentValue && this.containsOption(this.currentValue))
             this.setValue(this.currentValue);
+        else
+            this.currentValue = null;
     };
 
     // add an entity which is part of a parent entity and might not be in the
