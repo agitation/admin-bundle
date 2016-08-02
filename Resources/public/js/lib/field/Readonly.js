@@ -2,10 +2,11 @@ ag.ns("ag.admin.field");
 
 (function(){
     var
-        readonlyField = function(filter, returnRealValue)
+        readonlyField = function(filter, returnRealValue, nullPlaceholder)
         {
             this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".readonly"));
             this.valueFilter = filter;
+            this.nullPlaceholder = nullPlaceholder || ag.ui.tool.tpl("agitadmin-forms", ".readonly .empty");
             this.returnRealValue = returnRealValue;
             this.currentValue = null;
         };
@@ -16,7 +17,7 @@ ag.ns("ag.admin.field");
     {
         if (value === null)
         {
-            this.html(ag.ui.tool.tpl("agitadmin-forms", ".readonly .empty"));
+            this.html(this.nullPlaceholder);
         }
         else
         {
