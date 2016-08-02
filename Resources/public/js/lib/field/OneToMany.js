@@ -42,6 +42,7 @@ ag.ns("ag.admin.field");
 
     oneToManyField.prototype.setValue = function(value)
     {
+        toggleList.call(this, value.length);
         this.list.setValue([]);
         this.add.reset();
         value.forEach(obj => this.add.trigger("ag.admin.sublist.add", obj));
