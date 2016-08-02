@@ -52,7 +52,11 @@ ag.ns("ag.admin.field");
 
     sublistAddField.prototype.reset = function()
     {
-        this.$select && this.$select.unhideAllEntities();
+        if (this.$select)
+        {
+            this.$select.unhideAllEntities();
+            this.show();
+        }
     };
 
     ag.admin.field.SublistAdd = sublistAddField;
