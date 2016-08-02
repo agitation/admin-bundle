@@ -1,47 +1,63 @@
 ag.ns("ag.admin.field");
 
 (function(){
-    var locationField = function()
-    {
-        var
-            $map = new ag.ui.elem.Map(),
-            $marker = ag.ui.tool.tpl("agitadmin-location-field", ".location-marker");
+    var
+        defaultLonLat = [10, 51],
 
-        this.extend(this, ag.ui.tool.tpl("agitadmin-location-field", ".location-field")).prepend($map);
+        locationField = function()
+        {
+            var
+                $map = new ag.ui.elem.Map(),
+                $marker = ag.ui.tool.tpl("agitadmin-location-field", ".location-marker");
 
-        this.map = $map.ol;
+            this.extend(this, ag.ui.tool.tpl("agitadmin-location-field", ".location-field")).prepend($map);
 
-        this.marker = new ol.Overlay({
-            element: $marker[0],
-            positioning: "bottom-center",
-            stopEvent: false
-        });
+            this.map = $map.ol;
 
-        this.currentLocation = null;
+            this.marker = new ol.Overlay({
+                element: $marker[0],
+                positioning: "bottom-center",
+                stopEvent: false
+            });
 
-        this.map.addOverlay(this.marker);
+            this.currentLocation = null;
 
-        this.map.on("click", ev => {
-            var location = ol.proj.transform(ev.coordinate, "EPSG:3857", "EPSG:4326");
-            this.currentLocation = { lon : location[0], lat : location[1] };
-            this.marker.setPosition(ev.coordinate);
-        });
-    };
+            this.map.addOverlay(this.marker);
+
+            this.map.on("click", ev => {
+                var location = ol.proj.transform(ev.coordinate, "EPSG:3857", "EPSG:4326");
+                this.currentLocation = { lon : location[0], lat : location[1] };
+                this.marker.setPosition(ev.coordinate);
+            });
+        };
 
     locationField.prototype = Object.create(ag.ui.field.Field.prototype);
 
     locationField.prototype.setValue = function(value)
     {
-        if (value instanceof Object)
+        if (value instanceof Object && value.lon && value.lat)
         {
             var location = ol.proj.transform([value.lon, value.lat], "EPSG:4326", "EPSG:3857");
 
             this.marker.setPosition(location);
             this.map.getView().setCenter(location);
             this.map.getView().setZoom(15);
-
             this.currentLocation = value;
         }
+        else
+        {
+            this.clear();
+        }
+
+        return this;
+    };
+
+    locationField.prototype.clear = function()
+    {
+        this.currentLocation = null;
+        this.marker.setPosition(); // hide marker
+        this.map.getView().setCenter(ol.proj.transform(defaultLonLat, "EPSG:4326", "EPSG:3857"));
+        this.map.getView().setZoom(4);
 
         return this;
     };
