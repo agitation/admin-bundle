@@ -1,13 +1,24 @@
 ag.ns("ag.admin.field");
 
-(function(){
+{
     var
+        validInt = function(value, max)
+        {
+            return ag.common.isValid("integer", value, 0, max);
+        },
+
+        validateHourMinute = function(hour, minute)
+        {
+            return (validInt(hour, 23) && validInt(minute, 59));
+        },
+
         timeToNumber = function(timeString)
         {
             var
-                result = 0,
-                timeParts = timeString.replace(".", ":").split(":");
+                result = null,
+                timeParts = timeString ? timeString.replace(/[^0-9\.\:]/g, "").replace(".", ":").split(":") : [];
 
+            // fix simplified input, e.g. 930 instead of 9:30
             if (timeParts.length === 1 && timeParts[0].length && !timeParts[0].match(/[^0-9]/))
             {
                 timeString = parseInt(timeString);
@@ -15,31 +26,30 @@ ag.ns("ag.admin.field");
                 timeParts[1] = timeString - timeParts[0] * 100;
             }
 
-            timeParts = timeParts.map(function(v){ return parseInt(v); });
+            timeParts = timeParts.map(part => parseInt(part));
 
-            if (timeParts[0] >= 0 && timeParts[0] <= 23 && timeParts[1] >= 0 && timeParts[1] <= 59)
-            {
+            if (validateHourMinute(timeParts[0], timeParts[1]))
                 result = timeParts[0] * 60 + timeParts[1];
-            }
 
             return result;
         },
 
         numberToTime = function(number)
         {
-            return ag.ui.tool.fmt.sprintf("%s:%s", Math.floor(number / 60), ag.ui.tool.fmt.numpad(number % 60, 2));
+            return ag.ui.tool.fmt.sprintf(
+                "%s:%s",
+                Math.floor(number / 60),
+                ag.ui.tool.fmt.numpad(number % 60, 2)
+            );
         },
 
-        timeField = function($field, returnAsMinutes)
+        timeField = function($field)
         {
-            $field = $field || $("<input type='text' class='form-control'>");
-            this.extend(this, $field);
+            this.extend(this, $field || $("<input type='text' class='form-control'>"));
 
-            this.on("blur", function() {
-                this.setValue(numberToTime(timeToNumber(this.getValue())));
+            this.on("blur", ev => {
+                this.setValue(timeToNumber(this.origVal()));
             });
-
-            this.returnAsMinutes = returnAsMinutes;
         };
 
     timeField.prototype = Object.create(ag.ui.field.Field.prototype);
@@ -47,16 +57,32 @@ ag.ns("ag.admin.field");
     timeField.prototype.setValue = function(value)
     {
         if (value instanceof Object)
-            value = value.hour * 60 + value.minute;
+        {
+            value = validateHourMinute(value.hour, value.minute)
+                ? value.hour * 60 + value.minute
+                : null
+        }
 
-        return this.origVal(value || value === 0 ? numberToTime(value) : "");
+        return this.origVal(validInt(value) ? numberToTime(value) : "");
     };
 
     timeField.prototype.getValue = function()
     {
         var time = timeToNumber(this.origVal());
-        return this.returnAsMinutes ? time : { hour : Math.floor(time / 60), minute : time % 60 };
+        return validInt(time) ? { hour : Math.floor(time / 60), minute : time % 60 } : null;
     };
 
-    ag.ui.field.Time = timeField;
-})();
+    timeField.prototype.toNumber = function()
+    {
+        var time = timeToNumber(this.origVal());
+        return validInt(time) ? time : null;
+    };
+
+    timeField.prototype.toString = function()
+    {
+        var time = timeToNumber(this.origVal());
+        return validInt(time) ? numberToTime(time) : "";
+    };
+
+    ag.admin.field.Time = timeField;
+};
