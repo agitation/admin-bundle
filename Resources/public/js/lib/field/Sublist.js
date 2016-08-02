@@ -1,19 +1,27 @@
 ag.ns("ag.admin.field");
 
 (function(){
-    var sublistField = function($tpl)
-    {
-        this.extend(this, $tpl);
-        this.list = [];
+    var
+        createAndAddRow = function(obj)
+        {
+            var row = this.createRow();
+            row.setValue(obj);
+            this.addRow(row);
+        },
 
-        // check if row factory method is present
-        if (typeof(this.createRow) !== "function")
-            throw new Error("The createRow method must be implemented!");
+        sublistField = function($tpl)
+        {
+            this.extend(this, $tpl);
+            this.list = [];
 
-        this.on("ag.admin.sublist.add", (ev, obj) => {
-            this.addRow(this.createRow(obj));
-        });
-    };
+            // check if row factory method is present
+            if (typeof(this.createRow) !== "function")
+                throw new Error("The createRow method must be implemented!");
+
+            this.on("ag.admin.sublist.add", (ev, obj) => {
+                createAndAddRow.call(this, obj);
+            });
+        };
 
     sublistField.prototype = Object.create(ag.ui.field.Field.prototype);
 
@@ -39,11 +47,7 @@ ag.ns("ag.admin.field");
         this.find("tbody[class!=empty]").remove();
 
         if (value instanceof Array)
-        {
-            value.forEach(val => {
-                this.addRow(this.createRow(val));
-            });
-        }
+            value.forEach(obj => createAndAddRow.call(this, obj));
 
         return this;
     };
