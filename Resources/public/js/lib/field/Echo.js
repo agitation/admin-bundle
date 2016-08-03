@@ -1,6 +1,6 @@
 ag.ns("ag.admin.field");
 
-{
+(function(){
     var
         echoField = function()
         {
@@ -21,4 +21,4 @@ ag.ns("ag.admin.field");
     };
 
     ag.admin.field.Echo = echoField;
-};
+})();

@@ -1,6 +1,6 @@
 ag.ns("ag.admin.field");
 
-{
+(function(){
     var
         validInt = function(value, max)
         {
@@ -85,4 +85,4 @@ ag.ns("ag.admin.field");
     };
 
     ag.admin.field.Time = timeField;
-};
+})();
