@@ -9,6 +9,7 @@
         "agitation/page-bundle": "dev-master",
         "agitation/ui-bundle": "dev-master",
         "agitation/user-bundle": "dev-master",
+        "agitation/multilang-bundle": "dev-master",
         "agitation/profile-bundle": "dev-master"
     },
     "autoload": {
