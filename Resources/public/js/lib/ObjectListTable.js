@@ -31,6 +31,64 @@ var
                 }
             }
         );
+    },
+
+    createClone = function(origEntity)
+    {
+        var entity = new ag.api.Object(origEntity.getName());
+
+        Object.keys(entity).forEach(prop => {
+            var propMeta = entity.getPropMeta(prop);
+
+            if (prop === "id")
+                entity[prop] = null;
+
+            else if (propMeta.readonly)
+                entity[prop] = null;
+
+            else if (propMeta.type === "objectlist")
+                entity[prop] = origEntity[prop].map(child => createClone(child));
+
+            else if (propMeta.type === "object")
+                entity[prop] = createClone(origEntity[prop]);
+
+            else if (propMeta.type === "entitylist")
+                entity[prop] = origEntity[prop].map(child => child.id);
+
+            else if (propMeta.type === "entity")
+                entity[prop] = origEntity[prop].id;
+
+            else
+                entity[prop] = origEntity[prop];
+        });
+
+        return entity;
+    },
+
+    duplicate = function($link, item, changedFields)
+    {
+        var clonedItem = createClone(item);
+
+        $.extend(clonedItem, changedFields || {});
+
+        c(changedFields, clonedItem);
+
+        ag.srv("api").doCall(
+            item.getName() + ".create",
+            clonedItem,
+            function(result, status)
+            {
+                if (status === 200)
+                {
+                    $link.getTable().addItem(result);
+
+                    ag.srv("messageHandler").alert(
+                        ag.ui.tool.fmt.sprintf(ag.intl.t("The object has been successfully cloned, the new object’s ID is `%s`."), result.id),
+                        "success"
+                    );
+                }
+            }
+        );
     };
 
 ag.admin.ObjectListTable = function(exporter, columns, actions)
@@ -78,7 +136,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
 
                     $link.getTable = function(){ return $elem; };
 
-                    action.createAction($link, item);
+                    action.createAction($link, item, action.params);
                     $actionTd.append($link);
                 });
 
@@ -187,17 +245,19 @@ ag.admin.ObjectListTable.createColumn = function(options)
         options);
 };
 
-ag.admin.ObjectListTable.getAction = function(name, extra)
+ag.admin.ObjectListTable.getAction = function(name, extra, params)
 {
     return $.extend(
         {},
         ag.admin.ObjectListTable._actionTpl,
         ag.admin.ObjectListTable._actions[name],
-        extra || {});
+        extra || {},
+        { params : params || {}}
+    );
 };
 
 ag.admin.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "", secondary : false };
-ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "" };
+ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "", params : {} };
 
 ag.admin.ObjectListTable._filters =
 {
@@ -290,7 +350,7 @@ ag.admin.ObjectListTable._actions =
     edit : {
         title: ag.intl.t("edit"),
         icon : "fa fa-edit",
-        createAction : function($link, item) {
+        createAction : ($link, item) => {
             item.deleted && $link.addClass("invisible");
             $link.attr("href", "#!/edit?" + item.id);
         }
@@ -299,11 +359,34 @@ ag.admin.ObjectListTable._actions =
     duplicate : {
         title : ag.intl.t("duplicate"),
         icon : "fa fa-copy",
-        createAction : function($link, item) {
+        createAction : ($link, item, fields) => {
             item.deleted && $link.addClass("invisible");
 
-            $link.click(function(){
-                throw "Not implemented yet.";
+            fields = fields || {};
+
+            $link.click(ev => {
+                var
+                    hasFields = Object.keys(fields).length,
+                    name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id,
+                    modal;
+
+                if (!hasFields)
+                {
+                    modal = new ag.ui.elem.ConfirmModal(
+                        ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to duplicate `%s`?"), name),
+                        function(){ duplicate($link, item); }
+                    );
+                }
+                else
+                {
+                    Object.keys(fields).forEach(key => {
+                        fields[key].element.setValue(item[key]);
+                    });
+
+                    modal = new ag.admin.CloneModal(fields, function(){ duplicate($link, item, modal.getValues()); });
+                }
+
+                modal.appear();
             });
         }
     },

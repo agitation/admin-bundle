@@ -15,3 +15,14 @@ table.sublist-table input[type=text], table.sublist-table input[type=number] { m
 .sublist p.add                                              { margin-top: 2em; }
 .sublist p.empty                                            { display: none; color: #777; font-style: italic; margin: 10px }
 .sublist.empty p.empty                                      { display: block; }
+
+
+/* FormModal */
+
+.form-modal                                                 {}
+
+.form-modal table                                           { width: 100%; }
+.form-modal th                                              { vertical-align: top; padding: 15px 10px 10px 10px; font-weight: bold; width: 1%; }
+.form-modal td                                              { padding: 10px; }
+
+.clone-modal-info                                           { margin: 10px 10px 20px; color: #888; font-size: .9em; text-align: center }
