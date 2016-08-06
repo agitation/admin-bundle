@@ -318,6 +318,11 @@ ag.admin.ObjectListTable._filters =
         return ag.ui.tool.fmt.out(item[fieldName].name);
     },
 
+    check : function(item, fieldName)
+    {
+        return item[fieldName] ? $("<i class='check fa fa-check'>") : "";
+    },
+
     user : function(item, fieldName)
     {
         return $("<a class='email'></a>").attr("href", "mailto:" + item[fieldName].email).text(item[fieldName].name);
@@ -338,9 +343,9 @@ ag.admin.ObjectListTable._columns =
     datetime :      { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
     description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text },
     reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference },
+    check :         { title : "", style: "center", filter: ag.admin.ObjectListTable._filters.check },
     user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user },
-    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location },
-    status :        { title : ag.intl.t("Status"), filter : ag.admin.ObjectListTable._filters.status }
+    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location }
 };
 
 ag.admin.ObjectListTable._actions =
