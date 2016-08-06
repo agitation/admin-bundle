@@ -71,8 +71,6 @@ var
 
         $.extend(clonedItem, changedFields || {});
 
-        c(changedFields, clonedItem);
-
         ag.srv("api").doCall(
             item.getName() + ".create",
             clonedItem,
