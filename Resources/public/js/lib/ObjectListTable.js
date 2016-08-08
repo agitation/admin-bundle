@@ -211,7 +211,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
     };
 
     Object.keys(columns).forEach(function(key) {
-        $header.append($("<th>").addClass(columns[key].style).text(columns[key].title));
+        $header.append($("<th>").addClass(columns[key].style).html(columns[key].title));
     });
 
     actions.length && $header.append($("<th class='actions'>").text(ag.intl.t("Actions")));
