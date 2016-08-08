@@ -6,10 +6,10 @@ var
     {
         ag.ui.ctxt.View.apply(this, arguments);
 
-        blocks.search.setSearchCallback(function(result){
+        blocks.search.on("ag.admin.objectsearch.update", (ev, result) => {
             blocks.table.truncate();
 
-            result && result.length && result.forEach(function(item){
+            result && result.length && result.forEach(item => {
                 blocks.table.addItem(item);
             });
         });

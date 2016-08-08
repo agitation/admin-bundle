@@ -28,35 +28,48 @@ var
         }
     },
 
-    getValues = function()
+    valuesAreEqual = function(v1, v2)
     {
-        var values = {};
+        var same = true;
 
-        $.each(this.$fields, function(name, $field){
-            values[name] = $field.getValue();
-        });
+        if (typeof(v1) !== typeof(v2))
+        {
+            same = false;
+        }
+        else if (typeof(v1) === "object")
+        {
+            if (Object.keys(v1).length !== Object.keys(v2).length)
+                same = false;
+            else
+                Object.keys(v1).every(key => {
+                    return same = valuesAreEqual(v1[key], v2[key]);
+                });
+        }
+        else
+        {
+            same = (v1 === v2);
+        }
 
-        return values;
+        return same;
     },
 
     listSearch = function(endpointName, fields)
     {
         this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-search"));
-        this.searchCallback = function(){};
         this.endpointName = endpointName;
-        this.$fields = {};
-        this.$actions = this.find("td.actions");
+        this.fields = {};
+        this.actions = this.find("td.actions");
         this.defaultValues = {};
 
         var
-            $reset = this.$actions.find("a");
+            $reset = this.actions.find("a");
 
         Object.keys(fields).forEach(key => {
             this.addField(key, fields[key]);
         });
 
         $reset.click(() => {
-            $.each(this.$fields, (name, $field) => {
+            $.each(this.fields, (name, $field) => {
                 if ($field.reset)
                     $field.reset();
                 else
@@ -66,7 +79,7 @@ var
 
         this.submit(ev => {
             this.stopEvent(ev);
-            this.searchCallback();
+            this.search();
         });
     };
 
@@ -82,17 +95,28 @@ var
 
         field.element.attr("id", fieldId);
         $td.append($(ag.ui.tool.fmt.sprintf("<label class='caption' for='%s'>%s</label>", fieldId, field.label)));
-        $td.append(this.$fields[key] = field.element);
-        $td.addClass(key).insertBefore(this.$actions);
-        this.$fields[key].is("[type=hidden]") && $td.addClass("hidden");
+        $td.append(this.fields[key] = field.element);
+        $td.addClass(key).insertBefore(this.actions);
+        this.fields[key].is("[type=hidden]") && $td.addClass("hidden");
     };
 
-    listSearch.prototype.setSearchCallback = function(callback)
+    listSearch.prototype.search = function()
     {
-        this.searchCallback = function()
-        {
-            ag.srv("api").doCall(this.endpointName, getValues.call(this), callback);
-        };
+        var values = {};
+
+        $.each(this.fields, (name, field) => {
+            values[name] = field.getValue();
+        });
+
+        ag.srv("state").update(null, valuesAreEqual(this.defaultValues, values) ? "" : values);
+
+        ag.srv("api").doCall(
+            this.endpointName,
+            values,
+            result => {
+                this.trigger("ag.admin.objectsearch.update", [result]);
+            }
+        );
     };
 
     listSearch.prototype.getAction = function()
@@ -100,10 +124,10 @@ var
         return (request) => {
             if (request instanceof Object)
                 Object.keys(this.defaultValues).forEach(key => {
-                   this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
+                   this.fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
                 });
 
-            this.searchCallback();
+            this.search();
         }
     };
 
