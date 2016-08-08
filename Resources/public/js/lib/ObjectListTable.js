@@ -111,13 +111,12 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
             else
                 $row.removeClass("deleted");
 
-            Object.keys(columns).forEach(function(key){
-                var
-                    column = columns[key];
+            Object.keys(columns).forEach(key => {
+                var column = columns[key];
 
                 $("<td>")
                     .addClass(column.style)
-                    .html(column.filter ? column.filter(item, key) : item[key])
+                    .html(column.filter ? column.filter(item, key, column) : item[key])
                     .appendTo($row);
             });
 
@@ -134,7 +133,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
 
                     $link.getTable = function(){ return $elem; };
 
-                    action.createAction($link, item, action.params);
+                    action.createAction($link, item, action);
                     $actionTd.append($link);
                 });
 
@@ -232,7 +231,8 @@ ag.admin.ObjectListTable.getColumn = function(name, extra)
         {},
         ag.admin.ObjectListTable._columnTpl,
         ag.admin.ObjectListTable._columns[name],
-        extra || {});
+        extra || {}
+    );
 };
 
 ag.admin.ObjectListTable.createColumn = function(options)
@@ -243,14 +243,13 @@ ag.admin.ObjectListTable.createColumn = function(options)
         options);
 };
 
-ag.admin.ObjectListTable.getAction = function(name, extra, params)
+ag.admin.ObjectListTable.getAction = function(name, extra)
 {
     return $.extend(
         {},
         ag.admin.ObjectListTable._actionTpl,
         ag.admin.ObjectListTable._actions[name],
-        extra || {},
-        { params : params || {}}
+        extra || {}
     );
 };
 
@@ -313,9 +312,10 @@ ag.admin.ObjectListTable._filters =
         return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, ag.intl.t("d/m/Y H:i")));
     },
 
-    reference : function(item, fieldName)
+    reference : function(item, fieldName, params)
     {
-        return ag.ui.tool.fmt.out(item[fieldName].name);
+        var nameField = params && params.field ? params.field : "name";
+        return ag.ui.tool.fmt.out(item[fieldName][nameField]);
     },
 
     check : function(item, fieldName)
@@ -362,10 +362,10 @@ ag.admin.ObjectListTable._actions =
     duplicate : {
         title : ag.intl.t("duplicate"),
         icon : "fa fa-copy",
-        createAction : ($link, item, fields) => {
-            item.deleted && $link.addClass("invisible");
+        createAction : ($link, item, params) => {
+            var fields = params.fields || {};
 
-            fields = fields || {};
+            item.deleted && $link.addClass("invisible");
 
             $link.click(ev => {
                 var
