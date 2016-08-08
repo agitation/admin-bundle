@@ -9,7 +9,7 @@ var
         text : params => {
             return $.extend({
                 label : ag.intl.t("Text"),
-                element : new ag.ui.field.Text(null, { "class" : "form-control input-sm" })
+                element : new ag.ui.field.Text()
             }, params);
         },
 
@@ -99,7 +99,7 @@ var
     {
         return (request) => {
             if (request instanceof Object)
-                Object.keys(this.defaultValues).forEach(function(key){
+                Object.keys(this.defaultValues).forEach(key => {
                    this.$fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
                 });
 
