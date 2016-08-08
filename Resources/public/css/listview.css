@@ -39,10 +39,13 @@
 .listview-table                             { margin: 30px 0 0; }
 .listview-table .extra                      { overflow: hidden; }
 .listview-table .exporter                   { float: right; }
-.listview-table table                       { width: 100%; margin: 0; }
-.listview-table tbody tr:hover              { background: #f9f9f9; }
-.listview-table th, .listview-table td      { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
-.listview-table th                          { background: #222; color: #fff; border: 0; padding: 8px 10px }
+.listview-table > table                     { width: 100%; margin: 0; }
+.listview-table > table > tbody > tr:hover  { background: #f9f9f9; }
+
+.listview-table > table > thead > tr > th,
+.listview-table > table > tbody > tr > td   { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
+
+.listview-table > table > thead > tr > th   { background: #222; color: #fff; border: 0; padding: 8px 10px }
 .listview-table tr.noresults td             { text-align: center; color: #888 }
 .listview-table .center                     { text-align: center; }
 .listview-table td.left,
@@ -51,8 +54,8 @@
 .listview-table th.right                    { text-align: right; }
 .listview-table tr.deleted td               { color: #daa }
 
-.listview-table tfoot                       { display: none; }
-.listview-table tfoot td                    { font-weight: bold; background: #f4f4f4; border-bottom: 1px solid #aaa; }
+.listview-table > table > tfoot             { display: none; }
+.listview-table > table > tfoot > tr > td   { font-weight: bold; background: #f4f4f4; border-bottom: 1px solid #aaa; }
 
 .listview-table .action                     { white-space: nowrap; margin: 0 15px 3px 0; }
 .listview-table .action:last-child          { margin-right: 0; }
