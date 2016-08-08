@@ -4,18 +4,27 @@ ag.ns("ag.admin");
 var
     fieldIdCounter = 0,
 
-    availableFields =
+    fieldFactory =
     {
-        text :
-        {
-            label : ag.intl.t("Text"),
-            element : new ag.ui.field.Text(null, { "class" : "form-control input-sm" })
+        text : params => {
+            return $.extend({
+                label : ag.intl.t("Text"),
+                element : new ag.ui.field.Text(null, { "class" : "form-control input-sm" })
+            }, params);
         },
 
-        deleted :
-        {
-            label : "",
-            element : new ag.ui.field.Boolean(ag.intl.t("include deleted items"))
+        date : params => {
+            return $.extend({
+                label : ag.intl.t("Date"),
+                element : new ag.ui.field.Datepicker()
+            }, params);
+        },
+
+        deleted : params => {
+            return $.extend({
+                label : "",
+                element : new ag.ui.field.Boolean(ag.intl.t("include deleted items"))
+            }, params);
         }
     },
 
@@ -98,9 +107,9 @@ var
         }
     };
 
-    listSearch.getField = function(name)
+    listSearch.getField = function(name, params)
     {
-        return availableFields[name];
+        return fieldFactory[name](params || {});
     };
 
     ag.admin.ObjectListSearch = listSearch;
