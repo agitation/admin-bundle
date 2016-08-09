@@ -11,7 +11,7 @@ ag.ns("ag.admin.field");
         });
     };
 
-    sublistRowField.prototype = Object.create(ag.ui.field.Field.prototype);
+    sublistRowField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     sublistRowField.prototype.setValue = function(value)
     {

@@ -11,7 +11,7 @@ ag.ns("ag.admin.field");
             this.currentValue = null;
         };
 
-    readonlyField.prototype = Object.create(ag.ui.field.Field.prototype);
+    readonlyField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     readonlyField.prototype.setValue = function(value)
     {

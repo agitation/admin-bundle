@@ -31,7 +31,7 @@ ag.ns("ag.admin.field");
             });
         };
 
-    locationField.prototype = Object.create(ag.ui.field.Field.prototype);
+    locationField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     locationField.prototype.setValue = function(value)
     {

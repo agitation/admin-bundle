@@ -43,16 +43,16 @@ ag.ns("ag.admin.field");
             );
         },
 
-        timeField = function($field)
+        timeField = function(elem, attr)
         {
-            this.extend(this, $field || $("<input type='text' class='form-control'>"));
+            ag.ui.field.Text.apply(this, arguments);
 
             this.on("blur", ev => {
                 this.setValue(timeToNumber(this.origVal()));
             });
         };
 
-    timeField.prototype = Object.create(ag.ui.field.Field.prototype);
+    timeField.prototype = Object.create(ag.ui.field.Text.prototype);
 
     timeField.prototype.setValue = function(value)
     {

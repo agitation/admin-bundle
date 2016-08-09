@@ -38,7 +38,7 @@ ag.ns("ag.admin.field");
             });
         };
 
-    oneToManyField.prototype = Object.create(ag.ui.field.Field.prototype);
+    oneToManyField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     oneToManyField.prototype.setValue = function(value)
     {

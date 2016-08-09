@@ -8,11 +8,11 @@ ag.ns("ag.admin.field");
                 entity.id : entity;
         },
 
-        entitySelectField = function(objectName, $select, nullOption)
+        entitySelectField = function(elem, objectName, nullOption)
         {
             var dummyEntity = new ag.api.Object(objectName);
 
-            this.extend(this, ag.ui.field.EntitySelect.call(this, $select));
+            ag.ui.field.EntitySelect.call(this, elem);
 
             this.hiddenEntities = [];
             this.nullOption = nullOption;

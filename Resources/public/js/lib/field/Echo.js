@@ -7,7 +7,7 @@ ag.ns("ag.admin.field");
             this.value = undefined;
         };
 
-    echoField.prototype = Object.create(ag.ui.field.Field.prototype);
+    echoField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     echoField.prototype.setValue = function(value)
     {

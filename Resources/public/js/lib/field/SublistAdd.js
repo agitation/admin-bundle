@@ -6,23 +6,23 @@ ag.ns("ag.admin.field");
         {
             this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".sublist-add"));
 
-            var $selectField = this.find("select");
+            var selectField = this.find("select");
 
             if (childEntityName && childEntityPropertyName)
-                this.$select = new ag.admin.field.LoadableEntitySelect(childEntityName, $selectField);
+                this.selectField = new ag.admin.field.LoadableEntitySelect(selectField, childEntityName);
             else
-                $selectField.remove();
+                selectField.remove();
 
             this.childEntityPropertyName = childEntityPropertyName;
 
-            this.find("button").click(ev => {
+            this.find("button").click(() => {
                 var
                     data = {},
                     obj,
                     selected;
 
-                if (this.$select)
-                    data[childEntityPropertyName] = selected = this.$select.getSelectedEntity() || null;
+                if (this.selectField)
+                    data[childEntityPropertyName] = selected = this.selectField.getSelectedEntity() || null;
 
                 if (selected || selected === undefined)
                 {
@@ -31,30 +31,31 @@ ag.ns("ag.admin.field");
                 }
             });
 
-            this.on("ag.admin.sublist.add", (ev, obj) => {
-                if (this.childEntityPropertyName && obj[this.childEntityPropertyName])
-                {
-                    this.$select.hideEntity(obj[this.childEntityPropertyName]);
-                    (this.$select && this.$select.getCount()) || this.hide();
-                }
-            });
+            if (this.childEntityPropertyName)
+            {
+                this.on("ag.admin.sublist.add", (ev, obj) => {
+                    if (!obj[this.childEntityPropertyName]) return;
 
-            this.on("ag.admin.sublist.remove", (ev, obj) => {
-                if (this.childEntityPropertyName && obj[this.childEntityPropertyName])
-                {
-                    this.$select.unhideEntity(obj[this.childEntityPropertyName]);
+                    this.selectField.hideEntity(obj[this.childEntityPropertyName]);
+                    this.selectField.getCount() || this.hide();
+                });
+
+                this.on("ag.admin.sublist.remove", (ev, obj) => {
+                    if (!obj[this.childEntityPropertyName]) return;
+
+                    this.selectField.unhideEntity(obj[this.childEntityPropertyName]);
                     this.show();
-                }
-            });
+                });
+            }
         };
 
-    sublistAddField.prototype = Object.create(ag.ui.field.Field.prototype);
+    sublistAddField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     sublistAddField.prototype.reset = function()
     {
-        if (this.$select)
+        if (this.selectField)
         {
-            this.$select.unhideAllEntities();
+            this.selectField.unhideAllEntities();
             this.show();
         }
     };

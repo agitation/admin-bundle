@@ -23,7 +23,7 @@ ag.ns("ag.admin.field");
             });
         };
 
-    sublistField.prototype = Object.create(ag.ui.field.Field.prototype);
+    sublistField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     sublistField.prototype.getCount = function()
     {
