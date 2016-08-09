@@ -9,19 +9,27 @@ ag.ns("ag.admin.field");
             this.trigger("ag.admin.sublist.remove", this.getValue());
             this.remove();
         });
+
+        this.fields = {};
     };
 
     sublistRowField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     sublistRowField.prototype.setValue = function(value)
     {
-        this.setValues(value);
+        Object.keys(this.fields).forEach(name => this.fields[name].setValue(value[name]));
         return this;
     };
 
     sublistRowField.prototype.getValue = function()
     {
-        return this.getValues();
+        var value = {};
+
+        Object.keys(this.fields).forEach(name => {
+            value[name] = this.fields[name].getValue();
+        });
+
+        return value;
     };
 
     ag.admin.field.SublistRow = sublistRowField;
