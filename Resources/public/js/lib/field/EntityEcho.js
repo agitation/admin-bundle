@@ -4,6 +4,7 @@ ag.ns("ag.admin.field");
     var
         entityEchoField = function()
         {
+            this.extend(this, $("<span>"));
             this.value = null;
         };
 
@@ -11,12 +12,28 @@ ag.ns("ag.admin.field");
 
     entityEchoField.prototype.setValue = function(value)
     {
+        var name = "";
+
         if (value instanceof Object && value.id)
+        {
             this.value = value.id;
+            name = value.name ? ag.ui.tool.fmt.out(value.name) : value.id;
+        }
         else if (ag.common.isValid("integer", value, 1))
-            this.value = value;
+        {
+            if (value !== this.value)
+            {
+                name = value;
+                this.value = value;
+            }
+        }
         else
+        {
+            name = "–";
             value = null;
+        }
+
+        this.text(name);
 
         return this;
     };

@@ -4,6 +4,7 @@ ag.ns("ag.admin.field");
     var
         echoField = function()
         {
+            this.extend(this, $("<span>"));
             this.value = undefined;
         };
 
@@ -11,6 +12,7 @@ ag.ns("ag.admin.field");
 
     echoField.prototype.setValue = function(value)
     {
+        this.text(ag.ui.tool.fmt.out(value));
         this.value = value;
         return this;
     };
