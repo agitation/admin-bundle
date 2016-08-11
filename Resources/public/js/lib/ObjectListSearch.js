@@ -20,6 +20,13 @@ var
             }, params);
         },
 
+        period : params => {
+            return $.extend({
+                label : ag.intl.t("Period"),
+                element : new ag.admin.field.Period(params.minRange, params.maxRange)
+            }, params);
+        },
+
         deleted : params => {
             return $.extend({
                 label : "",
