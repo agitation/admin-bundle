@@ -33,7 +33,6 @@
 
 
 
-
 /* TABLE */
 
 .listview-table                             { margin: 30px 0 0; }
@@ -48,10 +47,9 @@
 .listview-table > table > thead > tr > th   { background: #222; color: #fff; border: 0; padding: 8px 10px }
 .listview-table tr.noresults td             { text-align: center; color: #888 }
 .listview-table .center                     { text-align: center; }
-.listview-table td.left,
-.listview-table th.left                     { text-align: left; }
-.listview-table td.right,
-.listview-table th.right                    { text-align: right; }
+.listview-table .left                       { text-align: left; }
+.listview-table .right                      { text-align: right; }
+.listview-table .code                       { font-family: Consolas, "Andale Mono", monospace; }
 .listview-table tr.deleted td               { color: #daa }
 
 .listview-table > table > tfoot             { display: none; }
