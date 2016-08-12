@@ -35,58 +35,19 @@ var
         }
     },
 
-    valuesAreEqual = function(v1, v2)
-    {
-        var same = true;
-
-        if (typeof(v1) !== typeof(v2))
-        {
-            same = false;
-        }
-        else if (typeof(v1) === "object")
-        {
-            if (Object.keys(v1).length !== Object.keys(v2).length)
-                same = false;
-            else
-                Object.keys(v1).every(key => {
-                    return same = valuesAreEqual(v1[key], v2[key]);
-                });
-        }
-        else
-        {
-            same = (v1 === v2);
-        }
-
-        return same;
-    },
-
-    listSearch = function(endpointName, fields)
+    listSearch = function(fields)
     {
         this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-search"));
-        this.endpointName = endpointName;
         this.fields = {};
         this.actions = this.find("td.actions");
         this.defaultValues = {};
-
-        var
-            $reset = this.actions.find("a");
 
         Object.keys(fields).forEach(key => {
             this.addField(key, fields[key]);
         });
 
-        $reset.click(() => {
-            $.each(this.fields, (name, $field) => {
-                if ($field.reset)
-                    $field.reset();
-                else
-                    $field.setValue(this.defaultValues[name]);
-            });
-        });
-
-        this.submit(ev => {
-            this.stopEvent(ev);
-            this.search();
+        this.actions.find("a").click(() => {
+            Object.keys(this.fields).forEach(name => this.fields[name].setValue(this.defaultValues[name]));
         });
     };
 
@@ -107,35 +68,21 @@ var
         this.fields[key].is("[type=hidden]") && $td.addClass("hidden");
     };
 
-    listSearch.prototype.search = function()
+    listSearch.prototype.setValues = function(values)
+    {
+        Object.keys(this.defaultValues)
+            .forEach(key => this.fields[key].setValue(values[key] !== undefined ? values[key] : this.defaultValues[key]));
+
+        return this;
+    };
+
+    listSearch.prototype.getValues = function()
     {
         var values = {};
 
-        $.each(this.fields, (name, field) => {
-            values[name] = field.getValue();
-        });
+        Object.keys(this.fields).forEach(name => (values[name] = this.fields[name].getValue()));
 
-        ag.srv("state").update(null, valuesAreEqual(this.defaultValues, values) ? "" : values);
-
-        ag.srv("api").doCall(
-            this.endpointName,
-            values,
-            result => {
-                this.trigger("ag.admin.objectsearch.update", [result]);
-            }
-        );
-    };
-
-    listSearch.prototype.getAction = function()
-    {
-        return (request) => {
-            if (request instanceof Object)
-                Object.keys(this.defaultValues).forEach(key => {
-                   this.fields[key].setValue(request[key] !== undefined ? request[key] : this.defaultValues[key]);
-                });
-
-            this.search();
-        }
+        return values;
     };
 
     listSearch.getField = function(name, params)

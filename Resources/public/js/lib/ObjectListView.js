@@ -2,20 +2,103 @@ ag.ns("ag.admin");
 
 (function(){
 var
-    objectListView = function(blocks)
+    valuesAreEqual = function(v1, v2)
     {
-        ag.ui.ctxt.View.apply(this, arguments);
+        var same = true;
 
-        blocks.search.on("ag.admin.objectsearch.update", (ev, result) => {
-            blocks.table.truncate();
+        if (typeof(v1) !== typeof(v2))
+        {
+            same = false;
+        }
+        else if (v1 && typeof(v1) === "object")
+        {
+            if (Object.keys(v1).length !== Object.keys(v2).length)
+                same = false;
+            else
+                Object.keys(v1).every(key => {
+                    return same = valuesAreEqual(v1[key], v2[key]);
+                });
+        }
+        else
+        {
+            same = (v1 === v2);
+        }
 
-            result && result.length && result.forEach(item => {
-                blocks.table.addItem(item);
-            });
+        return same;
+    },
+
+    search = function()
+    {
+        var isFreshLoad = this.pageNumber === 1;
+
+        if (this.isPaginated)
+        {
+            this.request.offset = (this.pageNumber - 1) * this.reqDummy.limit;
+            this.request.limit = this.reqDummy.limit + 1;
+        }
+
+        if (!this.loading)
+        {
+            this.loading = true;
+            this.blocks.more.setIndicatorState(!isFreshLoad).setTriggerState(0);
+
+            ag.srv("api").doCall(
+                this.endpoint,
+                this.request,
+                result => {
+                    var added = 0;
+
+                    isFreshLoad && this.blocks.table.truncate();
+
+                    result && result.length && result.forEach(item => {
+                        this.reqDummy.limit > added++ && this.blocks.table.addItem(item);
+                    });
+
+                    this.loading = false;
+                    this.blocks.more.setIndicatorState(0).setTriggerState(result && result.length > this.reqDummy.limit);
+                },
+                isFreshLoad ? null : this.hiddenIndicator // hidden indicator on "more", because there’s a custom one in place
+            );
+        }
+    },
+
+    objectListView = function(endpointName, blocks)
+    {
+        ag.ui.ctxt.View.call(this, blocks);
+        this.addClass("list");
+
+        this.endpoint = new ag.api.Endpoint(endpointName);
+        this.reqDummy = new ag.api.Object(this.endpoint.getRequest());
+        this.isPaginated = (blocks.more && this.reqDummy.offset !== undefined && this.reqDummy.limit);
+        this.hiddenIndicator = new ag.api.Indicator();
+
+        this.defaultValues = blocks.search.getValues();
+        this.request = {};
+
+        blocks.search.on("submit", ev => {
+            ev.preventDefault();
+
+            this.request = blocks.search.getValues();
+            this.pageNumber = 1;
+
+            ag.srv("state").update(null, valuesAreEqual(this.defaultValues, this.request) ? "" : this.request);
+            search.call(this);
+        });
+
+        blocks.more.submit(ev => {
+            ev.preventDefault();
+            ++this.pageNumber;
+            search.call(this);
         });
     };
 
 objectListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
 
+objectListView.prototype.getActions = function()
+{
+    return { search : request => this.blocks.search.setValues(request || {}).submit() };
+};
+
 ag.admin.ObjectListView = objectListView;
+
 })();

@@ -17,4 +17,4 @@ ag.admin.ObjectListHeader = function()
     return $elem;
 };
 
-ag.admin.ObjectListHeader.prototype = Object.create(jQuery.prototype);
+ag.admin.ObjectListHeader.prototype = Object.create(ag.ui.ctxt.Block.prototype);

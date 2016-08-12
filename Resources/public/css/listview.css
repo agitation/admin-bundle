@@ -23,7 +23,7 @@
 .listview-search input[type=text],
 .listview-search select                     { min-width: 120px; display: inline-block; margin-top: 5px }
 .listview-search select                     { max-height: 80px; overflow-y: auto; }
-.listview-search td.expand                  { width: 90% /*expand as far as possible for alignment */}
+.listview-search td.expand                  { width: 90% } /*expand as far as possible for alignment */
 .listview-search td.actions                 { padding: 35px 50px 13px 20px; }
 .listview-search td.actions a               { display: block; font-size: 0.9em; white-space: nowrap }
 .listview-search td.group table,
@@ -60,4 +60,10 @@
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
 .listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
 
-.listview-table tr.deleted td.actions a      { color: #aaa }
+.listview-table tr.deleted td.actions a     { color: #aaa }
+
+
+.view.list .more                            { margin: 25px 0 0; text-align: center; visibility: hidden }
+.view.list .more.visible                    { visibility: visible }
+.view.list .more div                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #777; }
+.view.list .more div.spinner                { height: 24px; width: 24px; margin-right: 20px; }

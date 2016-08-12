@@ -309,7 +309,7 @@ ag.admin.ObjectListTable._filters =
             dateTimeObj = item[fieldName],
             date = new Date(Date.UTC(dateTimeObj.year, dateTimeObj.month - 1, dateTimeObj.day, dateTimeObj.hour, dateTimeObj.minute));
 
-        return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, ag.intl.t("d/m/Y H:i")));
+        return $("<span class='datetime'></span>").text(ag.ui.tool.date.format(date, ag.intl.t("d/m H:i")));
     },
 
     reference : function(item, fieldName, params)
@@ -321,11 +321,6 @@ ag.admin.ObjectListTable._filters =
     check : function(item, fieldName)
     {
         return item[fieldName] ? $("<i class='check fa fa-check'>") : "";
-    },
-
-    user : function(item, fieldName)
-    {
-        return $("<a class='email'></a>").attr("href", "mailto:" + item[fieldName].email).text(item[fieldName].name);
     },
 
     location : function(item, fieldName)
