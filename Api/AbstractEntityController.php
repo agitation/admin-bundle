@@ -24,8 +24,8 @@ abstract class AbstractEntityController extends BaseController
 
         if ($requestObject instanceof PaginationInterface)
         {
-            $query->setFirstResult(($requestObject->get("page") - 1) * $requestObject->get("items"));
-            $query->setMaxResults($requestObject->get("items"));
+            $query->setFirstResult($requestObject->get("offset"));
+            $query->setMaxResults($requestObject->get("limit"));
         }
 
         if ($requestObject instanceof OrderInterface)

@@ -7,17 +7,14 @@ use Agit\ApiBundle\Annotation\Property;
 trait PaginationTrait
 {
     /**
-     * @Property\Name("Page")
-     * @Property\NumberType(minValue=1, nullable=true)
-     *
-     * Page number. The offset is calculated by the page number multiplied by
-     * the number of requested items (see below).
+     * @Property\Name("Start offset")
+     * @Property\NumberType(minValue=0)
      */
-    public $page = 1;
+    public $offset = 0;
 
     /**
      * @Property\Name("Items per page")
-     * @Property\NumberType(minValue=1, maxValue=200, nullable=true)
+     * @Property\NumberType(minValue=1, maxValue=200)
      */
-    public $items = 50;
+    public $limit = 50;
 }
