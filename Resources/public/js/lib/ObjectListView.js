@@ -40,7 +40,7 @@ var
         if (!this.loading)
         {
             this.loading = true;
-            this.blocks.more.setIndicatorState(!isFreshLoad).setTriggerState(0);
+            this.blocks.more && this.blocks.more.setIndicatorState(!isFreshLoad).setTriggerState(0);
 
             ag.srv("api").doCall(
                 this.endpoint,
@@ -55,7 +55,7 @@ var
                     });
 
                     this.loading = false;
-                    this.blocks.more.setIndicatorState(0).setTriggerState(result && result.length > this.reqDummy.limit);
+                    this.blocks.more && this.blocks.more.setIndicatorState(0).setTriggerState(result && result.length > this.reqDummy.limit);
                 },
                 isFreshLoad ? null : this.hiddenIndicator // hidden indicator on "more", because there’s a custom one in place
             );
@@ -85,7 +85,7 @@ var
             search.call(this);
         });
 
-        blocks.more.submit(ev => {
+        blocks.more && blocks.more.submit(ev => {
             ev.preventDefault();
             ++this.pageNumber;
             search.call(this);
