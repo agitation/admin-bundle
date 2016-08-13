@@ -21,6 +21,7 @@
 .listview-search td.field.autowidth         { max-width: none; white-space: nowrap }
 .listview-search label.caption              { display: block; height: 15px; margin: 2px 0 3px; white-space: nowrap; color: #777; font-weight: normal }
 .listview-search input[type=text],
+.listview-search input[type=number],
 .listview-search select                     { min-width: 120px; display: inline-block; margin-top: 5px }
 .listview-search select                     { max-height: 80px; overflow-y: auto; }
 .listview-search td.expand                  { width: 90% } /*expand as far as possible for alignment */
