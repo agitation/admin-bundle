@@ -81,7 +81,7 @@ entityForm.prototype.getAction = function()
         if (request === "new")
             fillForm.call(this, new ag.api.Object(this.entityName));
 
-        else if (request && !isNaN(request))
+        else if (request && (typeof(request) === "string" || typeof(request) === "number"))
             ag.srv("api").doCall(this.entityName + ".get", request, fillForm.bind(this));
     }
 };
