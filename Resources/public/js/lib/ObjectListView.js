@@ -96,7 +96,24 @@ objectListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
 
 objectListView.prototype.getActions = function()
 {
-    return { search : request => this.blocks.search.setValues(request || {}).submit() };
+    // when the request hasn’t changed, we will only trigger a new search if
+    // this is a fresh page load.
+    var isFirstRun = true;
+
+    return {
+        search : request => {
+
+            var currentValues = this.blocks.search.getValues();
+
+            request = request || this.defaultValues;
+            this.blocks.search.setValues(request);
+
+            if (isFirstRun || !valuesAreEqual(currentValues, request))
+                this.blocks.search.submit();
+
+            isFirstRun = false;
+        }
+    };
 };
 
 ag.admin.ObjectListView = objectListView;
