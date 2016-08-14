@@ -9,7 +9,7 @@
 
 .editview-form                                          {}
 
-.editview-form table                                    { width: 100%; }
+.editview-form > table                                  { width: 100%; }
 .editview-form > table > tbody > tr > th,
 .editview-form > table > tbody > tr > td                { border-bottom: 1px solid #888; padding: 10px 0 }
 .editview-form > table > tbody > tr > th                { vertical-align: top; padding: 20px 40px 20px 0; font-weight: normal; width: 1%; }
