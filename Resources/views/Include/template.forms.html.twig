@@ -3,16 +3,9 @@
         <span class="empty">{{ t("This value will be set on the server after saving the object.") }}</span>
     </div>
 
-    <div class="sublist">
-        <p class="empty">{{ t("Please add one or more entries to this list.") }}</p>
-    </div>
-
-    <p class="sublist-add input-group">
-        <select class="form-control"></select>
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">{{ t("add") }}</button>
-        </span>
-    </p>
+    <table class="onetomany">
+        <caption>{{ t("Please add one or more entries to this list.") }}</caption>
+    </table>
 
     <table class="form-modal">
         <tr>

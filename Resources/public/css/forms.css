@@ -4,22 +4,24 @@
 .readonly .empty                                            { color: #aaa; font-style: italic }
 
 
-/* SUBLIST */
+/* ONE-TO-MANY */
 
-table.sublist-table                                         { width: auto; margin-top: 3px; }
-table.sublist-table th,
-table.sublist-table td                                      { min-width: 0; padding: 10px 15px; background: #f2f2f2; vertical-align: middle; }
-table.sublist-table th[scope=col]                           { background: #e1e1e1; padding: 7px 15px; font-weight: bold; white-space: nowrap; border-bottom: 1px solid #fcfcfc; }
-table.sublist-table tr:first-child td                       { padding-top: 4px; }
-table.sublist-table tr:last-child td                        { padding-bottom: 4px; }
+table.onetomany                                             { width: auto; min-width: 20em; margin-top: 3px; }
+table.onetomany caption                                     { display: none; color: #777; font-style: italic; padding: 5px 0; white-space: nowrap }
+table.onetomany th,
+table.onetomany td                                          { min-width: 0; padding: 5px 10px; background: #f2f2f2; vertical-align: middle; }
+table.onetomany thead th                                    { background: #e1e1e1; padding: 7px 10px; font-weight: bold; white-space: nowrap; border-bottom: 1px solid #fcfcfc; }
+table.onetomany tbody:first-of-type tr:first-child td       { padding-top: 10px; }
+table.onetomany tbody:last-of-type tr:last-child td         { padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
+table.onetomany tfoot td                                    { background: none; padding-top: 10px; }
+table.onetomany tfoot td:first-child                        { padding-left: 0; }
+table.onetomany tfoot td select                             { min-width: 13em }
 
+table.onetomany input[type=text],
+table.onetomany input[type=number]                          { width: 6em; }
 
-table.sublist-table input[type=text],
-table.sublist-table input[type=number]                      { width: 6em; }
-.sublist p.add                                              { margin-top: 2em; }
-.sublist p.empty                                            { display: none; color: #777; font-style: italic; margin: 10px }
-.sublist.empty p.empty                                      { display: block; }
-
+table.onetomany.empty caption                               { display: table-caption; }
+table.onetomany.empty thead, table.onetomany.empty tbody    { display: none; }
 
 /* FormModal */
 

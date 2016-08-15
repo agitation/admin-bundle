@@ -2,57 +2,67 @@ ag.ns("ag.admin.field");
 
 (function(){
     var
-        toggleList = function(on)
+        oneToManyField = function()
         {
-            if (on)
-            {
-                this.emptyHint.hide();
-                this.list.show();
-            }
-            else
-            {
-                this.list.hide();
-                this.emptyHint.show();
-            }
-        },
+            this.nodify();
 
-        oneToManyField = function($list, $add, $tpl)
-        {
-            this.extend(this, $tpl || ag.ui.tool.tpl("agitadmin-forms", ".sublist"));
+            this.rows = [];
+            this.footer = this.createFooter();
 
-            this.list = $list;
-            this.add = $add;
-            this.emptyHint = this.find("p.empty");
+            this.append([this.createHeader(), this.footer]);
 
-            this.append([$list, $add]);
-            toggleList.call(this, false);
-
-            this.on("ag.admin.sublist.add", (ev, obj) => {
-                $list.triggerHandler("ag.admin.sublist.add", obj);
-                toggleList.call(this, true);
+            this.on("ag.admin.onetomany.add", (ev, obj) => {
+                var row = this.createRow();
+                row.setValue(obj);
+                this.addRow(row);
+                this.removeClass("empty");
             });
 
-            this.on("ag.admin.sublist.remove", (ev, obj) => {
-                $add.triggerHandler("ag.admin.sublist.remove", obj);
-                toggleList.call(this, $list.getCount());
+            this.on("ag.admin.onetomany.remove", (ev, obj) => {
+                this.footer.triggerHandler("ag.admin.onetomany.remove", obj);
+                this.toggleClass("empty", !this.rows.length);
+
             });
         };
 
     oneToManyField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
+    oneToManyField.prototype.nodify = function()
+    {
+        this.extend(this, ag.ui.tool.tpl("agitadmin-forms", ".onetomany"));
+    };
+
+    oneToManyField.prototype.createHeader = function() { };
+
+    oneToManyField.prototype.createFooter = function() { };
+
+    oneToManyField.prototype.createRow = function() { };
+
+    oneToManyField.prototype.addRow = function(row)
+    {
+        this.rows.push(row);
+        this.removeClass("empty").append(row);
+
+        row.on("ag.admin.onetomany.remove", (ev, obj) => {
+            this.rows.splice(this.rows.indexOf(row), 1);
+            this.rows.length || this.addClass("empty");
+        });
+    };
+
     oneToManyField.prototype.setValue = function(value)
     {
-        toggleList.call(this, value.length);
-        this.list.setValue([]);
-        this.add.reset();
-        value.forEach(obj => this.add.trigger("ag.admin.sublist.add", obj));
+        this.rows = [];
+        this.find("tbody").remove();
+        this.footer.reset();
+        value.forEach(obj => this.footer.trigger("ag.admin.onetomany.add", obj));
+        this.toggleClass("empty", !value.length);
 
         return this;
     };
 
     oneToManyField.prototype.getValue = function()
     {
-        return this.list.getValue();
+        return this.rows.map(row => row.getValue());
     };
 
     ag.admin.field.OneToMany = oneToManyField;
