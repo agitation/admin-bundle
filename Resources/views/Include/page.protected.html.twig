@@ -4,6 +4,8 @@
     {% stylesheets
         "@AgitAdminBundle/Resources/public/css/page.css"
         "@AgitUiBundle/Resources/public/css/message.bubbles.css"
+        "@AgitUiBundle/Resources/public/css/calendar.css"
+        "@AgitUiBundle/Resources/public/css/datepicker.css"
         "@AgitAdminBundle/Resources/public/css/tooltip.css"
         "@AgitAdminBundle/Resources/public/css/forms.css"
         "@AgitAdminBundle/Resources/public/css/listview.css"
@@ -35,8 +37,12 @@
         "@AgitUiBundle/Resources/public/js/lib/field/Boolean.js"
         "@AgitUiBundle/Resources/public/js/lib/field/EntitySelect.js"
         "@AgitUiBundle/Resources/public/js/lib/elem/ConfirmModal.js"
+        "@AgitUiBundle/Resources/public/js/lib/field/Calendar.js"
+        "@AgitUiBundle/Resources/public/js/lib/field/Datepicker.js"
         "@AgitMultilangBundle/Resources/public/js/lib/field/Multilang.js"
+        "@AgitAdminBundle/Resources/public/js/lib/field/Time.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/SublistAdd.js"
+        "@AgitAdminBundle/Resources/public/js/lib/field/SublistEntityAdd.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/LoadableEntitySelect.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/Readonly.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/Sublist.js"
@@ -64,6 +70,7 @@
 
 {% block area_templates %}
     {% include "AgitUiBundle:Include:include.message.bubble.html.twig" %}
+    {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
     {% include "AgitAdminBundle:Include:template.tooltip.html.twig" %}
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
