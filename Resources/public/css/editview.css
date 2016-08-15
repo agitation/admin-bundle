@@ -13,9 +13,7 @@
 .editview-form > table > tbody > tr > th,
 .editview-form > table > tbody > tr > td                { border-bottom: 1px solid #ddd; padding: 20px 0 }
 .editview-form > table > tbody > tr > th                { vertical-align: top; padding: 30px 40px 30px 0; font-weight: normal; width: 1%; }
-.editview-form > table > tbody > tr:last-child > th,
-.editview-form > table > tbody > tr:last-child > td     { border-bottom: 0 }
-.editview-form tfoot td                                 { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
+.editview-form > table > tfoot tr > td                  { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
 .editview-form tfoot button                             { margin-right: 15px; }
 
 .editview-form th label                                 { display: block; margin: 0; font-weight: bold; white-space: nowrap; }
