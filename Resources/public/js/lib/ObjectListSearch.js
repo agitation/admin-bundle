@@ -4,33 +4,39 @@ ag.ns("ag.admin");
 var
     fieldIdCounter = 0,
 
+    defaultFieldParams = { label : "", priority: 2, element : null };
+
     fieldFactory =
     {
         text : params => {
             return $.extend({
                 label : ag.intl.t("Text"),
-                element : new ag.ui.field.Text()
+                element : new ag.ui.field.Text(),
+                priority : 1
             }, params);
         },
 
         date : params => {
             return $.extend({
                 label : ag.intl.t("Date"),
-                element : new ag.ui.field.Datepicker()
+                element : new ag.ui.field.Datepicker(),
+                priority : 2
             }, params);
         },
 
         period : params => {
             return $.extend({
                 label : ag.intl.t("Period"),
-                element : new ag.admin.field.Period(params.minRange, params.maxRange)
+                element : new ag.admin.field.Period(params.minRange, params.maxRange),
+                priority : 2
             }, params);
         },
 
         deleted : params => {
             return $.extend({
                 label : "",
-                element : new ag.ui.field.Boolean(ag.intl.t("include deleted items"))
+                element : new ag.ui.field.Boolean(ag.intl.t("include deleted items")),
+                priority : 3
             }, params);
         }
     },
@@ -59,12 +65,12 @@ var
             $td = $("<td class='field'>"),
             fieldId = "ag-admin-objectlistsearch-" + fieldIdCounter++;
 
+        this.fields[key] = field.element;
         this.defaultValues[key] = field.element.getValue();
-
-        field.element.attr("id", fieldId);
+        field.element.setTargetId(fieldId);
         $td.append($(ag.ui.tool.fmt.sprintf("<label class='caption' for='%s'>%s</label>", fieldId, field.label)));
-        $td.append(this.fields[key] = field.element);
-        $td.addClass(key).insertBefore(this.actions);
+        $td.append(field.element);
+        $td.addClass(key + " priority-" + field.priority).insertBefore(this.actions);
         this.fields[key].is("[type=hidden]") && $td.addClass("hidden");
     };
 
@@ -85,9 +91,14 @@ var
         return values;
     };
 
+    listSearch.createField = function(params)
+    {
+        return $.extend({}, defaultFieldParams, params);
+    };
+
     listSearch.getField = function(name, params)
     {
-        return fieldFactory[name](params || {});
+        return $.extend({}, defaultFieldParams, fieldFactory[name](), params || {});
     };
 
     ag.admin.ObjectListSearch = listSearch;

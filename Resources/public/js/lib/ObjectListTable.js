@@ -115,7 +115,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
                 var column = columns[key];
 
                 $("<td>")
-                    .addClass(column.style)
+                    .addClass(column.style + " priority-" + column.priority)
                     .html(column.filter ? column.filter(item, key, column) : item[key])
                     .appendTo($row);
             });
@@ -210,9 +210,11 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
         updateFooter(true);
     };
 
-    Object.keys(columns).forEach(function(key) {
-        $header.append($("<th>").addClass(columns[key].style).html(columns[key].title));
-    });
+    Object.keys(columns).forEach(key => $header
+        .append($("<th>")
+        .addClass(columns[key].style + " priority-" + columns[key].priority)
+        .html(columns[key].title))
+    );
 
     actions.length && $header.append($("<th class='actions'>").text(ag.intl.t("Actions")));
     $elem.showNoResultsRow();
@@ -252,9 +254,6 @@ ag.admin.ObjectListTable.getAction = function(name, extra)
         extra || {}
     );
 };
-
-ag.admin.ObjectListTable._columnTpl = { name : null, filter : function(){}, style : "", secondary : false };
-ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "", params : {} };
 
 ag.admin.ObjectListTable._filters =
 {
@@ -329,19 +328,23 @@ ag.admin.ObjectListTable._filters =
     }
 };
 
+ag.admin.ObjectListTable._columnTpl = { title : "", filter : () => {}, style : "", priority : 2 };
+
 ag.admin.ObjectListTable._columns =
 {
-    id :            { title : ag.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right" },
-    num :           { title : "#", style: "right" },
-    name :          { title : ag.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text },
+    id :            { title : ag.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right", priority : 1 },
+    num :           { title : "#", style: "right", priority : 1 },
+    name :          { title : ag.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text, priority : 1 },
     date :          { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
     datetime :      { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
-    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text },
-    reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference },
-    check :         { title : "", style: "center", filter: ag.admin.ObjectListTable._filters.check },
-    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user },
-    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location }
+    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text, priority : 3 },
+    reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference, priority : 2 },
+    check :         { title : "", style: "center", filter: ag.admin.ObjectListTable._filters.check, priority : 2 },
+    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user, priority : 2 },
+    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location, priority : 3 }
 };
+
+ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "", params : {} };
 
 ag.admin.ObjectListTable._actions =
 {

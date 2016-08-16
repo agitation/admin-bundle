@@ -68,3 +68,20 @@
 .view.list .more.visible                    { visibility: visible }
 .view.list .more div                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #777; }
 .view.list .more div.spinner                { height: 24px; width: 24px; margin-right: 20px; }
+
+.priority-2, .priority-3, .priority-4       { display: none; }
+
+@media (min-width: 768px)
+{
+    .priority-2                             { display: table-cell; }
+}
+
+@media (min-width: 992px)
+{
+    .priority-3                             { display: table-cell; }
+}
+
+@media (min-width: 1200px)
+{
+    .priority-4                             { display: table-cell; }
+}
