@@ -12,7 +12,7 @@ var
             return $.extend({
                 label : ag.intl.t("Text"),
                 element : new ag.ui.field.Text(),
-                priority : 1
+                priority : 2
             }, params);
         },
 
@@ -36,7 +36,7 @@ var
             return $.extend({
                 label : "",
                 element : new ag.ui.field.Boolean(ag.intl.t("include deleted items")),
-                priority : 3
+                priority : 1
             }, params);
         }
     },
@@ -98,7 +98,8 @@ var
 
     listSearch.getField = function(name, params)
     {
-        return $.extend({}, defaultFieldParams, fieldFactory[name](), params || {});
+        params = params || {};
+        return $.extend({}, defaultFieldParams, fieldFactory[name](params), params);
     };
 
     ag.admin.ObjectListSearch = listSearch;

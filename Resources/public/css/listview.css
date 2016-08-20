@@ -56,12 +56,13 @@
 
 .listview-table .action                     { white-space: nowrap; margin: 0 15px 3px 0; }
 .listview-table .action:last-child          { margin-right: 0; }
-.listview-table td.actions a                { display: inline-block; margin: 0 1em 0 0 }
+.listview-table td.actions a                { display: inline-block; margin: 0 1em 0 0; white-space: nowrap }
 .listview-table td.actions a.invisible      { visibility: hidden; }
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
 .listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
 
 .listview-table tr.deleted td.actions a     { color: #aaa }
+.listview-table td.longtext                 { max-width: 30% }
 
 
 .view.list .more                            { margin: 25px 0 0; text-align: center; visibility: hidden }
@@ -69,19 +70,22 @@
 .view.list .more div                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #777; }
 .view.list .more div.spinner                { height: 24px; width: 24px; margin-right: 20px; }
 
-.priority-2, .priority-3, .priority-4       { display: none; }
+.view.list .priority-2,
+.view.list .priority-3,
+.view.list .priority-4                      { display: none; }
 
 @media (min-width: 768px)
 {
-    .priority-2                             { display: table-cell; }
+    .view.list .priority-2                  { display: table-cell; }
 }
 
 @media (min-width: 992px)
 {
-    .priority-3                             { display: table-cell; }
+    .listview-table td.actions              { white-space: nowrap }
+    .view.list .priority-3                  { display: table-cell; }
 }
 
 @media (min-width: 1200px)
 {
-    .priority-4                             { display: table-cell; }
+    .view.list .priority-4                  { display: table-cell; }
 }

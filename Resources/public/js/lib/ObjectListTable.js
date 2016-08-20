@@ -133,7 +133,7 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
 
                     $link.getTable = function(){ return $elem; };
 
-                    action.createAction($link, item, action);
+                    action.generate($link, item, action);
                     $actionTd.append($link);
                 });
 
@@ -255,6 +255,11 @@ ag.admin.ObjectListTable.getAction = function(name, extra)
     );
 };
 
+ag.admin.ObjectListTable.createAction = function(params)
+{
+    return $.extend({}, ag.admin.ObjectListTable._actionTpl, params);
+};
+
 ag.admin.ObjectListTable._filters =
 {
     id : function(item)
@@ -320,11 +325,6 @@ ag.admin.ObjectListTable._filters =
     check : function(item, fieldName)
     {
         return item[fieldName] ? $("<i class='check fa fa-check'>") : "";
-    },
-
-    location : function(item, fieldName)
-    {
-        return ag.ui.tool.fmt.sprintf("%s × %s", item.location.lat, item.location.lon);
     }
 };
 
@@ -337,21 +337,20 @@ ag.admin.ObjectListTable._columns =
     name :          { title : ag.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text, priority : 1 },
     date :          { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
     datetime :      { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
-    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text, priority : 3 },
+    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text, style: "longtext", priority : 3 },
     reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference, priority : 2 },
     check :         { title : "", style: "center", filter: ag.admin.ObjectListTable._filters.check, priority : 2 },
-    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user, priority : 2 },
-    location :      { title : ag.intl.t("Location"), filter: ag.admin.ObjectListTable._filters.location, priority : 3 }
+    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user, priority : 2 }
 };
 
-ag.admin.ObjectListTable._actionTpl = { title : "", href : "", createAction : function(){}, icon : "", params : {} };
+ag.admin.ObjectListTable._actionTpl = { title : "", href : "", generate : () => {}, icon : "", params : {} };
 
 ag.admin.ObjectListTable._actions =
 {
     edit : {
         title: ag.intl.t("edit"),
         icon : "fa fa-edit",
-        createAction : ($link, item) => {
+        generate : ($link, item) => {
             item.deleted && $link.addClass("invisible");
             $link.attr("href", "#!/edit?" + item.id);
         }
@@ -360,7 +359,7 @@ ag.admin.ObjectListTable._actions =
     duplicate : {
         title : ag.intl.t("duplicate"),
         icon : "fa fa-copy",
-        createAction : ($link, item, params) => {
+        generate : ($link, item, params) => {
             var fields = params.fields || {};
 
             item.deleted && $link.addClass("invisible");
@@ -395,7 +394,7 @@ ag.admin.ObjectListTable._actions =
     remove : {
         title : ag.intl.t("delete"),
         icon : "fa fa-trash",
-        createAction : function($link, item) {
+        generate : function($link, item) {
 
             var
                 actionType = "delete",
