@@ -32,10 +32,24 @@ ag.ns("ag.admin.field");
 
     periodField.prototype.getValue = function()
     {
-        return {
+        return this.disabled ? null : {
             from : this.dpFrom.getValue(),
             until : this.dpUntil.getValue()
         };
+    };
+
+    periodField.prototype.disable = function()
+    {
+        ag.ui.field.ComplexField.prototype.disable.call(this);
+        this.dpFrom.disable();
+        this.dpUntil.disable();
+    };
+
+    periodField.prototype.enable = function()
+    {
+        ag.ui.field.ComplexField.prototype.enable.call(this);
+        this.dpFrom.enable();
+        this.dpUntil.enable();
     };
 
     ag.admin.field.Period = periodField;
