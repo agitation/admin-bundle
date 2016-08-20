@@ -8,11 +8,8 @@ use Agit\AdminBundle\Api\SearchObject\PaginationInterface;
 use Agit\AdminBundle\Api\SearchObject\NameInterface;
 use Agit\AdminBundle\Api\SearchObject\DeletedInterface;
 use Agit\ApiBundle\Common\RequestObjectInterface;
-use Agit\PluggableBundle\Strategy\Depends;
 
 /**
- * @Depends({"@doctrine.orm.entity_manager"})
- *
  * Extends the AbstractEntityController from the API bundle with extended
  * entity management features.
  */
