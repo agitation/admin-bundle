@@ -62,7 +62,7 @@ var
     listSearch.prototype.addField = function(key, field)
     {
         var
-            $td = $("<td class='field'>"),
+            $td = $("<td>"),
             fieldId = "ag-admin-objectlistsearch-" + fieldIdCounter++;
 
         this.fields[key] = field.element;
