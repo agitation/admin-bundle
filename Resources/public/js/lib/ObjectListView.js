@@ -10,7 +10,7 @@ var
         {
             same = false;
         }
-        else if (v1 && typeof(v1) === "object")
+        else if (v1 && v2 && typeof(v1) === "object")
         {
             if (Object.keys(v1).length !== Object.keys(v2).length)
                 same = false;
