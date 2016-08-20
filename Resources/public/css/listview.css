@@ -2,15 +2,8 @@
 
 .listview-header                        { margin-bottom: 20px; overflow: hidden; }
 .listview-header h2                     { margin: 0; }
-
-
 .listview-header .goto input            { width: 85px !important; }
 
-@media (min-width: 480px) {
-    .listview-header h2                 { float: left; }
-    .listview-header .actions           { overflow: hidden; }
-    .listview-header .action            { float: right; margin-left: 15px; }
-}
 
 /* SEARCH FORM */
 
@@ -22,12 +15,8 @@
 .listview-search input[type=number],
 .listview-search select                     { min-width: 120px; display: inline-block; margin-bottom: 5px }
 .listview-search select                     { max-height: 80px; overflow-y: auto; }
-.listview-search td.expand                  { width: 90% } /*expand as far as possible for alignment */
-.listview-search td.actions                 { padding: 35px 50px 13px 20px; }
+.listview-search td.actions                 { padding: 35px 50px 15px 20px; width: 100% }
 .listview-search td.actions a               { display: block; font-size: 0.9em; white-space: nowrap }
-.listview-search td.group table,
-.listview-search td.group table td          { margin: 0; padding: 0; }
-
 
 
 /* TABLE */
@@ -71,6 +60,15 @@
 .view.list .priority-2,
 .view.list .priority-3,
 .view.list .priority-4                      { display: none; }
+
+
+@media (min-width: 480px)
+{
+    .listview-header h2                 { float: left; }
+    .listview-header .actions           { overflow: hidden; }
+    .listview-header .action            { float: right; margin-left: 15px; }
+}
+
 
 @media (min-width: 768px)
 {
