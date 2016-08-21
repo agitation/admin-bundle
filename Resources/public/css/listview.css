@@ -7,15 +7,16 @@
 
 /* SEARCH FORM */
 
-.listview-search table                      { margin: 0; background: #f6f6f6; border-collapse: collapse; width: 100%; }
-.listview-search td                         { padding: 10px 20px; background: #eee; border: 0; vertical-align: top; text-align: left;  }
-.listview-search td.caption                 { background: #e4e4e4; font-weight: 300; font-size: 20px; height: 20px; color: #555; border-right: 1px solid #fff; padding: 35px 30px 0 20px; white-space: nowrap }
-.listview-search label.caption              { display: block; height: 15px; margin: 2px 0 7px; white-space: nowrap; color: #777; font-weight: normal }
+.listview-search table                      { margin: 0; border-collapse: collapse; width: 100%; }
+.listview-search th                         { background: #d4d4d4; font-weight: 300; font-size: 20px; line-height: 34px; vertical-align: top; color: #444; }
+.listview-search td                         { background: #ececec; border: 0; vertical-align: top; text-align: left; line-height: 1em; border-left: 1px solid #f7f7f7; }
+.listview-search tr.captions > *            { padding: 15px 30px 0; }
+.listview-search tr.fields > *              { padding: 10px 30px 15px; }
+.listview-search .caption label             { white-space: nowrap; font-weight: normal; margin: 0; vertical-align: middle; text-indent: 3px }
 .listview-search input[type=text],
 .listview-search input[type=number],
 .listview-search select                     { min-width: 120px; display: inline-block; margin-bottom: 5px }
-.listview-search select                     { max-height: 80px; overflow-y: auto; }
-.listview-search td.actions                 { padding: 35px 50px 15px 20px; width: 100% }
+.listview-search td.actions                 { width: 100% }
 .listview-search td.actions a               { display: block; font-size: 0.9em; white-space: nowrap }
 
 

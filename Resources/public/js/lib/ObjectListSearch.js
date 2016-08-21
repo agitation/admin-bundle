@@ -2,41 +2,42 @@ ag.ns("ag.admin");
 
 (function(){
 var
-    fieldIdCounter = 0,
+    captionLabelIdCounter = 0,
 
-    defaultFieldParams = { label : "", priority: 2, element : null };
+    defaultFieldParams =
+    {
+        label : "",
+        priority: 2,
+        element : null
+    },
 
     fieldFactory =
     {
         text : params => {
-            return $.extend({
+            return $.extend({}, defaultFieldParams, {
                 label : ag.intl.t("Text"),
-                element : new ag.ui.field.Text(),
-                priority : 2
+                element : new ag.ui.field.Text()
             }, params);
         },
 
         date : params => {
-            return $.extend({
+            return $.extend({}, defaultFieldParams, {
                 label : ag.intl.t("Date"),
-                element : new ag.ui.field.Datepicker(),
-                priority : 2
+                element : new ag.ui.field.Datepicker()
             }, params);
         },
 
         period : params => {
-            return $.extend({
+            return $.extend({}, defaultFieldParams, {
                 label : ag.intl.t("Period"),
-                element : new ag.admin.field.Period(params.minRange, params.maxRange),
-                priority : 2
+                element : new ag.admin.field.Period(params.minRange, params.maxRange)
             }, params);
         },
 
         deleted : params => {
-            return $.extend({
+            return $.extend({}, defaultFieldParams, {
                 label : "",
-                element : new ag.ui.field.Boolean(ag.intl.t("include deleted items")),
-                priority : 1
+                element : new ag.ui.field.Boolean(ag.intl.t("include deleted items"))
             }, params);
         }
     },
@@ -45,34 +46,40 @@ var
     {
         this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-search"));
         this.fields = {};
-        this.actions = this.find("td.actions");
         this.defaultValues = {};
 
+        var
+            captionsTrActions = this.find("tr.captions .actions"),
+            fieldsTrActions = this.find("tr.fields .actions");
+
         Object.keys(fields).forEach(key => {
-            this.addField(key, fields[key]);
+            var
+                field = fields[key],
+                captionLabelId = "ag-admin-objectlistsearch-" + captionLabelIdCounter++,
+                classes = (key + " priority-" + field.priority),
+                captionTd = ag.ui.tool.tpl("agitadmin-listview", "td.caption"),
+                fieldTd = $("<td>");
+
+            field.element.setTargetId(captionLabelId);
+            this.fields[key] = field.element;
+
+            captionTd
+                .addClass(classes)
+                .insertBefore(captionsTrActions)
+                .find("label").text(field.label).attr("for", captionLabelId);
+
+            fieldTd
+                .html(field.element)
+                .addClass(classes)
+                .insertBefore(fieldsTrActions);
+
+            this.defaultValues[key] = field.element.getValue();
         });
 
-        this.actions.find("a").click(() => {
-            Object.keys(this.fields).forEach(name => this.fields[name].setValue(this.defaultValues[name]));
-        });
+        this.find("td.actions a").click(() => this.setValues(this.defaultValues));
     };
 
     listSearch.prototype = Object.create(ag.ui.ctxt.Form.prototype);
-
-    listSearch.prototype.addField = function(key, field)
-    {
-        var
-            $td = $("<td>"),
-            fieldId = "ag-admin-objectlistsearch-" + fieldIdCounter++;
-
-        this.fields[key] = field.element;
-        this.defaultValues[key] = field.element.getValue();
-        field.element.setTargetId(fieldId);
-        $td.append($(ag.ui.tool.fmt.sprintf("<label class='caption' for='%s'>%s</label>", fieldId, field.label)));
-        $td.append(field.element);
-        $td.addClass(key + " priority-" + field.priority).insertBefore(this.actions);
-        this.fields[key].is("[type=hidden]") && $td.addClass("hidden");
-    };
 
     listSearch.prototype.setValues = function(values)
     {

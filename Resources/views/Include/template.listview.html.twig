@@ -25,8 +25,12 @@
 
     <form class="listview-search">
         <table>
-            <tr>
-                <td class="caption">{{ t("Search") }}</td>
+            <tr class="captions">
+                <th></th>
+                <td class="actions"></td>
+            </tr>
+            <tr class="fields">
+                <th>{{ t("Search") }}</th>
 
                 <td class="actions">
                     <button type="submit" class="btn btn-default">{{ t("Update list") }}</button>
@@ -55,4 +59,10 @@
             <tfoot><tr></tr></tfoot>
         </table>
     </div>
+
+    <table class="dummy"><tr>
+        <td class="caption">
+            <label></label>
+        </td>
+    </tr></table>
 </template>
