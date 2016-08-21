@@ -16,7 +16,7 @@ var
                 same = false;
             else
                 Object.keys(v1).every(key => {
-                    return same = valuesAreEqual(v1[key], v2[key]);
+                    return (same = valuesAreEqual(v1[key], v2[key]));
                 });
         }
         else
@@ -101,7 +101,7 @@ var
             blocks.table.contains(obj.id) && blocks.table.updateItem(obj);
         });
 
-        this.on("ag.admin.entity.create", (ev, obj) => {
+        this.on("ag.admin.entity.create", () => {
             this.dirty = true;
         });
 

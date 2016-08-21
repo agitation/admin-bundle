@@ -7,7 +7,7 @@ var
         ag.ui.ctxt.View.call(this, blocks);
         this.addClass("edit");
 
-        this.one("ag.admin.entity.search", (ev, request) => {
+        this.one("ag.admin.entity.search", () => {
             var header = this.getBlock(ag.admin.EntityEditHeader);
             header && header.setRelativeBacklink(true);
         });

@@ -4,10 +4,11 @@
     "expr" : true,
     "browser": true,
     "jquery" : true,
-    "predef": [ "agit" ],
+    "predef": [ "ag" ],
     "maxerr": 100,
     "freeze" : true,
     "nonew" : true,
     "undef": true,
-    "unused": true
+    "unused": true,
+    "esversion" : 6
 }

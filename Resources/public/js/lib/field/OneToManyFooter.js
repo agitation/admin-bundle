@@ -17,7 +17,7 @@ ag.ns("ag.admin.field");
 
     oneToManyFooter.prototype.reset = function() {};
 
-    oneToManyFooter.prototype.setValue = function(value) { };
+    oneToManyFooter.prototype.setValue = function() { };
 
     oneToManyFooter.prototype.getValue = function()
     {

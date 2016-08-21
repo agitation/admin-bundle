@@ -1,16 +1,12 @@
 ag.ns("ag.admin.field");
 
 (function(){
-    var oneToManyRow = function($tpl)
+    var oneToManyRow = function()
     {
         this.nodify();
-
-        this.find(".remove button").click(ev => {
-            this.trigger("ag.admin.onetomany.remove", this.getValue());
-            this.remove();
-        });
-
         this.fields = {};
+
+        this.find(".remove button").click(() => this.trigger("ag.admin.onetomany.remove", this.getValue()).remove());
     };
 
     oneToManyRow.prototype = Object.create(ag.ui.field.ComplexField.prototype);

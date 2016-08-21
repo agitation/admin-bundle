@@ -43,7 +43,7 @@ ag.ns("ag.admin.field");
         this.rows.push(row);
         this.removeClass("empty").append(row);
 
-        row.on("ag.admin.onetomany.remove", (ev, obj) => {
+        row.on("ag.admin.onetomany.remove", () => {
             this.rows.splice(this.rows.indexOf(row), 1);
             this.rows.length || this.addClass("empty");
         });

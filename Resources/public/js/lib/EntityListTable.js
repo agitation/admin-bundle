@@ -5,19 +5,19 @@ ag.ns("ag.admin");
 var
     deleteUndeleteCall = function(type, $link, item)
     {
+        var isDelete = type === "delete";
+
         ag.srv("api").doCall(
             item.getName() + "." + type,
             item.id,
             (res, status) => {
                 if (status === 200)
                 {
-                    item.deleted = (type === "delete");
+                    item.deleted = isDelete;
                     $link.getTable().updateItem(item);
 
                     ag.srv("messageHandler").alert(
-                        type === "delete"
-                            ? ag.intl.t("The object was deleted successfully.")
-                            : ag.intl.t("The object was restored successfully."),
+                        isDelete ? ag.intl.t("The object was deleted successfully.") : ag.intl.t("The object was restored successfully."),
                         "success"
                     );
                 }
@@ -160,35 +160,35 @@ var
 
         this.tbody.html($row);
         updateFooter.call(this);
+    },
+
+    entityListTable = function(exporter, columns, actions)
+    {
+        // TODO: nodify();
+        this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-table"));
+
+        var table = this.find("table");
+
+        this.columns = columns;
+        this.actions = actions;
+
+        this.tfoot = table.find("tfoot");
+        this.footTr = this.tfoot.find("tr");
+
+        this.headTr = table.find("thead tr");
+        this.tbody = table.find("tbody");
+        this.entities = new ag.common.Collection();
+        this.rowCount = 0;
+
+        Object.keys(this.columns).forEach(key => this.headTr.append(
+            $("<th>")
+                .addClass(this.columns[key].style + " priority-" + this.columns[key].priority)
+                .html(this.columns[key].title)
+        ));
+
+        this.actions.length && this.headTr.append($("<th class='actions'>").text(ag.intl.t("Actions")));
+        showNoResultsRow.call(this);
     };
-
-entityListTable = function(exporter, columns, actions)
-{
-    // TODO: nodify();
-    this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".listview-table"));
-
-    var table = this.find("table");
-
-    this.columns = columns;
-    this.actions = actions;
-
-    this.tfoot = table.find("tfoot");
-    this.footTr = this.tfoot.find("tr");
-
-    this.headTr = table.find("thead tr");
-    this.tbody = table.find("tbody");
-    this.entities = new ag.common.Collection();
-    this.rowCount = 0;
-
-    Object.keys(this.columns).forEach(key => this.headTr.append(
-        $("<th>")
-            .addClass(this.columns[key].style + " priority-" + this.columns[key].priority)
-            .html(this.columns[key].title)
-    ));
-
-    this.actions.length && this.headTr.append($("<th class='actions'>").text(ag.intl.t("Actions")));
-    showNoResultsRow.call(this);
-};
 
 entityListTable.prototype = Object.create(ag.ui.ctxt.Block.prototype);
 
@@ -383,7 +383,7 @@ entityListTable._actions =
 
             item.deleted && $link.addClass("invisible");
 
-            $link.click(ev => {
+            $link.click(() => {
                 var
                     hasFields = Object.keys(fields).length,
                     name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id,
@@ -437,9 +437,9 @@ entityListTable._actions =
             item.deleted !== undefined && $link.find("span").text(ag.intl.t("remove permanently"));
 
             $link.click(() => {
-                var name = item.name
-                    ? ag.ui.tool.fmt.sprintf("`%s` (ID: `%s`)", ag.ui.tool.fmt.out(item.name), item.id)
-                    : "`" + item.id + "`";
+                var name = item.name ?
+                    ag.ui.tool.fmt.sprintf("`%s` (ID: `%s`)", ag.ui.tool.fmt.out(item.name), item.id) :
+                    "`" + item.id + "`";
 
                 if (window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to permanently remove object %s?"), name)))
                     removeCall($link, item);

@@ -1,3 +1,4 @@
+/* globals ol */
 ag.ns("ag.admin.field");
 
 (function(){

@@ -56,9 +56,8 @@ var
                 (result, status) => {
                     if (status === 200)
                     {
-                        var successMsg = object.id
-                            ? ag.intl.t("The object was updated successfully.")
-                            : ag.intl.t("The object was created successfully.");
+                        var successMsg = object.id ?
+                            ag.intl.t("The object was updated successfully.") : ag.intl.t("The object was created successfully.");
 
                         ag.srv("messageHandler").alert(successMsg, "success");
 
@@ -83,7 +82,7 @@ entityForm.prototype.getAction = function()
 
         else if (request && (typeof(request) === "string" || typeof(request) === "number"))
             ag.srv("api").doCall(this.entityName + ".get", request, fillForm.bind(this));
-    }
+    };
 };
 
 ag.admin.EntityEditForm = entityForm;

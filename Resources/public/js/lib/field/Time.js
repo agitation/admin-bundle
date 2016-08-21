@@ -43,13 +43,11 @@ ag.ns("ag.admin.field");
             );
         },
 
-        timeField = function(elem, attr)
+        timeField = function()
         {
             ag.ui.field.Text.apply(this, arguments);
 
-            this.on("blur", ev => {
-                this.setValue(timeToNumber(this.origVal()));
-            });
+            this.on("blur", () => this.setValue(timeToNumber(this.origVal())));
         };
 
     timeField.prototype = Object.create(ag.ui.field.Text.prototype);
@@ -57,11 +55,9 @@ ag.ns("ag.admin.field");
     timeField.prototype.setValue = function(value)
     {
         if (value instanceof Object)
-        {
-            value = validateHourMinute(value.hour, value.minute)
-                ? value.hour * 60 + value.minute
-                : null
-        }
+            value = validateHourMinute(value.hour, value.minute) ?
+                value.hour * 60 + value.minute :
+                null;
 
         return this.origVal(validInt(value) ? numberToTime(value) : "");
     };

@@ -2,7 +2,7 @@ ag.ns("ag.admin");
 
 (function(){
 var
-    listMore = function(endpointName, fields)
+    listMore = function()
     {
         this.extend(this, ag.ui.tool.tpl("agitadmin-listview", ".more"));
 
@@ -18,7 +18,7 @@ var
         this.waitForUpscroll = this.win.scrollTop() + this.win.height() === this.doc.height();
         this.triggerActive = true;
 
-        this.win.scroll(ev => {
+        this.win.scroll(() => {
             var
                 docHeight = this.doc.height(),
                 winHeight = this.win.height(),

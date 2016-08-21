@@ -12,7 +12,7 @@ var
                 ev.preventDefault();
                 history.go(-1);
             }
-        })
+        });
     };
 
 entityEditHeader.prototype = Object.create(ag.ui.ctxt.Block.prototype);
