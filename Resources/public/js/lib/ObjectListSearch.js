@@ -76,7 +76,7 @@ var
             this.defaultValues[key] = field.element.getValue();
         });
 
-        this.find("td.actions a").click(() => this.setValues(this.defaultValues));
+        this.find("td.actions a").click(() => this.trigger("reset"));
     };
 
     listSearch.prototype = Object.create(ag.ui.ctxt.Form.prototype);

@@ -29,12 +29,14 @@ var
 
     search = function()
     {
-        var isFreshLoad = this.pageNumber === 1;
+        var
+            isFreshLoad = this.pageNumber === 1,
+            request = $.extend({}, this.request);
 
         if (this.isPaginated)
         {
-            this.request.offset = (this.pageNumber - 1) * this.reqDummy.limit;
-            this.request.limit = this.reqDummy.limit + 1;
+            request.offset = (this.pageNumber - 1) * this.reqDummy.limit;
+            request.limit = this.reqDummy.limit + 1;
         }
 
         if (!this.loading)
@@ -44,7 +46,7 @@ var
 
             ag.srv("api").doCall(
                 this.endpoint,
-                this.request,
+                request,
                 result => {
                     var added = 0;
 
@@ -83,6 +85,13 @@ var
 
             ag.srv("state").update(null, valuesAreEqual(this.defaultValues, this.request) ? "" : this.request);
             search.call(this);
+        });
+
+        blocks.search.on("reset", ev => {
+            ev.preventDefault();
+            blocks.search.setValues(this.defaultValues);
+
+            valuesAreEqual(this.defaultValues, this.request) || blocks.search.trigger("submit");
         });
 
         blocks.more && blocks.more.submit(ev => {
