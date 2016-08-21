@@ -34,7 +34,7 @@ ag.ns("ag.admin.field");
 
     readonlyField.prototype.getValue = function()
     {
-            return this.returnRealValue ? this.currentValue : null;
+            return this.returnRealValue && !this.disabled ? this.currentValue : null;
     };
 
     ag.admin.field.Readonly = readonlyField;
