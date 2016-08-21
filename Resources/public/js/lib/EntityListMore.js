@@ -55,5 +55,5 @@ var
         return this;
     };
 
-    ag.admin.ObjectListMore = listMore;
+    ag.admin.EntityListMore = listMore;
 })();

@@ -66,7 +66,7 @@ var
         }
     },
 
-    objectListView = function(endpointName, blocks)
+    entityListView = function(endpointName, blocks)
     {
         ag.ui.ctxt.View.call(this, blocks);
         this.addClass("list");
@@ -112,9 +112,9 @@ var
         });
     };
 
-objectListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
+entityListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
 
-objectListView.prototype.getActions = function()
+entityListView.prototype.getActions = function()
 {
     return {
         search : request => {
@@ -132,6 +132,6 @@ objectListView.prototype.getActions = function()
     };
 };
 
-ag.admin.ObjectListView = objectListView;
+ag.admin.EntityListView = entityListView;
 
 })();

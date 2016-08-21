@@ -109,5 +109,5 @@ var
         return $.extend({}, defaultFieldParams, fieldFactory[name](params), params);
     };
 
-    ag.admin.ObjectListSearch = listSearch;
+    ag.admin.EntityListSearch = listSearch;
 })();

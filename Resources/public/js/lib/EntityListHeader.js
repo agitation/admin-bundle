@@ -1,6 +1,6 @@
 ag.ns("ag.admin");
 
-ag.admin.ObjectListHeader = function()
+ag.admin.EntityListHeader = function()
 {
     var
         $elem = ag.ui.tool.tpl("agitadmin-listview", ".listview-header"),
@@ -17,4 +17,4 @@ ag.admin.ObjectListHeader = function()
     return $elem;
 };
 
-ag.admin.ObjectListHeader.prototype = Object.create(ag.ui.ctxt.Block.prototype);
+ag.admin.EntityListHeader.prototype = Object.create(ag.ui.ctxt.Block.prototype);

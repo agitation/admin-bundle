@@ -89,7 +89,7 @@ var
         );
     };
 
-ag.admin.ObjectListTable = function(exporter, columns, actions)
+ag.admin.EntityListTable = function(exporter, columns, actions)
 {
     var
         $elem = ag.ui.tool.tpl("agitadmin-listview", ".listview-table"),
@@ -227,45 +227,45 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
     return $elem;
 };
 
-ag.admin.ObjectListTable.getFilter = function(name)
+ag.admin.EntityListTable.getFilter = function(name)
 {
-    return ag.admin.ObjectListTable._filters[name];
+    return ag.admin.EntityListTable._filters[name];
 };
 
-ag.admin.ObjectListTable.getColumn = function(name, extra)
+ag.admin.EntityListTable.getColumn = function(name, extra)
 {
     return $.extend(
         {},
-        ag.admin.ObjectListTable._columnTpl,
-        ag.admin.ObjectListTable._columns[name],
+        ag.admin.EntityListTable._columnTpl,
+        ag.admin.EntityListTable._columns[name],
         extra || {}
     );
 };
 
-ag.admin.ObjectListTable.createColumn = function(options)
+ag.admin.EntityListTable.createColumn = function(options)
 {
     return $.extend(
         {},
-        ag.admin.ObjectListTable._columnTpl,
+        ag.admin.EntityListTable._columnTpl,
         options);
 };
 
-ag.admin.ObjectListTable.getAction = function(name, extra)
+ag.admin.EntityListTable.getAction = function(name, extra)
 {
     return $.extend(
         {},
-        ag.admin.ObjectListTable._actionTpl,
-        ag.admin.ObjectListTable._actions[name],
+        ag.admin.EntityListTable._actionTpl,
+        ag.admin.EntityListTable._actions[name],
         extra || {}
     );
 };
 
-ag.admin.ObjectListTable.createAction = function(params)
+ag.admin.EntityListTable.createAction = function(params)
 {
-    return $.extend({}, ag.admin.ObjectListTable._actionTpl, params);
+    return $.extend({}, ag.admin.EntityListTable._actionTpl, params);
 };
 
-ag.admin.ObjectListTable._filters =
+ag.admin.EntityListTable._filters =
 {
     id : function(item)
     {
@@ -333,24 +333,24 @@ ag.admin.ObjectListTable._filters =
     }
 };
 
-ag.admin.ObjectListTable._columnTpl = { title : "", filter : () => {}, style : "", priority : 2 };
+ag.admin.EntityListTable._columnTpl = { title : "", filter : () => {}, style : "", priority : 2 };
 
-ag.admin.ObjectListTable._columns =
+ag.admin.EntityListTable._columns =
 {
-    id :            { title : ag.intl.t("ID"), filter: ag.admin.ObjectListTable._filters.id, style: "right", priority : 1 },
+    id :            { title : ag.intl.t("ID"), filter: ag.admin.EntityListTable._filters.id, style: "right", priority : 1 },
     num :           { title : "#", style: "right", priority : 1 },
-    name :          { title : ag.intl.t("Name"), filter: ag.admin.ObjectListTable._filters.text, priority : 1 },
-    date :          { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.date },
-    datetime :      { title : ag.intl.t("Date"), filter: ag.admin.ObjectListTable._filters.datetime },
-    description :   { title : ag.intl.t("Description"), filter: ag.admin.ObjectListTable._filters.text, style: "longtext", priority : 3 },
-    reference :     { title : "", filter: ag.admin.ObjectListTable._filters.reference, priority : 2 },
-    check :         { title : "", style: "center", filter: ag.admin.ObjectListTable._filters.check, priority : 2 },
-    user :          { title : ag.intl.t("User"), filter: ag.admin.ObjectListTable._filters.user, priority : 2 }
+    name :          { title : ag.intl.t("Name"), filter: ag.admin.EntityListTable._filters.text, priority : 1 },
+    date :          { title : ag.intl.t("Date"), filter: ag.admin.EntityListTable._filters.date },
+    datetime :      { title : ag.intl.t("Date"), filter: ag.admin.EntityListTable._filters.datetime },
+    description :   { title : ag.intl.t("Description"), filter: ag.admin.EntityListTable._filters.text, style: "longtext", priority : 3 },
+    reference :     { title : "", filter: ag.admin.EntityListTable._filters.reference, priority : 2 },
+    check :         { title : "", style: "center", filter: ag.admin.EntityListTable._filters.check, priority : 2 },
+    user :          { title : ag.intl.t("User"), filter: ag.admin.EntityListTable._filters.user, priority : 2 }
 };
 
-ag.admin.ObjectListTable._actionTpl = { title : "", href : "", generate : () => {}, icon : "", params : {} };
+ag.admin.EntityListTable._actionTpl = { title : "", href : "", generate : () => {}, icon : "", params : {} };
 
-ag.admin.ObjectListTable._actions =
+ag.admin.EntityListTable._actions =
 {
     edit : {
         title: ag.intl.t("edit"),
