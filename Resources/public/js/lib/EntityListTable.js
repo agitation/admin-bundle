@@ -8,26 +8,33 @@ var
         ag.srv("api").doCall(
             item.getName() + "." + type,
             item.id,
-            function(res, status)
-            {
-                var successMessage = ag.intl.t("The object was deleted successfully.");
-
+            (res, status) => {
                 if (status === 200)
                 {
-                    if (item.deleted === undefined)
-                    {
-                        $link.getTable().removeItem(item.id);
-                    }
-                    else
-                    {
-                        item.deleted = (type === "delete");
-                        $link.getTable().updateItem(item);
+                    item.deleted = (type === "delete");
+                    $link.getTable().updateItem(item);
 
-                        if (type === "undelete")
-                            successMessage = ag.intl.t("The object was restored successfully.");
-                    }
+                    ag.srv("messageHandler").alert(
+                        type === "delete"
+                            ? ag.intl.t("The object was deleted successfully.")
+                            : ag.intl.t("The object was restored successfully."),
+                        "success"
+                    );
+                }
+            }
+        );
+    },
 
-                    ag.srv("messageHandler").alert(successMessage, "success");
+    removeCall = function($link, item)
+    {
+        ag.srv("api").doCall(
+            item.getName() + ".remove",
+            item.id,
+            (res, status) => {
+                if (status === 200)
+                {
+                    $link.getTable().removeItem(item.id);
+                    ag.srv("messageHandler").alert(ag.intl.t("The object was removed successfully."), "success");
                 }
             }
         );
@@ -124,14 +131,14 @@ ag.admin.EntityListTable = function(exporter, columns, actions)
             {
                 var $actionTd = $("<td class='actions'>");
 
-                actions.forEach(function(action){
+                actions.forEach(action => {
                     var
                         $link = $("<a>").append(
                             $("<i>").addClass(action.icon),
                             $("<span>").text(action.title)
                         );
 
-                    $link.getTable = function(){ return $elem; };
+                    $link.getTable = () => $elem;
 
                     action.generate($link, item, action);
                     $actionTd.append($link);
@@ -141,10 +148,11 @@ ag.admin.EntityListTable = function(exporter, columns, actions)
             }
         },
 
-        renumberRows = function()
+        renumberRows = function(rows)
         {
-            rowCount = 0;
-            $("tr[data-num]").each(function(){
+            var rowCount = 0;
+
+            rows.each(function(){
                 ++rowCount;
                 $(this).attr("data-num", rowCount).find("td[data-name=num]").text(rowCount);
             });
@@ -200,7 +208,7 @@ ag.admin.EntityListTable = function(exporter, columns, actions)
         entities.remove(id);
         $tbody.find("tr[data-id=" + id + "]").remove();
 
-        renumberRows();
+        renumberRows($tbody.find("tr[data-num]"));
         updateFooter();
         entities.length || $elem.showNoResultsRow();
     };
@@ -396,36 +404,40 @@ ag.admin.EntityListTable._actions =
         }
     },
 
-    remove : {
+    delete : {
         title : ag.intl.t("delete"),
         icon : "fa fa-trash",
         generate : function($link, item) {
 
-            var
-                actionType = "delete",
-                needConfirmation = true;
+            var actionType = "delete";
 
-            if (item.deleted !== undefined)
+            if (item.deleted)
             {
-                if (item.deleted)
-                {
-                    $link
-                        .find("i").attr("class", "fa fa-trash-o").end()
-                        .find("span").text(ag.intl.t("restore"));
+                $link
+                    .find("i").attr("class", "fa fa-trash-o").end()
+                    .find("span").text(ag.intl.t("restore"));
 
-                    actionType = "undelete";
-                }
-
-                needConfirmation = false;
+                actionType = "undelete";
             }
 
-            $link.click(function(){
-                var name = item.name ? ag.ui.tool.fmt.out(item.name) : item.id;
+            $link.click(() => deleteUndeleteCall(actionType, $link, item));
+        }
+    },
 
-                if (!needConfirmation || window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to delete `%s`?"), name)))
-                {
-                    deleteUndeleteCall(actionType, $link, item);
-                }
+    remove : {
+        title : ag.intl.t("remove"),
+        icon : "fa fa-times-circle",
+        generate : function($link, item) {
+            item.deleted === false && $link.addClass("invisible");
+            item.deleted !== undefined && $link.find("span").text(ag.intl.t("remove permanently"));
+
+            $link.click(() => {
+                var name = item.name
+                    ? ag.ui.tool.fmt.sprintf("`%s` (ID: `%s`)", ag.ui.tool.fmt.out(item.name), item.id)
+                    : "`" + item.id + "`";
+
+                if (window.confirm(ag.ui.tool.fmt.sprintf(ag.intl.t("Are you sure you want to permanently remove object %s?"), name)))
+                    removeCall($link, item);
             });
         }
     }

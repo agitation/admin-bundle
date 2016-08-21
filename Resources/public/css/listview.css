@@ -45,11 +45,11 @@
 .listview-table .action                     { white-space: nowrap; margin: 0 15px 3px 0; }
 .listview-table .action:last-child          { margin-right: 0; }
 .listview-table td.actions a                { display: inline-block; margin: 0 1em 0 0; white-space: nowrap }
-.listview-table td.actions a.invisible      { visibility: hidden; }
+.listview-table td.actions a.invisible      { display: none; }
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
 .listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
 
-.listview-table tr.deleted td.actions a     { color: #aaa }
+.listview-table tr.deleted td.actions a     { color: #777 }
 .listview-table td.longtext                 { max-width: 30% }
 
 
