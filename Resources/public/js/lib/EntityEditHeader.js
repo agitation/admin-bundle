@@ -1,8 +1,32 @@
 ag.ns("ag.admin");
 
-ag.admin.EntityEditHeader = function()
-{
-    var $elem = ag.ui.tool.tpl("agitadmin-editview", ".editview-header");
+(function(){
+var
+    entityEditHeader = function()
+    {
+        this.nodify();
 
-    return $elem;
+        this.find("a").click(ev => {
+            if (this.relBacklink)
+            {
+                ev.preventDefault();
+                history.go(-1);
+            }
+        })
+    };
+
+entityEditHeader.prototype = Object.create(ag.ui.ctxt.Block.prototype);
+
+entityEditHeader.prototype.nodify = function()
+{
+    this.extend(this, ag.ui.tool.tpl("agitadmin-editview", ".editview-header"));
 };
+
+entityEditHeader.prototype.setRelativeBacklink = function(state)
+{
+    this.relBacklink = state;
+};
+
+ag.admin.EntityEditHeader = entityEditHeader;
+
+})();

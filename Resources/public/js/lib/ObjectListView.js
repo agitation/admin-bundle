@@ -58,6 +58,8 @@ var
 
                     this.loading = false;
                     this.blocks.more && this.blocks.more.setIndicatorState(0).setTriggerState(result && result.length > this.reqDummy.limit);
+
+                    this.trigger("ag.admin.entity.search", request);
                 },
                 isFreshLoad ? null : this.hiddenIndicator // hidden indicator on "more", because there’s a custom one in place
             );
@@ -73,9 +75,9 @@ var
         this.reqDummy = new ag.api.Object(this.endpoint.getRequest());
         this.isPaginated = (blocks.more && this.reqDummy.offset !== undefined && this.reqDummy.limit);
         this.hiddenIndicator = new ag.api.Indicator();
-
         this.defaultValues = blocks.search.getValues();
         this.request = {};
+        this.dirty = true;
 
         blocks.search.on("submit", ev => {
             ev.preventDefault();
@@ -91,7 +93,16 @@ var
             ev.preventDefault();
             blocks.search.setValues(this.defaultValues);
 
-            valuesAreEqual(this.defaultValues, this.request) || blocks.search.trigger("submit");
+            valuesAreEqual(this.defaultValues, this.request) ||
+                blocks.search.trigger("submit");
+        });
+
+        this.on("ag.admin.entity.update", (ev, obj) => {
+            blocks.table.contains(obj.id) && blocks.table.updateItem(obj);
+        });
+
+        this.on("ag.admin.entity.create", (ev, obj) => {
+            this.dirty = true;
         });
 
         blocks.more && blocks.more.submit(ev => {
@@ -105,10 +116,6 @@ objectListView.prototype = Object.create(ag.ui.ctxt.View.prototype);
 
 objectListView.prototype.getActions = function()
 {
-    // when the request hasn’t changed, we will only trigger a new search if
-    // this is a fresh page load.
-    var isFirstRun = true;
-
     return {
         search : request => {
 
@@ -117,10 +124,10 @@ objectListView.prototype.getActions = function()
             request = request || this.defaultValues;
             this.blocks.search.setValues(request);
 
-            if (isFirstRun || !valuesAreEqual(currentValues, request))
+            if (this.dirty || !valuesAreEqual(currentValues, request))
                 this.blocks.search.submit();
 
-            isFirstRun = false;
+            this.dirty = false;
         }
     };
 };

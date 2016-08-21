@@ -170,6 +170,11 @@ ag.admin.ObjectListTable = function(exporter, columns, actions)
         return entities;
     };
 
+    $elem.contains = function(id)
+    {
+        return (id && entities.get(id));
+    };
+
     $elem.addItem = function(item)
     {
         var $row = $("<tr>").attr({ "data-num" : ++rowCount, "data-id": item.id });

@@ -7,12 +7,8 @@ var
         this.entity = entity;
 
         entity && Object.keys(this.fields).forEach(key => {
-            entity[key] !== undefined &&
-                this.fields[key].element.setValue(entity[key]) &&
-                this.fields[key].element.change(); // is that a good idea? circular deps? side effects?
+            entity[key] !== undefined && this.fields[key].element.setValue(entity[key]);
         });
-
-        this.trigger("agit.entityform.update");
     },
 
     entityForm = function(entityName, fields)
@@ -44,21 +40,23 @@ var
         });
 
         this.on("submit", ev => {
-            var values = {};
+            var object = new ag.api.Object(this.entityName), mode;
 
-            this.stopEvent(ev);
+            ev.preventDefault();
 
             Object.keys(fields).forEach(key => {
-                values[key] = fields[key].element.getValue();
+                object[key] = fields[key].element.getValue();
             });
 
+            mode = (object.id ? "update" : "create");
+
             ag.srv("api").doCall(
-                entityName + "." + (values.id ? "update" : "create"),
-                values,
+                entityName + "." + mode,
+                object,
                 (result, status) => {
                     if (status === 200)
                     {
-                        var successMsg = values.id
+                        var successMsg = object.id
                             ? ag.intl.t("The object was updated successfully.")
                             : ag.intl.t("The object was created successfully.");
 
@@ -66,7 +64,9 @@ var
 
                         fillForm.call(this, result);
 
-                        values.id || ag.srv("state").update("/edit", result.id);
+                        object.id || ag.srv("state").update("/edit", result.id);
+
+                        this.trigger("ag.admin.entity." + mode, object);
                     }
                 }
             );
