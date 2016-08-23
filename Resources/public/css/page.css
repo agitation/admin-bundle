@@ -1,3 +1,2 @@
 html,body                                           { background: #fafafa; }
-main .view                                          { display: none; width: 100%; min-height: 600px; }
 main .view h2                                       { margin: 0; font-weight: 300; color: #888; font-size: 34px; line-height: 1em; text-transform: uppercase }
