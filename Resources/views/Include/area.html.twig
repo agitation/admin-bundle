@@ -21,9 +21,9 @@
 {% endblock %}
 
 {% block header %}
-    {% embed "AgitUiBundle:Include:include.header.html.twig" %}
+    {% embed "AgitUiBundle:Include:layout/web/include.header.html.twig" %}
         {% block menu %}
-            {% import "AgitUiBundle:Include:macro.menu.html.twig" as nav %}
+            {% import "AgitUiBundle:Include:layout/web/include.menu.html.twig" as nav %}
             {{ nav.menu(getPageTree("/admin")) }}
         {% endblock %}
     {% endembed %}
@@ -55,6 +55,8 @@
         "@AgitAdminBundle/Resources/public/js/lib/field/Period.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/Time.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/LoadableEntitySelect.js"
+        "@AgitAdminBundle/Resources/public/js/lib/field/Echo.js"
+        "@AgitAdminBundle/Resources/public/js/lib/field/EntityEcho.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/Readonly.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/OneToMany.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/OneToManyRow.js"
@@ -72,7 +74,7 @@
 {% endblock %}
 
 {% block area_templates %}
-    {% include "AgitUiBundle:Include:include.message.bubble.html.twig" %}
+    {% include "AgitUiBundle:Include:template.message.bubble.html.twig" %}
     {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
     {% include "AgitAdminBundle:Include:template.tooltip.html.twig" %}
