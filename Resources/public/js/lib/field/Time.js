@@ -4,7 +4,7 @@ ag.ns("ag.admin.field");
     var
         validInt = function(value, max)
         {
-            return ag.common.isValid("integer", value, 0, max);
+            return ag.vld.isValid("integer", value, 0, max);
         },
 
         validateHourMinute = function(hour, minute)

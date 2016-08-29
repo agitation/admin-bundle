@@ -19,7 +19,7 @@ ag.ns("ag.admin.field");
             this.value = value.id;
             name = value.name ? ag.ui.tool.fmt.out(value.name) : value.id;
         }
-        else if (ag.common.isValid("integer", value, 1))
+        else if (ag.vld.isValid("integer", value, 1))
         {
             if (value !== this.value)
             {
