@@ -1,168 +1,352 @@
 msgid ""
 msgstr ""
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"nplurals=2; plural=(n != 1);\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:61
-msgid "The object was updated successfully."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:62
-msgid "The object was created successfully."
-msgstr ""
-
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListSearch.js:11
 msgid "Text"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:25
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:25
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:279
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:280
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:60
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:135
+#: @TixysCommonShopBundle/Resources/views/Include/template.form.connections.html.twig:82
+#: @TixysCommonShopBundle/Resources/views/Include/template.form.checkout.html.twig:81
+#: @TixysCommonTicketBundle/Resources/views/Ticket/ticket.html.twig:466
+#: @TixysCommonOnboardBundle/Resources/views/Include/template.onboard.html.twig:112
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:60
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:135
+msgid "Date"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:32
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:32
+msgid "Period"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:40
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:40
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListSearch.js:18
 msgid "include deleted items"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:61
+#: @TixysCommonAdminBundle/Resources/public/js/lib/field/TimetableTour.js:46
+msgid "The object was updated successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:62
+#: @TixysCommonAdminBundle/Resources/public/js/lib/field/TimetableTour.js:47
+msgid "The object was created successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:13
+#: @TixysCommonAdminBundle/Resources/public/js/lib/field/TimetableTour.js:63
 msgid "The object was deleted successfully."
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:27
 msgid "The object was restored successfully."
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:37
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:37
+msgid "The object was removed successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:91
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:91
+msgid "The object has been successfully cloned, the new object’s ID is `%s`."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:189
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:189
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:162
 msgid "Actions"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:246
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:29
+#: @TixysCommonAdminBundle/Resources/public/js/lib/TimetableDayHeader.js:27
+#: @TixysCommonAdminBundle/Resources/public/js/lib/TimetableDayHeader.js:28
+#: @TixysCommonAdminBundle/Plugin/Api/AdminV1/Endpoint/ToursDeleteTrait.php:48
+#: @TixysCommonTicketBundle/Resources/views/Ticket/ticket.html.twig:178
+#: @TixysCommonTicketBundle/Resources/views/Ticket/ticket.html.twig:493
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
 msgid "d/m/Y"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:255
-msgid "d/m/Y H:i"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:335
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:335
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:15
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.schedule.tours.js:48
+#: @TixysCommonOnboardBundle/Resources/public/js/lib/TicketList.js:26
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:15
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.schedule.tours.js:48
+msgid "d/m H:i"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.customers.js:37
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:53
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:133
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.restrictions.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.yieldmodels.js:32
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.channels.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.vatmodels.js:32
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.schedule.tours.js:128
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.passengertypes.js:38
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.payments.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.fares.js:32
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.routes.js:32
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.features.js:32
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:37
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.vehicletypes.js:46
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.compartmenttypes.js:37
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.schedule.timetables.js:37
+#: @TixysCommonAdminBundle/Resources/views/Include/template.timetable.tours.html.twig:43
+#: @TixysCommonOnboardBundle/Resources/views/Include/template.onboard.html.twig:61
+#: @TixysCommonOnboardBundle/Resources/views/Include/template.onboard.html.twig:108
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.customers.js:37
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:53
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.tickets.js:133
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.network.restrictions.js:33
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.sale.yieldmodels.js:32
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.sale.channels.js:33
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.sale.vatmodels.js:32
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.schedule.tours.js:128
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.transport.passengertypes.js:38
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.bookings.payments.js:33
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.sale.fares.js:32
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.network.routes.js:32
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.transport.features.js:32
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.network.stations.js:37
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.transport.vehicletypes.js:46
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.transport.compartmenttypes.js:37
+#: /srv/www/tx2016.tixys.com/src/Tixys/Common/AdminBundle/Resources/public/js/ctl/admin.schedule.timetables.js:37
+#: /tmp/agit.intl.temp.2cfc2461dc7c8f07230afccf48c7ca84/TixysCommonAdminBundle/bf/bf33e6c8950beb173694ac91ac0106065cf9fd7fb54d1f79af283ff0b1a1f4b5.php:43
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:36
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+msgid "ID"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:278
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.customers.js:38
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.yieldmodels.js:22
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.yieldmodels.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.channels.js:23
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.channels.js:34
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.vatmodels.js:22
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.vatmodels.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.payments.js:21
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.payments.js:34
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.fares.js:22
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.sale.fares.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.routes.js:24
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.routes.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.features.js:22
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.features.js:33
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:28
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:38
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.vehicletypes.js:36
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.vehicletypes.js:47
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.compartmenttypes.js:27
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.compartmenttypes.js:38
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.schedule.timetables.js:22
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.schedule.timetables.js:38
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.routenodes.html.twig:29
+#: @AgitOrderBundle/Resources/public/js/lib/CheckoutFormCustomerBlock.js:46
+#: @AgitOrderBundle/Resources/views/Include/template.form.checkout.html.twig:91
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:27
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:37
 msgid "Name"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:279
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:280
-msgid "Date"
-msgstr ""
-
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:281
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.transport.passengertypes.js:41
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.routes.js:35
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:39
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.network.stations.js:38
 msgid "Description"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:362
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:362
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:283
+#: @TixysCommonAdminBundle/Resources/public/js/ctl/admin.bookings.customers.js:19
 msgid "User"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:284
-msgid "Location"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
+msgid "edit"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:285
-msgid "Status"
-msgstr ""
-
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:379
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:379
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:300
 msgid "duplicate"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:395
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:395
+msgid "Are you sure you want to duplicate `%s`?"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:414
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:414
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:312
+#: @TixysCommonAdminBundle/Resources/views/Include/template.timetable.tours.html.twig:84
 msgid "delete"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:423
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:423
 #: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:326
 msgid "restore"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:337
-#, javascript-format
-msgid "Are you sure you want to delete `%s`?"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.yieldmodels.html.twig:61
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.routenodes.html.twig:70
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.vatmodelentries.html.twig:59
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.vehicletype.html.twig:46
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.ticket.html.twig:48
+#: @TixysCommonAdminBundle/Resources/views/Include/template.editview.routenodes.html.twig:69
+msgid "remove"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:437
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:437
+msgid "remove permanently"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:444
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:444
+msgid "Are you sure you want to permanently remove object %s?"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:69
+#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:69
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:52
 msgid "Please select a location."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:6
-msgid "active"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:7
-msgid "inactive"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/field/Status.js:8
-msgid "deleted"
-msgstr ""
-
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
 msgid "Overview"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:33
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:33
 msgid "create new"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
-msgid "ID"
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:58
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:58
+msgid "loading more items …"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
-msgid "edit"
-msgstr ""
-
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:71
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:71
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:59
 msgid "Search"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:77
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:77
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:65
 msgid "Update list"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:81
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:81
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:69
 msgid "Reset parameters"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:103
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:103
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:91
 msgid "This list is currently empty. Please modify your search or create a new object."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
-msgid "Edit"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
-msgid "back to overview"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
-msgid "(optional)"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
-msgid "reset"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
-msgid "submit"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
-msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
-msgstr ""
-
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:26
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:26
 msgid "This value will be set on the server after saving the object."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
 msgid "Please add one or more entries to this list."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:41
-msgid "add"
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:46
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:46
+msgid "Please enter the main properties of the new object."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:50
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:50
+msgid "Note: You can edit other properties of the new object later."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
+#: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
+msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
+msgid "Edit"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
+msgid "switch to overview"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
+msgid "(optional)"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+msgid "reset"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
+msgid "submit"
 msgstr ""
