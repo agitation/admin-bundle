@@ -254,7 +254,8 @@ msgstr ""
 msgid "Are you sure you want to permanently remove object %s?"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:69
+#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
+#: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:69
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:52
 msgid "Please select a location."

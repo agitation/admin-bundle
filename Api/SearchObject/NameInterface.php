@@ -1,7 +1,14 @@
 <?php
 
+/*
+ * @package    agitation/admin-bundle
+ * @link       http://github.com/agitation/admin-bundle
+ * @author     Alexander Günsche
+ * @license    http://opensource.org/licenses/MIT
+ */
+
 namespace Agit\AdminBundle\Api\SearchObject;
 
-use Agit\ApiBundle\Annotation\Property;
-
-interface NameInterface {}
+interface NameInterface
+{
+}
