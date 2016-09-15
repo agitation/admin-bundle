@@ -9,12 +9,13 @@
 
 namespace Agit\AdminBundle\Api\Controller;
 
-use Agit\ApiBundle\Annotation\Controller;
+use Agit\ApiBundle\Annotation\Controller\Controller;
+use Agit\ApiBundle\Annotation\Endpoint;
 use Agit\ApiBundle\Annotation\Depends;
 use Agit\ApiBundle\Api\Controller\AbstractController;
 
 /**
- * @Controller\Controller(namespace="admin.v1")
+ * @Controller(namespace="admin.v1")
  */
 class Settings extends AbstractController
 {
