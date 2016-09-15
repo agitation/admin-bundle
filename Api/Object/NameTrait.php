@@ -7,17 +7,15 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\AdminBundle\Api\SearchObject;
+namespace Agit\AdminBundle\Api\Object;
 
 use Agit\ApiBundle\Annotation\Property;
 
-trait DeletedTrait
+trait NameTrait
 {
     /**
-     * @Property\Name("Deleted")
-     * @Property\BooleanType(nullable=true)
-     *
-     * Whether or not to include deleted objects in a search.
+     * @Property\Name("Name")
+     * @Property\StringType(nullable=true)
      */
-    public $deleted;
+    public $name;
 }

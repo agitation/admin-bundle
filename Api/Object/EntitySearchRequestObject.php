@@ -7,14 +7,14 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\AdminBundle\Api;
+namespace Agit\AdminBundle\Api\Object;
 
-use Agit\AdminBundle\Api\SearchObject\OrderInterface;
-use Agit\AdminBundle\Api\SearchObject\OrderTrait;
-use Agit\AdminBundle\Api\SearchObject\PaginationInterface;
-use Agit\AdminBundle\Api\SearchObject\PaginationTrait;
+use Agit\AdminBundle\Api\Object\OrderInterface;
+use Agit\AdminBundle\Api\Object\OrderTrait;
+use Agit\AdminBundle\Api\Object\PaginationInterface;
+use Agit\AdminBundle\Api\Object\PaginationTrait;
 use Agit\ApiBundle\Annotation\Object;
-use Agit\ApiBundle\Common\AbstractRequestObject;
+use Agit\ApiBundle\Api\Object\AbstractRequestObject;
 
 /**
  * @Object\Object

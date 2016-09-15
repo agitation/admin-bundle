@@ -7,14 +7,14 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\AdminBundle\Api;
+namespace Agit\AdminBundle\Api\Controller;
 
-use Agit\AdminBundle\Api\SearchObject\DeletedInterface;
-use Agit\AdminBundle\Api\SearchObject\NameInterface;
-use Agit\AdminBundle\Api\SearchObject\OrderInterface;
-use Agit\AdminBundle\Api\SearchObject\PaginationInterface;
-use Agit\ApiBundle\Common\AbstractEntityController as BaseController;
-use Agit\ApiBundle\Common\RequestObjectInterface;
+use Agit\AdminBundle\Api\Object\DeletedInterface;
+use Agit\AdminBundle\Api\Object\NameInterface;
+use Agit\AdminBundle\Api\Object\OrderInterface;
+use Agit\AdminBundle\Api\Object\PaginationInterface;
+use Agit\ApiBundle\Api\Controller\AbstractEntityController as BaseController;
+use Agit\ApiBundle\Api\Object\RequestObjectInterface;
 
 /**
  * Extends the AbstractEntityController from the API bundle with extended

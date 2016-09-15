@@ -7,8 +7,8 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\AdminBundle\Api\SearchObject;
+namespace Agit\AdminBundle\Api\Object;
 
-interface OrderInterface
+interface NameInterface
 {
 }

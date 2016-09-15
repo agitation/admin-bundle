@@ -7,11 +7,11 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\AdminBundle\Api;
+namespace Agit\AdminBundle\Api\Object;
 
 use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Annotation\Property;
-use Agit\ApiBundle\Common\AbstractResponseObject;
+use Agit\ApiBundle\Api\Object\AbstractResponseObject;
 
 /**
  * @Object\Object
