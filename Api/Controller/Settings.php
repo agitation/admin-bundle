@@ -26,7 +26,7 @@ class Settings extends AbstractController
      *
      * Load application settings by setting names.
      */
-    protected function load(array $names)
+    public function load(array $names)
     {
         $result = [];
         $settingList = $this->getService("agit.setting")->getSettings($names);
@@ -47,7 +47,7 @@ class Settings extends AbstractController
      *
      * Save application settings.
      */
-    protected function save(array $apiSettingList)
+    public function save(array $apiSettingList)
     {
         $settings = [];
 
