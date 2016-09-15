@@ -9,10 +9,6 @@
 
 namespace Agit\AdminBundle\Api\Object;
 
-use Agit\AdminBundle\Api\Object\OrderInterface;
-use Agit\AdminBundle\Api\Object\OrderTrait;
-use Agit\AdminBundle\Api\Object\PaginationInterface;
-use Agit\AdminBundle\Api\Object\PaginationTrait;
 use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Api\Object\AbstractRequestObject;
 
