@@ -9,6 +9,6 @@
 
 namespace Agit\AdminBundle\Api\Object;
 
-interface NameInterface
+interface SearchPaginationInterface
 {
 }

@@ -9,6 +9,6 @@
 
 namespace Agit\AdminBundle\Api\Object;
 
-interface OrderInterface
+interface SearchOrderInterface
 {
 }

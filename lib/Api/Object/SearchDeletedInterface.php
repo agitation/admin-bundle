@@ -9,13 +9,6 @@
 
 namespace Agit\AdminBundle\Api\Object;
 
-use Agit\ApiBundle\Annotation\Property;
-
-trait NameTrait
+interface SearchDeletedInterface
 {
-    /**
-     * @Property\Name("Name")
-     * @Property\StringType(nullable=true)
-     */
-    public $name;
 }

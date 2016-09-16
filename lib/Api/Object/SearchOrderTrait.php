@@ -11,7 +11,7 @@ namespace Agit\AdminBundle\Api\Object;
 
 use Agit\ApiBundle\Annotation\Property;
 
-trait OrderTrait
+trait SearchOrderTrait
 {
     /**
      * @Property\Name("Order by field")

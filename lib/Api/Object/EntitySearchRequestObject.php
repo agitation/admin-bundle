@@ -15,8 +15,8 @@ use Agit\ApiBundle\Api\Object\AbstractRequestObject;
 /**
  * @Object\Object(namespace="admin.v1")
  */
-class EntitySearchRequestObject extends AbstractRequestObject implements PaginationInterface, OrderInterface
+class EntitySearchRequestObject extends AbstractRequestObject implements SearchPaginationInterface, SearchOrderInterface
 {
-    use PaginationTrait;
-    use OrderTrait;
+    use SearchPaginationTrait;
+    use SearchOrderTrait;
 }
