@@ -30,7 +30,7 @@ class Settings extends AbstractController
 
     /**
      * @Endpoint\Endpoint(request="common.v1/String[]",response="Setting[]")
-     * @Endpoint\Security(capability="agit.setting.read")
+     * @Endpoint\Security(capability="entity.setting.read")
      *
      * Load application settings by setting names.
      */
@@ -50,7 +50,7 @@ class Settings extends AbstractController
 
     /**
      * @Endpoint\Endpoint(request="Setting[]",response="Setting[]")
-     * @Endpoint\Security(capability="agit.setting.write")
+     * @Endpoint\Security(capability="entity.setting.write")
      *
      * Save application settings.
      */

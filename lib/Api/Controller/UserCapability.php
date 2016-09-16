@@ -20,7 +20,7 @@ use Agit\ApiBundle\Api\Controller\EntitySearchTrait;
 use Agit\ApiBundle\Api\Controller\EntityUndeleteTrait;
 
 /**
- * @Controller\EntityController(namespace="admin.v1", entity="AgitUserBundle:UserCapability", cap="agit.user")
+ * @Controller\EntityController(namespace="admin.v1", entity="AgitUserBundle:UserCapability", cap="entity.user")
  */
 class UserCapability extends AbstractEntityController
 {
