@@ -13,7 +13,7 @@ use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Api\Object\AbstractRequestObject;
 
 /**
- * @Object\Object
+ * @Object\Object(namespace="admin.v1")
  */
 class EntitySearchRequestObject extends AbstractRequestObject implements PaginationInterface, OrderInterface
 {

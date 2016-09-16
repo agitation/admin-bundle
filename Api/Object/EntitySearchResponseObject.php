@@ -14,16 +14,21 @@ use Agit\ApiBundle\Annotation\Property;
 use Agit\ApiBundle\Api\Object\AbstractResponseObject;
 
 /**
- * @Object\Object
+ * @Object\Object(namespace="admin.v1")
  */
 class EntitySearchResponseObject extends AbstractResponseObject
 {
+    /**
+     * @Property\NumberType
+     *
+     * The total number of results.
+     */
     public $total;
 
     /**
      * @Property\PolymorphicType
      *
-     * The actual response object array.
+     * The actual response object list.
      */
     public $result = [];
 }
