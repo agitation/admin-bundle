@@ -20,8 +20,13 @@ use Agit\ApiBundle\Api\Object\NameTrait;
  */
 class UserRole extends AbstractResponseObject
 {
-    use IdTrait;
     use NameTrait;
+
+    /**
+     * @Property\Name("ID")
+     * @Property\StringType
+     */
+    public $id;
 
     /**
      * @Property\Name("isSuper")

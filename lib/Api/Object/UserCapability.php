@@ -13,12 +13,18 @@ use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Api\Object\AbstractResponseObject;
 use Agit\ApiBundle\Api\Object\IdTrait;
 use Agit\ApiBundle\Api\Object\NameTrait;
+use Agit\ApiBundle\Annotation\Property;
 
 /**
  * @Object\Object(namespace="admin.v1")
  */
 class UserCapability extends AbstractResponseObject
 {
-    use IdTrait;
     use NameTrait;
+
+    /**
+     * @Property\Name("ID")
+     * @Property\StringType
+     */
+    public $id;
 }

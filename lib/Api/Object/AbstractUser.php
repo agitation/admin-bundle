@@ -29,13 +29,13 @@ abstract class AbstractUser extends AbstractEntityObject
 
     /**
      * @Property\Name("role")
-     * @Property\ObjectType(class="UserRole")
+     * @Property\EntityType(class="UserRole")
      */
     public $role;
 
     /**
      * @Property\Name("extra capabilities")
-     * @Property\ObjectListType(class="UserCapability")
+     * @Property\EntityListType(class="UserCapability")
      */
     public $capabilities;
 }

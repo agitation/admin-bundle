@@ -9,10 +9,10 @@
 
 namespace Agit\AdminBundle\Api\Controller;
 
-use Agit\AdminBundle\Api\Object\DeletedInterface;
-use Agit\AdminBundle\Api\Object\NameInterface;
-use Agit\AdminBundle\Api\Object\OrderInterface;
-use Agit\AdminBundle\Api\Object\PaginationInterface;
+use Agit\AdminBundle\Api\Object\SearchDeletedInterface;
+use Agit\AdminBundle\Api\Object\SearchNameInterface;
+use Agit\AdminBundle\Api\Object\SearchOrderInterface;
+use Agit\AdminBundle\Api\Object\SearchPaginationInterface;
 use Agit\ApiBundle\Api\Controller\AbstractEntityController as BaseController;
 use Agit\ApiBundle\Api\Object\RequestObjectInterface;
 
@@ -26,19 +26,19 @@ abstract class AbstractEntityController extends BaseController
     {
         $query = parent::createSearchQuery($requestObject);
 
-        if ($requestObject instanceof PaginationInterface) {
+        if ($requestObject instanceof SearchPaginationInterface) {
             $query->setFirstResult($requestObject->get("offset"));
             $query->setMaxResults($requestObject->get("limit"));
         }
 
-        if ($requestObject instanceof OrderInterface) {
+        if ($requestObject instanceof SearchOrderInterface) {
             $query->orderBy(
                 "e." . $requestObject->get("orderBy"),
                 $requestObject->get("orderDir")
             );
         }
 
-        if ($requestObject instanceof NameInterface) {
+        if ($requestObject instanceof SearchNameInterface) {
             $name = $requestObject->get("name");
 
             if ($name) {
@@ -47,7 +47,7 @@ abstract class AbstractEntityController extends BaseController
             }
         }
 
-        if ($requestObject instanceof DeletedInterface && ! $requestObject->get("deleted")) {
+        if ($requestObject instanceof SearchDeletedInterface && ! $requestObject->get("deleted")) {
             $query->andWhere("e.deleted = ?101");
             $query->setParameter(101, false);
         }
