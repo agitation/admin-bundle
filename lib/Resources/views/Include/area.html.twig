@@ -13,6 +13,7 @@
         "@AgitAdminBundle/Resources/public/css/forms.css"
         "@AgitAdminBundle/Resources/public/css/listview.css"
         "@AgitAdminBundle/Resources/public/css/editview.css"
+        "@AgitAdminBundle/Resources/public/css/settings.css"
 
         filter="?cleancss"
     %}
@@ -66,6 +67,9 @@
         "@AgitAdminBundle/Resources/public/js/lib/EntityEditView.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityEditHeader.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js"
+        "@AgitAdminBundle/Resources/public/js/lib/SettingsForm.js"
+        "@AgitAdminBundle/Resources/public/js/lib/SettingsHeader.js"
+        "@AgitAdminBundle/Resources/public/js/lib/SettingField.js"
         "@AgitAdminBundle/Resources/public/js/lib/FormModal.js"
         "@AgitAdminBundle/Resources/public/js/lib/CloneModal.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/Period.js"
@@ -96,6 +100,7 @@
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
     {% include "AgitAdminBundle:Include:template.listview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.editview.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.settings.html.twig" %}
 
     {% block area_extra_templates %}{% endblock %}
 {% endblock %}
