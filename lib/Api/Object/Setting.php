@@ -33,4 +33,10 @@ class Setting extends AbstractValueObject
      * The setting value.
      */
     public $value;
+
+    public function fill($data)
+    {
+        $this->id = $data["id"];
+        $this->value = $data["value"];
+    }
 }

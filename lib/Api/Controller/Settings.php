@@ -37,12 +37,10 @@ class Settings extends AbstractController
     public function load(array $names)
     {
         $result = [];
-        $settingList = $this->settingService->getSettings($names);
+        $settings = $this->settingService->getValuesOf($names);
 
-        foreach ($settingList as $setting) {
-            $result[] = $this->createObject("Setting", (object) [
-                "id" => $setting->getId(), "value" => $setting->getValue()
-            ]);
+        foreach ($settings as $name => $value) {
+            $result[] = $this->createObject("Setting", ["id" => $name, "value" => $value]);
         }
 
         return $result;
@@ -54,21 +52,15 @@ class Settings extends AbstractController
      *
      * Save application settings.
      */
-    public function save(array $apiSettingList)
+    public function save(array $request)
     {
         $settings = [];
 
-        foreach ($apiSettingList as $apiSetting) {
-            $settings[$apiSetting->get("id")] = $apiSetting->get("value");
+        foreach ($request as $entry) {
+            $settings[$entry->get("id")] = $entry->get("value");
         }
 
-        $settingList = $this->settingService->getSettings(array_keys($settings));
-
-        foreach ($settingList as $setting) {
-            $setting->setValue($settings[$setting->getId()]);
-        }
-
-        $this->settingService->saveSettings($settingList);
+        $this->settingService->saveSettings($settings);
 
         return $this->load(array_keys($settings));
     }
