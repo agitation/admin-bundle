@@ -6,10 +6,12 @@
         "@AgitUiBundle/Resources/public/css/message.bubbles.css"
         "@AgitUiBundle/Resources/public/css/calendar.css"
         "@AgitUiBundle/Resources/public/css/datepicker.css"
+
+        "@AgitMultilangBundle/Resources/public/css/field.css"
+
         "@AgitAdminBundle/Resources/public/css/forms.css"
         "@AgitAdminBundle/Resources/public/css/listview.css"
         "@AgitAdminBundle/Resources/public/css/editview.css"
-        "@AgitMultilangBundle/Resources/public/css/field.css"
 
         filter="?cleancss"
     %}
@@ -28,16 +30,30 @@
     {% endembed %}
 {% endblock %}
 
+{% block config_js %}
+    <script type="text/javascript">/* <![CDATA[ */
+        window.ag = window.ag || {};
+        ag.cfg = ag.cfg || {};
+        ag.cfg.locale = "{{ locale }}";
+        ag.cfg.apiBaseUrl = "{{ getApiUrlBase() }}";
+        ag.cfg.csrfToken = "{{ getCsrfToken() }}";
+    /* ]]> */</script>
+{% endblock %}
+
 {% block area_js %}
     {% javascripts
         "@AgitValidationBundle/Resources/public/js/lib/ValidationError.js"
         "@AgitValidationBundle/Resources/public/js/lib/Validation.js"
+
+        "@AgitMultilangBundle/Resources/public/js/lib/mlang.js"
         "@AgitMultilangBundle/Resources/public/js/lib/field/Multilang.js"
+
         "@AgitUiBundle/Resources/public/js/lib/elem/BubblesMessageHandler.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Boolean.js"
         "@AgitUiBundle/Resources/public/js/lib/field/EntitySelect.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Calendar.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Datepicker.js"
+
         "@AgitAdminBundle/Resources/public/js/lib/Preloader.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityPage.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityListView.js"
@@ -62,7 +78,6 @@
         "@AgitAdminBundle/Resources/public/js/lib/field/OneToManyFooter.js"
         "@AgitAdminBundle/Resources/public/js/lib/field/OneToManyEntityFooter.js"
         "@AgitAdminBundle/Resources/public/js/var/api.js"
-
         "@AgitAdminBundle/Resources/public/js/ctl/init.js"
 
         filter="?uglifyjs2"
