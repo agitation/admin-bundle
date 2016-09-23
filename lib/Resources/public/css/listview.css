@@ -1,7 +1,7 @@
 /* HEADER */
 
 .listview-header                        { margin-bottom: 20px; overflow: hidden; }
-.listview-header h2                     { margin: 0; }
+.listview-header h1                     { margin: 0; }
 .listview-header .goto input            { width: 85px !important; }
 
 
@@ -65,7 +65,7 @@
 
 @media (min-width: 480px)
 {
-    .listview-header h2                 { float: left; }
+    .listview-header h1                 { float: left; }
     .listview-header .actions           { overflow: hidden; }
     .listview-header .action            { float: right; margin-left: 15px; }
 }
