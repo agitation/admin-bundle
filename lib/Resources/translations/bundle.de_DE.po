@@ -3,178 +3,187 @@ msgstr ""
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
+#: @AgitAdminBundle/Resources/public/js/lib/SettingsForm.js:60
+msgid "The settings have been saved successfully."
+msgstr "Die Einstellungen wurden erfolgreich gespeichert."
+
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:25
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:32
 msgid "Period"
-msgstr ""
+msgstr "Zeitraum"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:40
 msgid "include deleted items"
-msgstr ""
+msgstr "auch gelöschte Objekte"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
 msgid "The object was updated successfully."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich aktualisiert."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
 msgid "The object was created successfully."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich angelegt."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
 msgid "The object was deleted successfully."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich gelöscht."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
 msgid "The object was restored successfully."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich wiederhergestellt."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:37
 msgid "The object was removed successfully."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich entfernt."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:91
 msgid "The object has been successfully cloned, the new object’s ID is `%s`."
-msgstr ""
+msgstr "Das Objekt wurde erfolgreich dupliziert, die ID des neuen Objekts ist `%s`."
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:189
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
 msgid "d/m/Y"
-msgstr ""
+msgstr "d.m.Y"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:335
 msgid "d/m H:i"
-msgstr ""
+msgstr "d.m. H:i"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:362
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
 msgid "edit"
-msgstr ""
+msgstr "bearbeiten"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:379
 msgid "duplicate"
-msgstr ""
+msgstr "duplizieren"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:395
 msgid "Are you sure you want to duplicate `%s`?"
-msgstr ""
+msgstr "Möchten Sie das Objekt `%s` wirklich duplizieren?"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:414
 msgid "delete"
-msgstr ""
+msgstr "löschen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:423
 msgid "restore"
-msgstr ""
+msgstr "wiederherstellen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
 msgid "remove"
-msgstr ""
+msgstr "entfernen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:437
 msgid "remove permanently"
-msgstr ""
+msgstr "endgültig entfernen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:444
 msgid "Are you sure you want to permanently remove object %s?"
-msgstr ""
+msgstr "Möchten Sie das Objekt `%s` wirklich endgültig entfernen?"
 
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 msgid "Please select a location."
-msgstr ""
+msgstr "Bitte wählen Sie einen Geoposition aus."
+
+#: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+msgid "reset"
+msgstr "zurücksetzen"
+
+#: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:39
+msgid "submit"
+msgstr "absenden"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
 msgid "Overview"
-msgstr ""
+msgstr "Übersicht"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:33
 msgid "create new"
-msgstr ""
+msgstr "neu anlegen"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:58
 msgid "loading more items …"
-msgstr ""
+msgstr "weitere Objekte werden geladen …"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:71
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:77
 msgid "Update list"
-msgstr ""
+msgstr "Liste aktualisieren"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:81
 msgid "Reset parameters"
-msgstr ""
+msgstr "Parameter zurücksetzen"
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:103
 msgid "This list is currently empty. Please modify your search or create a new object."
-msgstr ""
+msgstr "Diese Liste ist momentan leer. Bitte passen Sie Ihre Suche an oder legen Sie ein neues Objekt an."
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:26
 msgid "This value will be set on the server after saving the object."
-msgstr ""
+msgstr "Dieser Wert wird auf dem Server gesetzt, nachdem das Objekt gespeichert wurde."
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
 msgid "Please add one or more entries to this list."
-msgstr ""
+msgstr "Bitte fügen Sie der Liste ein oder mehrere Elemente hinzu."
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:46
 msgid "Please enter the main properties of the new object."
-msgstr ""
+msgstr "Bitte geben Sie die Eigenschaften des neuen Objektes an."
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:50
 msgid "Note: You can edit other properties of the new object later."
-msgstr ""
+msgstr "Hinweis: Sie können die anderen Eigenschaften des neuen Objekts später ändern."
 
 #: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
-msgstr ""
+msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglich in die Karte. Wenn Sie die gewünschte Position gefunden haben, klicken Sie mit der Maus, um dort einen Marker zu setzen."
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
 msgid "switch to overview"
-msgstr ""
+msgstr "zur Listenansicht wechseln"
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
 msgid "(optional)"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
-msgid "reset"
-msgstr ""
+msgstr "(optional)"
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
-msgid "submit"
-msgstr ""
+msgid "save"
+msgstr "speichern"

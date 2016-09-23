@@ -3,6 +3,10 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
+#: @AgitAdminBundle/Resources/public/js/lib/SettingsForm.js:60
+msgid "The settings have been saved successfully."
+msgstr ""
+
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
 msgid "Text"
 msgstr ""
@@ -111,6 +115,15 @@ msgstr ""
 msgid "Please select a location."
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+msgid "reset"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:39
+msgid "submit"
+msgstr ""
+
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
 msgid "Overview"
 msgstr ""
@@ -171,10 +184,6 @@ msgstr ""
 msgid "(optional)"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
-msgid "reset"
-msgstr ""
-
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
-msgid "submit"
+msgid "save"
 msgstr ""
