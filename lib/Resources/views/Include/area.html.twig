@@ -27,7 +27,7 @@
     {% embed "AgitUiBundle:Include:layout/web/include.header.html.twig" %}
         {% block menu %}
             {% import "AgitUiBundle:Include:layout/web/include.menu.html.twig" as nav %}
-            {{ nav.menu(getPageTree("/admin")) }}
+            {{ nav.menu(getPageTree("/admin"), locale) }}
         {% endblock %}
     {% endembed %}
 {% endblock %}
