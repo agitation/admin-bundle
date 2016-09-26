@@ -6,18 +6,6 @@
 
     <form class="editview-form edit-form" method="post" action="">
         <table>
-            <tbody>
-                <tr>
-                    <th scope="row">
-                        <label></label>
-                        <span class="optional">{{ t("(optional)") }}</span>
-                    </th>
-                    <td>
-                        <div class="field"></div>
-                        <div class="description"></div>
-                    </td>
-                </tr>
-            </tbody>
             <tfoot>
                 <tr>
                     <td></td>
@@ -29,4 +17,19 @@
             </tfoot>
         </table>
     </form>
+
+    <table class="dummy">
+        <tbody class="editview-form-row">
+            <tr>
+                <th scope="row">
+                    <label></label>
+                    <span class="optional">{{ t("(optional)") }}</span>
+                </th>
+                <td>
+                    <div class="field"></div>
+                    <div class="description"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>
