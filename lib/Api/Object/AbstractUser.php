@@ -11,9 +11,9 @@ namespace Agit\AdminBundle\Api\Object;
 
 use Agit\ApiBundle\Annotation\Property;
 use Agit\ApiBundle\Api\Object\AbstractEntityObject;
+use Agit\ApiBundle\Api\Object\DeletedTrait;
 use Agit\ApiBundle\Api\Object\IdTrait;
 use Agit\ApiBundle\Api\Object\NameTrait;
-use Agit\ApiBundle\Api\Object\DeletedTrait;
 
 abstract class AbstractUser extends AbstractEntityObject
 {

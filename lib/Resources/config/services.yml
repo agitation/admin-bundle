@@ -1,0 +1,5 @@
+services:
+    agit.admin.seed.logentry_category:
+        private: true
+        class: Agit\AdminBundle\Seed\LogentryCategorySeed
+        tags: [{ name: kernel.event_listener, event: agit.seed, method: registerSeed }]

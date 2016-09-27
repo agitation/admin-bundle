@@ -12,7 +12,6 @@ namespace Agit\AdminBundle\Api\Object;
 use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Annotation\Property;
 use Agit\ApiBundle\Api\Object\AbstractResponseObject;
-use Agit\ApiBundle\Api\Object\IdTrait;
 use Agit\ApiBundle\Api\Object\NameTrait;
 
 /**
