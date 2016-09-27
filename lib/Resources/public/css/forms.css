@@ -35,16 +35,18 @@ table.onetomany.empty thead, table.onetomany.empty tbody    { display: none; }
 
 
 /* tags */
-.editview-form .tag                                         { border: 1px solid #ddd; display: inline-block; background: #fff; border-radius: 5px; padding: .4em .8em; margin: 0 .7em .7em 0; cursor: pointer; white-space: nowrap }
-.editview-form .tag span                                    { color: #888; padding-left: .5em; }
-.editview-form .tag i.fa                                    { color: #ccc; width: 1em; display: none }
-.editview-form .tag i.fa.off                                { display: inline-block }
-.editview-form .tag.active                                  { border: 1px solid #bbb; background: #f8fff8; box-shadow: 0 0 2px 0 #ccc }
-.editview-form .tag.active span                             { color: #333 }
-.editview-form .tag.active i.fa                             { color: #393; }
-.editview-form .tag.active i.fa.off                         { display: none }
-.editview-form .tag.active i.fa.on                          { display: inline-block }
-.editview-form .tag.locked                                  { cursor: default; background: #f7f7f7; color: #aaa }
-.editview-form .tag.locked.active                           { background: #efe; }
-.editview-form .tag.locked i.fa.onoff                       { display: none }
-.editview-form .tag.locked i.fa.locked                      { display: inline-block }
+.edit-form .tags                                            { margin-bottom: -10px; }
+.edit-form .tag                                             { border: 1px solid #ddd; display: inline-block; background: #fff; border-radius: 5px;
+                                                              line-height: 1.42857143; height: 34px; padding: 6px 12px; font-size: 14px; margin: 0 10px 10px 0; cursor: pointer; white-space: nowrap }
+.edit-form .tag span                                        { color: #888; padding-left: .5em; }
+.edit-form .tag i.fa                                        { color: #ccc; width: 1em; display: none }
+.edit-form .tag i.fa.off                                    { display: inline-block }
+.edit-form .tag.active                                      { border: 1px solid #bbb; background: #f8fff8; box-shadow: 0 0 2px 0 #ccc }
+.edit-form .tag.active span                                 { color: #333 }
+.edit-form .tag.active i.fa                                 { color: #393; }
+.edit-form .tag.active i.fa.off                             { display: none }
+.edit-form .tag.active i.fa.on                              { display: inline-block }
+.edit-form .tag.locked                                      { cursor: default; background: #f7f7f7; color: #aaa }
+.edit-form .tag.locked.active                               { background: #efe; }
+.edit-form .tag.locked i.fa.onoff                           { display: none }
+.edit-form .tag.locked i.fa.locked                          { display: inline-block }
