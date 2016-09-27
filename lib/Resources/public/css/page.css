@@ -24,6 +24,6 @@ main h1 span                                        { color: #222; }
 .edit-form .description :first-child                { margin-top: 0; }
 .edit-form .description :last-child                 { margin-bottom: 0; }
 
-/* OBSOLETE!!! */
-.edit-form .explain                                 { font-size: .9em; color: #555; }
-.edit-form p.explain                                { margin: 10px 0 0; }
+.edit-form .subhead h2                              { margin: 2em 0 0; font-size: 1.5em; font-weight: 500 }
+.edit-form .subhead:first-child h2                  { margin-top: .5em; }
+.edit-form > table > tbody.subhead > tr > td        { border-bottom-color: #aaa; }
