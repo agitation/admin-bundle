@@ -25,11 +25,11 @@ msgstr "Zeitraum"
 msgid "include deleted items"
 msgstr "auch gelöschte Objekte"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
 msgid "The object was updated successfully."
 msgstr "Das Objekt wurde erfolgreich aktualisiert."
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
 msgid "The object was created successfully."
 msgstr "Das Objekt wurde erfolgreich angelegt."
 
@@ -116,7 +116,7 @@ msgid "Please select a location."
 msgstr "Bitte wählen Sie einen Geoposition aus."
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
 msgid "reset"
 msgstr "zurücksetzen"
 
@@ -180,10 +180,10 @@ msgstr "Bearbeiten"
 msgid "switch to overview"
 msgstr "zur Listenansicht wechseln"
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
-msgid "(optional)"
-msgstr "(optional)"
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:46
 msgid "save"
 msgstr "speichern"
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
+msgid "(optional)"
+msgstr "(optional)"

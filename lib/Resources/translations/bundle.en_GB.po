@@ -25,11 +25,11 @@ msgstr ""
 msgid "include deleted items"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
 msgid "The object was updated successfully."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
 msgid "The object was created successfully."
 msgstr ""
 
@@ -116,7 +116,7 @@ msgid "Please select a location."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:54
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
 msgid "reset"
 msgstr ""
 
@@ -180,10 +180,10 @@ msgstr ""
 msgid "switch to overview"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
-msgid "(optional)"
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:46
+msgid "save"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
-msgid "save"
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
+msgid "(optional)"
 msgstr ""
