@@ -50,3 +50,19 @@ table.onetomany.empty thead, table.onetomany.empty tbody    { display: none; }
 .edit-form .tag.locked.active                               { background: #efe; }
 .edit-form .tag.locked i.fa.onoff                           { display: none }
 .edit-form .tag.locked i.fa.locked                          { display: inline-block }
+
+
+/* key-value-table */
+
+.key-value                                                  { margin-top: 12px; font-size: 0.9em; }
+.key-value tbody                                            { }
+.key-value tbody tr > *                                     { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; font-weight: normal; padding: 0 30px 5px 0 }
+.key-value tr.extra                                         { display: none; }
+.key-value tfoot                                            { display: none; }
+.key-value.long tfoot                                       { display: table-row-group; }
+.key-value tfoot td                                         { padding-top: 10px; }
+.key-value tfoot a                                          { display: none; }
+.key-value tfoot .more                                      { display: inline-block; }
+.key-value.full tr.extra                                    { display: table-row; }
+.key-value.full tfoot .more                                 { display: none; }
+.key-value.full tfoot .less                                 { display: inline-block; }
