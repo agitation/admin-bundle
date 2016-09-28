@@ -56,7 +56,7 @@ table.onetomany.empty thead, table.onetomany.empty tbody    { display: none; }
 
 .key-value                                                  { margin-top: 12px; font-size: 0.9em; }
 .key-value tbody                                            { }
-.key-value tbody tr > *                                     { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; font-weight: normal; padding: 0 30px 5px 0 }
+.key-value tbody tr > *                                     { font-weight: normal; padding: 0 30px 5px 0 }
 .key-value tr.extra                                         { display: none; }
 .key-value tfoot                                            { display: none; }
 .key-value.long tfoot                                       { display: table-row-group; }
