@@ -3,7 +3,7 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: @AgitAdminBundle/Resources/public/js/lib/SettingsForm.js:60
+#: @AgitAdminBundle/Resources/public/js/lib/SettingsForm.js:63
 msgid "The settings have been saved successfully."
 msgstr ""
 
@@ -113,6 +113,10 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 msgid "Please select a location."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Page/admin.html.twig:37
+msgid "Administration"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
