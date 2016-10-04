@@ -13,7 +13,6 @@ use Agit\ApiBundle\Annotation\Controller\Controller;
 use Agit\ApiBundle\Annotation\Depends;
 use Agit\ApiBundle\Annotation\Endpoint;
 use Agit\ApiBundle\Api\Controller\AbstractController;
-use Agit\IntlBundle\Tool\Translate;
 use Agit\SettingBundle\Service\SettingService;
 
 /**

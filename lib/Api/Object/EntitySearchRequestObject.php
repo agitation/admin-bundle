@@ -11,6 +11,10 @@ namespace Agit\AdminBundle\Api\Object;
 
 use Agit\ApiBundle\Annotation\Object;
 use Agit\ApiBundle\Api\Object\AbstractRequestObject;
+use Agit\ApiBundle\Api\Object\SearchOrderInterface;
+use Agit\ApiBundle\Api\Object\SearchOrderTrait;
+use Agit\ApiBundle\Api\Object\SearchPaginationInterface;
+use Agit\ApiBundle\Api\Object\SearchPaginationTrait;
 
 /**
  * @Object\Object(namespace="admin.v1")

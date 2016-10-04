@@ -9,12 +9,12 @@
 
 namespace Agit\AdminBundle\Api\Controller;
 
-use Agit\AdminBundle\Api\Object\SearchDeletedInterface;
-use Agit\AdminBundle\Api\Object\SearchNameInterface;
-use Agit\AdminBundle\Api\Object\SearchOrderInterface;
-use Agit\AdminBundle\Api\Object\SearchPaginationInterface;
 use Agit\ApiBundle\Api\Controller\AbstractEntityController as BaseController;
 use Agit\ApiBundle\Api\Object\RequestObjectInterface;
+use Agit\ApiBundle\Api\Object\SearchDeletedInterface;
+use Agit\ApiBundle\Api\Object\SearchNameInterface;
+use Agit\ApiBundle\Api\Object\SearchOrderInterface;
+use Agit\ApiBundle\Api\Object\SearchPaginationInterface;
 
 /**
  * Extends the AbstractEntityController from the API bundle with extended
