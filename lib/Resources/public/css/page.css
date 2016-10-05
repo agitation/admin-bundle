@@ -29,3 +29,10 @@ main h1 span                                        { color: #222; }
 .edit-form > table > tbody.subhead > tr > td        { border-bottom-color: #aaa; }
 
 .mono                                               { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; }
+
+
+@media (min-width: 768px)
+{
+    .edit-form input[type=number]                   { max-width: 10em }
+
+}
