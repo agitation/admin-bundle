@@ -63,10 +63,15 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+#: @AgitAdminBundle/Api/Object/UserCapability.php
+#: @AgitAdminBundle/Api/Object/Setting.php
+#: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "ID"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
+#: @AgitAdminBundle/Api/Object/UserCapability.php
+#: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "Name"
 msgstr ""
 
@@ -198,4 +203,32 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
 msgid "(optional)"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Start offset"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Items per page"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Order by field"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Order direction"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/Setting.php
+msgid "Value"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/UserRole.php
+msgid "Is super"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/UserRole.php
+msgid "Capabilities"
 msgstr ""

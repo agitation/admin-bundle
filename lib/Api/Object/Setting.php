@@ -21,6 +21,7 @@ use Agit\ApiBundle\Api\Object\AbstractValueObject;
 class Setting extends AbstractValueObject
 {
     /**
+     * @Property\Name("ID")
      * @Property\StringType(minLength=3, maxLength=40)
      *
      * Identifier of the setting.
@@ -28,6 +29,7 @@ class Setting extends AbstractValueObject
     public $id;
 
     /**
+     * @Property\Name("Value")
      * @Property\PolymorphicType
      *
      * The setting value.

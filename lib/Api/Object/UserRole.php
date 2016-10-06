@@ -28,13 +28,13 @@ class UserRole extends AbstractResponseObject
     public $id;
 
     /**
-     * @Property\Name("isSuper")
+     * @Property\Name("Is super")
      * @Property\BooleanType
      */
     public $isSuper;
 
     /**
-     * @Property\Name("capabilities")
+     * @Property\Name("Capabilities")
      * @Property\ObjectListType(class="UserCapability")
      */
     public $capabilities;

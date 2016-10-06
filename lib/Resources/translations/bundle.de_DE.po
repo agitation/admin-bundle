@@ -63,10 +63,15 @@ msgstr "d.m. H:i"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+#: @AgitAdminBundle/Api/Object/UserCapability.php
+#: @AgitAdminBundle/Api/Object/Setting.php
+#: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "ID"
 msgstr "ID"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
+#: @AgitAdminBundle/Api/Object/UserCapability.php
+#: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "Name"
 msgstr "Name"
 
@@ -199,3 +204,31 @@ msgstr "speichern"
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
 msgid "(optional)"
 msgstr "(optional)"
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Start offset"
+msgstr "Anfang"
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Order by field"
+msgstr "Sortieren nach"
+
+#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
+msgid "Order direction"
+msgstr "Reihenfolge"
+
+#: @AgitAdminBundle/Api/Object/Setting.php
+msgid "Value"
+msgstr "Wert"
+
+#: @AgitAdminBundle/Api/Object/UserRole.php
+msgid "Is super"
+msgstr "Ist super"
+
+#: @AgitAdminBundle/Api/Object/UserRole.php
+msgid "Capabilities"
+msgstr "Eigenschaften"

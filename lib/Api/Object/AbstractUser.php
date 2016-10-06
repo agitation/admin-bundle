@@ -22,19 +22,19 @@ abstract class AbstractUser extends AbstractEntityObject
     use DeletedTrait;
 
     /**
-     * @Property\Name("email")
+     * @Property\Name("E-mail")
      * @Property\StringType(minLength=5, maxLength=70)
      */
     public $email;
 
     /**
-     * @Property\Name("role")
+     * @Property\Name("Role")
      * @Property\EntityType(class="UserRole")
      */
     public $role;
 
     /**
-     * @Property\Name("extra capabilities")
+     * @Property\Name("Capabilities")
      * @Property\EntityListType(class="UserCapability")
      */
     public $capabilities;
