@@ -3,7 +3,7 @@
         <span class="empty">{{ t("This value will be set on the server after saving the object.") }}</span>
     </div>
 
-    <table class="onetomany">
+    <table class="onetomany tomany">
         <caption>{{ t("Please add one or more entries to this list.") }}</caption>
     </table>
 
@@ -12,6 +12,21 @@
             <th></th>
             <td></td>
         </tr>
+    </table>
+
+    <table class="manytomany tomany empty">
+        <caption>{{ t("Please add one or more entries to this list.") }}</caption>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <select class="form-control input-sm"></select>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default btn-sm">{{ t("add") }}</button>
+                </td>
+            </tr>
+        </tfoot>
     </table>
 
     <table class="key-value">
@@ -40,6 +55,13 @@
         <tr class="key-value-row mono">
             <th></th>
             <td></td>
+        </tr>
+
+        <tr class="manytomany-row">
+            <td></td>
+            <td class="remove">
+                <a>{{ t("remove") }}</a>
+            </td>
         </tr>
     </table>
 
