@@ -70,8 +70,6 @@ msgid "ID"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
-#: @AgitAdminBundle/Api/Object/UserCapability.php
-#: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "Name"
 msgstr ""
 
@@ -105,6 +103,7 @@ msgid "restore"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:110
 msgid "remove"
 msgstr ""
 
@@ -166,22 +165,27 @@ msgid "This value will be set on the server after saving the object."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:47
 msgid "Please add one or more entries to this list."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:51
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:58
+msgid "add"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:72
 msgid "show all …"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:55
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:76
 msgid "collapse …"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:64
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:85
 msgid "Please enter the main properties of the new object."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:68
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:89
 msgid "Note: You can edit other properties of the new object later."
 msgstr ""
 
@@ -203,22 +207,6 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
 msgid "(optional)"
-msgstr ""
-
-#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
-msgid "Start offset"
-msgstr ""
-
-#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
-msgid "Items per page"
-msgstr ""
-
-#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
-msgid "Order by field"
-msgstr ""
-
-#: @AgitAdminBundle/Api/Object/EntitySearchRequestObject.php
-msgid "Order direction"
 msgstr ""
 
 #: @AgitAdminBundle/Api/Object/Setting.php
