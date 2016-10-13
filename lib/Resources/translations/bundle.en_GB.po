@@ -209,14 +209,23 @@ msgstr ""
 msgid "(optional)"
 msgstr ""
 
+#: @AgitAdminBundle/Api/Object/AbstractUser.php
+msgid "E-mail"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/AbstractUser.php
+msgid "Role"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Object/AbstractUser.php
+#: @AgitAdminBundle/Api/Object/UserRole.php
+msgid "Capabilities"
+msgstr ""
+
 #: @AgitAdminBundle/Api/Object/Setting.php
 msgid "Value"
 msgstr ""
 
 #: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "Is super"
-msgstr ""
-
-#: @AgitAdminBundle/Api/Object/UserRole.php
-msgid "Capabilities"
 msgstr ""
