@@ -1,8 +1,12 @@
 /* HEADER */
 
-.editview-header                                        { margin-bottom: 20px; }
-.editview-header p                                      { margin: 10px 0 0; }
+@media (min-width: 992px) /*not handheld*/
+{
+    .editview-header .control.back              { display: block; margin-bottom: 5px; vertical-align: middle; }
+    .editview-header .control.back a            { text-decoration: none }
+    .editview-header .control.back span         { display: inline-block; margin-left: 5px; }
+}
 
-
-
-/* FORM */
+@media  (max-width: 991px) /* handheld*/
+{
+}

@@ -1,7 +1,10 @@
 <template id="agitadmin-listview">
-    <div class="listview-header">
-        <h1><span></span> › {{ t("Overview") }}</h1>
 
+    <div class="listview-header title container">
+        <span class="control show-nav">
+            <a class="fa fa-navicon"></a>
+        </span>
+        <h1><span></span> › {{ t("Overview") }}</h1>
         <div class="actions">
             <div class="action create">
                 <a class="btn btn-primary" href="#!/edit?new">{{ t("create new") }}</a>
@@ -18,12 +21,12 @@
         </div>
     </div>
 
-    <div class="more">
+    <div class="more container">
         <div class="ind"></div>
         <div>{{ t("loading more items …") }}</div>
     </div>
 
-    <form class="listview-search">
+    <form class="listview-search container">
         <table>
             <tr class="captions">
                 <th></th>
@@ -40,7 +43,7 @@
         </table>
     </form>
 
-    <div class="listview-table">
+    <div class="listview-table container">
         <div class="extra">
             <div class="exporter"></div>
         </div>

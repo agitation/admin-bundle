@@ -1,10 +1,19 @@
 <template id="agitadmin-editview">
-    <div class="editview-header">
+
+    <div class="editview-header title container">
+        <span class="control back">
+            <a class="fa fa-caret-left" href="#!/list"><span>{{ t("switch to overview") }}<span></a>
+        </span>
+
         <h1><span></span> › {{ t("Edit") }}</h1>
-        <p><a href="#!/list">‹ {{ t("switch to overview") }}</a></p>
+
+        <span class="control show-nav">
+            <a class="fa fa-navicon"></a>
+        </span>
     </div>
 
-    <form class="editview-form edit-form" method="post" action="">
+
+    <form class="editview-form edit-form container" method="post" action="">
         <table>
             <tfoot>
                 <tr>

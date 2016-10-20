@@ -1,4 +1,4 @@
-{% extends ["::layout.web.html.twig", "AppBundle:Include:layout.web.html.twig", "AgitUiBundle:Include:layout/web/page.html.twig"] %}
+{% extends ["::page.html.twig", "AppBundle:Include:page.html.twig", "AgitUiBundle:Include:page.html.twig"] %}
 
 {% block area_css %}
     {% stylesheets
@@ -6,7 +6,6 @@
         "@AgitUiBundle/Resources/public/css/message.bubbles.css"
         "@AgitUiBundle/Resources/public/css/calendar.css"
         "@AgitUiBundle/Resources/public/css/datepicker.css"
-        "@AgitUiBundle/Resources/public/css/layout.web.css"
 
         "@AgitMultilangBundle/Resources/public/css/field.css"
 
@@ -23,22 +22,16 @@
     {% block area_extra_css %}{% endblock %}
 {% endblock %}
 
-{% block header %}
-    {% embed "AgitUiBundle:Include:layout/web/include.header.html.twig" %}
-        {% block menu %}
-            {% import "AgitUiBundle:Include:layout/web/include.menu.html.twig" as nav %}
-            {{ nav.menu(getPageTree("/admin"), locale) }}
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
 {% block config_js %}
     <script type="text/javascript">/* <![CDATA[ */
         window.ag = window.ag || {};
-        ag.cfg = ag.cfg || {};
+        ag.cfg = = ag.cfg || {};
         ag.cfg.locale = "{{ locale }}";
+        ag.cfg.baseUrl = "{{ getAppUrlBase() }}";
         ag.cfg.apiBaseUrl = "{{ getApiUrlBase() }}";
         ag.cfg.csrfToken = "{{ getCsrfToken() }}";
+        ag.cfg.languages = {{ getPageLocaleUrls()|json_encode()|raw }};
+        ag.cfg.pages = {{ getPageUrls("/admin")|json_encode()|raw }};
     /* ]]> */</script>
 {% endblock %}
 
@@ -58,6 +51,9 @@
         "@AgitUiBundle/Resources/public/js/lib/field/Calendar.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Datepicker.js"
 
+        "@AgitProfileBundle/Resources/public/js/lib/ProfileMenuEntry.js"
+        "@AgitProfileBundle/Resources/public/js/var/api.js"
+
         "@AgitAdminBundle/Resources/public/js/var/translations.js"
         "@AgitAdminBundle/Resources/public/js/lib/Preloader.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityPage.js"
@@ -72,7 +68,6 @@
         "@AgitAdminBundle/Resources/public/js/lib/EditFormSubhead.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js"
         "@AgitAdminBundle/Resources/public/js/lib/SettingsForm.js"
-        "@AgitAdminBundle/Resources/public/js/lib/SettingsHeader.js"
         "@AgitAdminBundle/Resources/public/js/lib/SettingField.js"
         "@AgitAdminBundle/Resources/public/js/lib/FormModal.js"
         "@AgitAdminBundle/Resources/public/js/lib/CloneModal.js"
@@ -103,11 +98,15 @@
 {% block area_templates %}
     {% include "AgitUiBundle:Include:template.message.bubble.html.twig" %}
     {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
+
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
+
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
     {% include "AgitAdminBundle:Include:template.listview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.editview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.settings.html.twig" %}
+
+    {% include "AgitProfileBundle:Include:template.menu.html.twig" %}
 
     {% block area_extra_templates %}{% endblock %}
 {% endblock %}

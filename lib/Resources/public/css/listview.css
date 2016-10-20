@@ -1,8 +1,21 @@
 /* HEADER */
 
-.listview-header                        { margin-bottom: 20px; overflow: hidden; }
-.listview-header h1                     { margin: 0; }
-.listview-header .goto input            { width: 85px !important; }
+
+@media (min-width: 992px) /*not handheld*/
+{
+    .listview-header                        { overflow: hidden; }
+    .listview-header .goto input            { width: 85px !important; }
+    .listview-header h1                     { float: left; }
+    .listview-header .actions               { overflow: hidden; }
+    .listview-header .action                { float: right; margin-left: 15px; }
+}
+
+@media  (max-width: 991px) /* handheld*/
+{
+    .listview-header .actions               { display: none }
+    .listview-header h1                     { margin: 0; }
+}
+
 
 
 /* SEARCH FORM */
@@ -22,7 +35,7 @@
 
 /* TABLE */
 
-.listview-table                             { margin: 30px 0 0; }
+.listview-table                             { margin-top: 30px; }
 .listview-table .extra                      { overflow: hidden; }
 .listview-table .exporter                   { float: right; }
 .listview-table > table                     { width: 100%; margin: 0; }
@@ -30,6 +43,7 @@
 
 .listview-table > table > thead > tr > th,
 .listview-table > table > tbody > tr > td   { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
+.listview-table > table > tbody > tr:last-child > td { border-bottom: 0 }
 
 .listview-table > table > thead > tr > th   { background: #222; color: #fff; border: 0; padding: 8px 10px }
 .listview-table tr.noresults td             { text-align: center; color: #888 }
@@ -53,23 +67,20 @@
 .listview-table td.longtext                 { max-width: 30% }
 
 
-.view.list .more                            { margin: 25px 0 0; text-align: center; visibility: hidden }
+.view.list .more                            { margin: 25px 0; text-align: center; visibility: hidden }
 .view.list .more.visible                    { visibility: visible }
 .view.list .more div                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #777; }
 .view.list .more div.spinner                { height: 24px; width: 24px; margin-right: 20px; }
 
+.listview-search .priority-1,
 .view.list .priority-2,
 .view.list .priority-3,
 .view.list .priority-4                      { display: none; }
 
-
 @media (min-width: 480px)
 {
-    .listview-header h1                 { float: left; }
-    .listview-header .actions           { overflow: hidden; }
-    .listview-header .action            { float: right; margin-left: 15px; }
+    .view.list .priority-1                  { display: table-cell; }
 }
-
 
 @media (min-width: 768px)
 {
