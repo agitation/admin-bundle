@@ -2,7 +2,7 @@
 
 @media (min-width: 992px) /*not handheld*/
 {
-    .editview-header .control.back              { display: block; margin-bottom: 5px; vertical-align: middle; }
+    .editview-header .control.back              { display: inline-block; margin-bottom: 8px; vertical-align: middle; }
     .editview-header .control.back a            { text-decoration: none }
     .editview-header .control.back span         { display: inline-block; margin-left: 5px; }
 }
