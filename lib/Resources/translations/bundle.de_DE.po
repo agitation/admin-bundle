@@ -11,17 +11,17 @@ msgstr "Die Einstellungen wurden erfolgreich gespeichert."
 msgid "Text"
 msgstr "Text"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:25
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:26
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
 msgid "Date"
 msgstr "Datum"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:32
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:33
 msgid "Period"
 msgstr "Zeitraum"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:40
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:41
 msgid "include deleted items"
 msgstr "auch gelöschte Objekte"
 
@@ -62,7 +62,7 @@ msgid "d/m H:i"
 msgstr "d.m. H:i"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:41
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:44
 #: @AgitAdminBundle/Api/Object/UserCapability.php
 #: @AgitAdminBundle/Api/Object/Setting.php
 #: @AgitAdminBundle/Api/Object/UserRole.php
@@ -82,7 +82,7 @@ msgid "User"
 msgstr "Benutzer"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:49
 msgid "edit"
 msgstr "bearbeiten"
 
@@ -124,7 +124,7 @@ msgid "Administration"
 msgstr "Administration"
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:51
 msgid "reset"
 msgstr "zurücksetzen"
 
@@ -132,31 +132,31 @@ msgstr "zurücksetzen"
 msgid "submit"
 msgstr "absenden"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:26
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:30
 msgid "Overview"
 msgstr "Übersicht"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:33
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:36
 msgid "create new"
 msgstr "neu anlegen"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:58
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:61
 msgid "loading more items …"
 msgstr "weitere Objekte werden geladen …"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:71
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:74
 msgid "Search"
 msgstr "Suche"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:77
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:80
 msgid "Update list"
 msgstr "Liste aktualisieren"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:81
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:84
 msgid "Reset parameters"
 msgstr "Parameter zurücksetzen"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:103
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:106
 msgid "This list is currently empty. Please modify your search or create a new object."
 msgstr "Diese Liste ist momentan leer. Bitte passen Sie Ihre Suche an oder legen Sie ein neues Objekt an."
 
@@ -193,19 +193,19 @@ msgstr "Hinweis: Sie können die anderen Eigenschaften des neuen Objekts später
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
 msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglich in die Karte. Wenn Sie die gewünschte Position gefunden haben, klicken Sie mit der Maus, um dort einen Marker zu setzen."
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:26
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:30
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:28
 msgid "switch to overview"
 msgstr "zur Listenansicht wechseln"
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:46
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:55
 msgid "save"
 msgstr "speichern"
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:61
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
 msgid "(optional)"
 msgstr "(optional)"
 
