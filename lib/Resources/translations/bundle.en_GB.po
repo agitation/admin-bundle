@@ -67,11 +67,11 @@ msgstr ""
 #: @AgitAdminBundle/Api/Object/Setting.php
 #: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
 msgid "Description"
