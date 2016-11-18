@@ -24,14 +24,17 @@
 
 {% block config_js %}
     <script type="text/javascript">/* <![CDATA[ */
-        window.ag = window.ag || {};
-        ag.cfg = ag.cfg || {};
-        ag.cfg.locale = "{{ locale }}";
-        ag.cfg.baseUrl = "{{ getAppUrlBase() }}";
-        ag.cfg.apiBaseUrl = "{{ getApiUrlBase() }}";
-        ag.cfg.csrfToken = "{{ getCsrfToken() }}";
-        ag.cfg.languages = {{ getPageLocaleUrls()|json_encode()|raw }};
-        ag.cfg.pages = {{ getPageUrls("/admin")|json_encode()|raw }};
+        window.ag = {
+            cfg : {
+                locale : "{{ locale }}",
+                baseUrl : "{{ getAppUrlBase() }}",
+                apiBaseUrl : "{{ getApiUrlBase() }}",
+                csrfToken : "{{ getCsrfToken() }}",
+                languages : {{ getPageLocaleUrls()|json_encode()|raw }},
+                pages : {{ getPageUrls("/admin")|json_encode()|raw }}
+            }
+        };
+        {% block config_js_extra %}{# allow setting custom values #}{% endblock %}
     /* ]]> */</script>
 {% endblock %}
 
