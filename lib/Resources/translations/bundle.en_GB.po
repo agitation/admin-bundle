@@ -111,16 +111,12 @@ msgstr ""
 msgid "remove permanently"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:444
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:445
 msgid "Are you sure you want to permanently remove object %s?"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 msgid "Please select a location."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Page/admin.html.twig:37
-msgid "Administration"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
@@ -207,6 +203,10 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
 msgid "(optional)"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1
+msgid "Administration"
 msgstr ""
 
 #: @AgitAdminBundle/Api/Object/AbstractUser.php
