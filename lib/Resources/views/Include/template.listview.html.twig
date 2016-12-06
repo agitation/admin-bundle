@@ -1,11 +1,11 @@
 <template id="agitadmin-listview">
 
     <div class="listview-header title container">
-        <span class="control show-nav">
+        <span class="control show-nav only-handheld">
             <a class="fa fa-navicon"></a>
         </span>
         <h1><span></span> › {{ t("Overview") }}</h1>
-        <div class="actions">
+        <div class="actions not-handheld">
             <div class="action create">
                 <a class="btn btn-primary" href="#!/edit?new">{{ t("create new") }}</a>
             </div>
