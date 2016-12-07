@@ -24,6 +24,7 @@ table.tomany.empty caption                                  { display: table-cap
 table.tomany.empty thead, table.tomany.empty tbody          { display: none; }
 
 
+table.tomany td.deleted                                     { text-decoration: line-through }
 table.manytomany td.remove                                  { font-size: .9em }
 table.manytomany tbody:first-of-type tr:first-child td,
 table.manytomany tbody:last-of-type tr:last-child td        { padding: 7px 10px; border: 0 }
