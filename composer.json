@@ -10,6 +10,7 @@
         "agitation/ui-bundle": "dev-master",
         "agitation/user-bundle": "dev-master",
         "agitation/multilang-bundle": "dev-master",
+        "agitation/validation-bundle": "^1.1",
         "agitation/profile-bundle": "dev-master"
     },
     "autoload": {
