@@ -103,7 +103,7 @@ msgid "restore"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:110
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
 msgid "remove"
 msgstr ""
 
@@ -185,6 +185,11 @@ msgstr ""
 msgid "Note: You can edit other properties of the new object later."
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:106
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
+msgid "(optional)"
+msgstr ""
+
 #: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
 msgstr ""
@@ -199,10 +204,6 @@ msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:55
 msgid "save"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
-msgid "(optional)"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1

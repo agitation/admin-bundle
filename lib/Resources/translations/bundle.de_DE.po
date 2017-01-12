@@ -103,7 +103,7 @@ msgid "restore"
 msgstr "wiederherstellen"
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:110
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
 msgid "remove"
 msgstr "entfernen"
 
@@ -185,6 +185,11 @@ msgstr "Bitte geben Sie die Eigenschaften des neuen Objektes an."
 msgid "Note: You can edit other properties of the new object later."
 msgstr "Hinweis: Sie können die anderen Eigenschaften des neuen Objekts später ändern."
 
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:106
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
+msgid "(optional)"
+msgstr "(optional)"
+
 #: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
 msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglich in die Karte. Wenn Sie die gewünschte Position gefunden haben, klicken Sie mit der Maus, um dort einen Marker zu setzen."
@@ -200,10 +205,6 @@ msgstr "Bearbeiten"
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:55
 msgid "save"
 msgstr "speichern"
-
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:70
-msgid "(optional)"
-msgstr "(optional)"
 
 #: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1
 msgid "Administration"
