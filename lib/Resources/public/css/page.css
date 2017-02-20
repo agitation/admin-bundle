@@ -1,37 +1,5 @@
 html,body                                           { background: #fafafa; }
 
-.edit-form                                          {}
-.edit-form > table                                  { width: 100%; border-collapse: separate }
-.edit-form > table > tbody > tr > th,
-.edit-form > table > tbody > tr > td                { border-bottom: 1px solid #ddd; padding: 20px 0 }
-.edit-form > table > tbody > tr > th                { vertical-align: top; padding: 30px 40px 30px 0; font-weight: normal; width: 1%; }
-.edit-form > table > tfoot tr > td                  { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
-.edit-form tfoot button                             { margin-right: 15px; }
-
-
-.edit-form th label                                 { display: block; margin: 0; font-weight: bold; white-space: nowrap; }
-.edit-form th .optional                             { font-size: .93em; }
-
-.edit-form textarea                                 { min-height: 80px; }
-.edit-form input[type=number]                       { text-align: right; }
-
-.edit-form input[readonly]                          { border: 1px solid #f9f9f9; padding-left: 0; background: #f9f9f9; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; }
-.edit-form input[readonly].unset                    { color: #999; }
-
-.edit-form .description                             { font-size: .9em; color: #555; margin: 10px 5px 0; }
-.edit-form .description:empty                       { margin: 0; }
-.edit-form .description :first-child                { margin-top: 0; }
-.edit-form .description :last-child                 { margin-bottom: 0; }
-
-.edit-form .subhead h2                              { margin: 2em 0 0; font-size: 1.5em; font-weight: 500 }
-.edit-form .subhead:first-child h2                  { margin-top: .5em; }
-.edit-form > table > tbody.subhead > tr > td        { border-bottom-color: #aaa; }
-
-@media (min-width: 768px)
-{
-    .edit-form input[type=number]                   { max-width: 10em }
-}
-
 @media (min-width: 992px) /* not handheld*/
 {
     h1                                              { color: #666; }
