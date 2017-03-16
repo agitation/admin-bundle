@@ -30,6 +30,7 @@
                 baseUrl : "{{ getAppUrlBase() }}",
                 apiBaseUrl : "{{ getApiUrlBase() }}",
                 csrfToken : "{{ getCsrfToken() }}",
+                reloadOn401 : true,
                 languages : {{ getPageLocaleUrls()|json_encode()|raw }},
                 pages : {{ getPageUrls("/admin")|json_encode()|raw }}
             }
@@ -101,12 +102,12 @@
 {% endblock %}
 
 {% block area_templates %}
-    {% include "AgitUiBundle:Include:template.message.bubble.html.twig" %}
     {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
 
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
 
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
+    {% include "AgitAdminBundle:Include:template.message.bubble.html.twig" %}
     {% include "AgitAdminBundle:Include:template.listview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.editview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.settings.html.twig" %}
