@@ -39,6 +39,10 @@
     /* ]]> */</script>
 {% endblock %}
 
+{% block area_meta %}
+    {% include "AgitPageBundle:Include:include.links.html.twig" %}
+{% endblock %}
+
 {% block area_js %}
     {% javascripts
         "@AgitValidationBundle/Resources/public/js/lib/ValidationError.js"
@@ -56,7 +60,19 @@
         "@AgitUiBundle/Resources/public/js/lib/field/EntitySelect.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Calendar.js"
         "@AgitUiBundle/Resources/public/js/lib/field/Datepicker.js"
+
+
+        "@AgitPageBundle/Resources/public/js/var/update-links.js"
+
+        "@AgitApiBundle/Resources/public/js/lib/Api.js"
+        "@AgitApiBundle/Resources/public/js/lib/ApiError.js"
+        "@AgitApiBundle/Resources/public/js/lib/Endpoint.js"
+        "@AgitApiBundle/Resources/public/js/lib/Object.js"
+        "@AgitApiBundle/Resources/public/js/lib/Indicator.js"
+        "@AgitApiBundle/Resources/public/js/var/api.js"
+
         "@AgitProfileBundle/Resources/public/js/lib/ProfileMenuEntry.js"
+        "@AgitProfileBundle/Resources/public/js/var/translations.js"
         "@AgitProfileBundle/Resources/public/js/var/api.js"
 
         "@AgitAdminBundle/Resources/public/js/var/translations.js"
