@@ -1,13 +1,19 @@
 <template id="agitadmin-autocomplete">
     <div class="autocomplete">
-        <div>
-            <p>
-                <input type="text" class="form-control">
-                <span class="ind"></span>
-            </p>
-        </div>
-        <ul tabindex="-1">
+        <p class="static">
+            <span></span>
+            <a class="change">{{ t("change") }} …</a>
+        </p>
+        <p class="edit">
+            <input type="text" class="form-control" autocomplete="off">
+            <span class="ind"></span>
+        </p>
+        <ul class="edit" tabindex="-1">
             <li class="empty">{{ t("Sorry, no results have been found.") }}</li>
         </ul>
     </div>
+
+    <ul>
+        <li class="item"></li>
+    </ul>
 </template>

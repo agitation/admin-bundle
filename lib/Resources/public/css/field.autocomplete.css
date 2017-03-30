@@ -1,13 +1,22 @@
-.autocomplete                                           { position: relative; }
-.autocomplete p, .autocomplete ul, .autocomplete li     { margin: 0; padding: 0; line-height: 1em; width: 100%; list-style: none; }
-.autocomplete p                                         { position: relative; }
-.autocomplete p > *                                     { }
-.autocomplete span.indicator                            { position: absolute; top: 6px; right: 6px; }
-.autocomplete .spinner                                  { width: 22px; height: 22px }
+.autocomplete                                                       { position: relative; }
+.autocomplete:not(.edit) .edit, .autocomplete.edit > :not(.edit)    { display: none }
+.autocomplete p, .autocomplete ul, .autocomplete li                 { margin: 0; padding: 0; line-height: 1em; width: 100%; list-style: none; }
 
-.autocomplete ul                                        { display: none; position: absolute; z-index: 510; margin-top: -1px; border: 0px solid #d7d7d7; box-shadow: 0px 0px 2px #333; overflow-y: auto; max-height: 10em }
-.autocomplete ul.preview, .autocomplete ul:focus        { display: block; outline: 0; }
-.autocomplete li                                        { width: auto; height: 2em; padding: .5em; background: #eee; border-bottom: 1px solid #ddd; color: #777; cursor: pointer; box-sizing: border-box; }
-.autocomplete li:last-child                             { border: none; }
-.autocomplete li.current                                { background: #e4e4e4; color: #555; }
-.autocomplete li.empty                                  { font-style: italic; color: #999; cursor: default; }
+.autocomplete p.static :first-child:not(:empty) + .change           { display: inline-block; margin-left: 15px }
+
+.autocomplete p.input                                               { position: relative; }
+.autocomplete span.indicator                                        { position: absolute; top: 6px; right: 6px; }
+.autocomplete .spinner                                              { width: 22px; height: 22px }
+
+.autocomplete ul                                                    { display: none; position: absolute; z-index: 510; margin-top: -1px; border: 0; box-shadow: 0px 0px 2px #333; overflow-y: auto; max-height: 10em }
+.autocomplete ul.preview, .autocomplete ul:focus                    { display: block; outline: 0; }
+
+.autocomplete li                                                    { background: #eee; }
+.autocomplete li.item                                               { display: table; width: 100%; color: #777; cursor: pointer; }
+.autocomplete li.item > *                                           { display: table-cell; text-align: left; height: 2em; padding: .5em; border-bottom: 1px solid #ddd; box-sizing: border-box; vertical-align: middle; }
+.autocomplete li.item .extra                                        { text-align: right; color: #999; font-size: .9em }
+.autocomplete li.item .id                                           { font-family: monospace; }
+
+.autocomplete li:last-child                                         { border: none; }
+.autocomplete li.current                                            { background: #e4e4e4; color: #555; }
+.autocomplete li.empty                                              { height: 2em; padding: .5em; font-style: italic; color: #999; cursor: default; }
