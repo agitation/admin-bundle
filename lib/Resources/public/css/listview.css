@@ -47,7 +47,6 @@
 .listview-table .center                     { text-align: center; }
 .listview-table .left                       { text-align: left; }
 .listview-table .right                      { text-align: right; }
-.listview-table .code                       { font-family: Consolas, "Andale Mono", monospace; }
 .listview-table tr.deleted td               { color: #daa }
 
 .listview-table > table > tfoot             { display: none; }
