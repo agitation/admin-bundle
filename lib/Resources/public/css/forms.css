@@ -11,7 +11,7 @@
 .edit-form th .optional                                     { font-size: .93em; }
 
 .edit-form textarea                                         { min-height: 80px; }
-.edit-form input[type=number]                               { text-align: right; }
+.edit-form input[type=number], .edit-form input.decimal     { text-align: right; }
 
 .edit-form .description                                     { font-size: .9em; color: #555; margin: 10px 5px 0; }
 .edit-form .description:empty                               { margin: 0; }
@@ -24,7 +24,7 @@
 
 @media (min-width: 768px)
 {
-    .edit-form input[type=number]                           { max-width: 10em }
+    .edit-form input[type=number], .edit-form input.decimal { max-width: 10em }
 }
 
 
@@ -41,7 +41,7 @@
 .tomany > tfoot > tr > td > select                          { min-width: 13em }
 
 .tomany input[type=text]:not(.datepicker),
-.tomany input[type=number]                                  { width: 6em; }
+.tomany input[type=number], .tomany input.decimal           { width: 6em; }
 
 .tomany.empty caption                                       { display: table-caption; }
 .tomany.empty thead, .tomany.empty tbody                    { display: none; }
