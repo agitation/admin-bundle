@@ -1,103 +1,106 @@
-.edit-form                                                  {}
-.edit-form > table                                          { width: 100%; border-collapse: separate }
+.edit-form                                                                  {}
+.edit-form > table                                                          { width: 100%; border-collapse: separate }
 .edit-form > table > tbody > tr > th,
-.edit-form > table > tbody > tr > td                        { border-bottom: 1px solid #ddd; padding: 20px 0 }
-.edit-form > table > tbody > tr > th                        { vertical-align: top; padding: 30px 40px 30px 0; font-weight: normal; width: 1%; }
-.edit-form > table > tfoot tr > td                          { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
-.edit-form tfoot button                                     { margin-right: 15px; }
+.edit-form > table > tbody > tr > td                                        { border-bottom: 1px solid #ddd; padding: 20px 0 }
+.edit-form > table > tbody > tr > th                                        { vertical-align: top; padding: 30px 40px 30px 0; font-weight: normal; width: 1%; }
+.edit-form > table > tfoot tr > td                                          { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
+.edit-form tfoot button                                                     { margin-right: 15px; }
 
 
-.edit-form th label                                         { display: block; margin: 0; font-weight: bold; white-space: nowrap; }
-.edit-form th .optional                                     { font-size: .93em; }
+.edit-form th label                                                         { display: block; margin: 0; font-weight: bold; white-space: nowrap; }
+.edit-form th .optional                                                     { font-size: .93em; }
 
-.edit-form textarea                                         { min-height: 80px; }
-.edit-form input[type=number], .edit-form input.decimal     { text-align: right; }
+.edit-form textarea                                                         { min-height: 80px; }
+.edit-form input[type=number], .edit-form input.decimal,
+.edit-form input.time                                                       { text-align: right; }
 
-.edit-form .description                                     { font-size: .9em; color: #555; margin: 10px 5px 0; }
-.edit-form .description:empty                               { margin: 0; }
-.edit-form .description :first-child                        { margin-top: 0; }
-.edit-form .description :last-child                         { margin-bottom: 0; }
+.edit-form .description                                                     { font-size: .9em; color: #555; margin: 10px 5px 0; }
+.edit-form .description:empty                                               { margin: 0; }
+.edit-form .description :first-child                                        { margin-top: 0; }
+.edit-form .description :last-child                                         { margin-bottom: 0; }
 
-.edit-form .subhead h2                                      { margin: 2em 0 0; font-size: 1.5em; font-weight: 500 }
-.edit-form .subhead:first-child h2                          { margin-top: .5em; }
-.edit-form > table > tbody.subhead > tr > td                { border-bottom-color: #aaa; }
+.edit-form .subhead h2                                                      { margin: 2em 0 0; font-size: 1.5em; font-weight: 500 }
+.edit-form .subhead:first-child h2                                          { margin-top: .5em; }
+.edit-form > table > tbody.subhead > tr > td                                { border-bottom-color: #aaa; }
 
 @media (min-width: 768px)
 {
-    .edit-form input[type=number], .edit-form input.decimal { max-width: 10em }
+    .edit-form input[type=number], .edit-form input.time,
+    .edit-form input.decimal                                                { max-width: 9em }
 }
 
 
 /* x-TO-MANY */
 
-.tomany                                                     { width: auto; min-width: 20em; margin-top: 3px; }
-.tomany caption                                             { display: none; color: #777; font-style: italic; padding: 7px 0; white-space: nowrap }
-.tomany > * > tr > th, .tomany > * > tr > td                { min-width: 0; padding: 5px 10px; background: #f2f2f2; vertical-align: middle; }
-.tomany > * > tr > th                                       { background: #e1e1e1; padding: 7px 10px; font-weight: bold; white-space: nowrap; border-bottom: 1px solid #fcfcfc; }
-.tomany > tbody:first-of-type > tr:first-child > td         { padding-top: 10px; }
-.tomany > tbody:last-of-type > tr:last-child > td           { padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
-.tomany > tfoot > tr > td                                   { background: none; padding-top: 10px; white-space: nowrap }
-.tomany > tfoot > tr > td:first-child                       { padding-left: 0; }
-.tomany > tfoot > tr > td > select                          { min-width: 13em }
+.tomany                                                                     { width: auto; min-width: 20em; margin-top: 3px; }
+.tomany caption                                                             { display: none; color: #777; font-style: italic; padding: 7px 0; white-space: nowrap }
+.tomany > * > tr > th, .tomany > * > tr > td                                { min-width: 0; padding: 5px 10px; background: #f2f2f2; vertical-align: middle; }
+.tomany > * > tr > th                                                       { background: #e1e1e1; padding: 7px 10px; font-weight: bold; white-space: nowrap; border-bottom: 1px solid #fcfcfc; }
+.tomany > tbody:first-of-type > tr:first-child > td                         { padding-top: 10px; }
+.tomany > tbody:last-of-type > tr:last-child > td                           { padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
+.tomany > tfoot > tr > td                                                   { background: none; padding-top: 10px; white-space: nowrap }
+.tomany > tfoot > tr > td:first-child                                       { padding-left: 0; }
+.tomany > tfoot > tr > td > select                                          { min-width: 13em }
 
 .tomany input[type=text]:not(.datepicker),
-.tomany input[type=number], .tomany input.decimal           { width: 6em; }
-
-.tomany.empty caption                                       { display: table-caption; }
-.tomany.empty thead, .tomany.empty tbody                    { display: none; }
+.tomany input[type=number], .tomany input.decimal                           { width: 9em; }
 
 
-.tomany td.deleted                                          { text-decoration: line-through }
-.manytomany td.remove                                       { font-size: .9em }
+.tomany.empty caption                                                       { display: table-caption; }
+.tomany.empty thead, .tomany.empty tbody                                    { display: none; }
+
+
+.tomany td.deleted                                                          { text-decoration: line-through }
+.manytomany td.remove                                                       { font-size: .9em }
 .manytomany tbody:first-of-type tr:first-child td,
-.manytomany tbody:last-of-type tr:last-child td             { padding: 7px 10px; border: 0 }
+.manytomany tbody:last-of-type tr:last-child td                             { padding: 7px 10px; border: 0 }
 
 
 /* FormModal */
 
-.form-modal                                                 {}
+.form-modal                                                                 {}
 
-.form-modal table                                           { width: 100%; }
-.form-modal th                                              { vertical-align: top; padding: 15px 10px 10px 10px; font-weight: bold; width: 1%; }
-.form-modal td                                              { padding: 10px; }
+.form-modal table                                                           { width: 100%; }
+.form-modal th                                                              { vertical-align: top; padding: 15px 10px 10px 10px; font-weight: bold; width: 1%; }
+.form-modal td                                                              { padding: 10px; }
 
-.clone-modal-info                                           { margin: 10px 10px 20px; color: #888; font-size: .9em; text-align: center }
+.clone-modal-info                                                           { margin: 10px 10px 20px; color: #888; font-size: .9em; text-align: center }
 
 
 /* tags */
-.edit-form .tags                                            { margin-bottom: -10px; }
-.edit-form .tag                                             { border: 1px solid #ddd; display: inline-block; background: #fff; border-radius: 5px;
-                                                              line-height: 1.42857143; height: 34px; padding: 6px 12px; font-size: 14px; margin: 0 10px 10px 0; cursor: pointer; white-space: nowrap }
-.edit-form .tag span                                        { color: #888; padding-left: .5em; }
-.edit-form .tag i.fa                                        { color: #ccc; width: 1em; display: none }
-.edit-form .tag i.fa.off                                    { display: inline-block }
-.edit-form .tag.active                                      { border: 1px solid #bbb; background: #f8fff8; box-shadow: 0 0 2px 0 #ccc }
-.edit-form .tag.active span                                 { color: #333 }
-.edit-form .tag.active i.fa                                 { color: #393; }
-.edit-form .tag.active i.fa.off                             { display: none }
-.edit-form .tag.active i.fa.on                              { display: inline-block }
-.edit-form .tag.locked                                      { cursor: default; background: #f7f7f7; color: #aaa }
-.edit-form .tag.locked.active                               { background: #efe; }
-.edit-form .tag.locked i.fa.onoff                           { display: none }
-.edit-form .tag.locked i.fa.locked                          { display: inline-block }
+.edit-form .tags                                                            { margin-bottom: -10px; }
+.edit-form .tag                                                             { border: 1px solid #ddd; display: inline-block; background: #fff; border-radius: 5px; line-height: 1.42857143;
+                                                                              height: 34px; padding: 6px 12px; font-size: 14px; margin: 0 10px 10px 0; cursor: pointer; white-space: nowrap }
+.edit-form .tag span                                                        { color: #888; padding-left: .5em; }
+.edit-form .tag i.fa                                                        { color: #ccc; width: 1em; display: none }
+.edit-form .tag i.fa.off                                                    { display: inline-block }
+.edit-form .tag.active                                                      { border: 1px solid #bbb; background: #f8fff8; box-shadow: 0 0 2px 0 #ccc }
+.edit-form .tag.active span                                                 { color: #333 }
+.edit-form .tag.active i.fa                                                 { color: #393; }
+.edit-form .tag.active i.fa.off                                             { display: none }
+.edit-form .tag.active i.fa.on                                              { display: inline-block }
+.edit-form .tag.locked                                                      { cursor: default; background: #f7f7f7; color: #aaa }
+.edit-form .tag.locked.active                                               { background: #efe; }
+.edit-form .tag.locked i.fa.onoff                                           { display: none }
+.edit-form .tag.locked i.fa.locked                                          { display: inline-block }
 
 /* READONLY */
 
-.readonly                                                   { }
-.readonly .empty                                            { color: #aaa; font-style: italic }
+.readonly                                                                   { }
+.readonly .empty                                                            { color: #aaa; font-style: italic }
 
 
 /* key-value-table */
 
-.key-value                                                  { margin-top: 12px; font-size: 0.9em; }
-.key-value tbody                                            { }
-.key-value tbody tr > *                                     { font-weight: normal; padding: 0 30px 5px 0 }
-.key-value tr.extra                                         { display: none; }
-.key-value tfoot                                            { display: none; }
-.key-value.long tfoot                                       { display: table-row-group; }
-.key-value tfoot td                                         { padding-top: 10px; }
-.key-value tfoot a                                          { display: none; }
-.key-value tfoot .more                                      { display: inline-block; }
-.key-value.full tr.extra                                    { display: table-row; }
-.key-value.full tfoot .more                                 { display: none; }
-.key-value.full tfoot .less                                 { display: inline-block; }
+.key-value                                                                  { margin-top: 12px; font-size: 0.9em; }
+.key-value tbody                                                            { }
+.key-value tbody tr > *                                                     { font-weight: normal; padding: 0 30px 5px 0 }
+.key-value tr.extra                                                         { display: none; }
+.key-value tfoot                                                            { display: none; }
+.key-value.long tfoot                                                       { display: table-row-group; }
+.key-value tfoot td                                                         { padding-top: 10px; }
+.key-value tfoot a                                                          { display: none; }
+.key-value tfoot .more                                                      { display: inline-block; }
+.key-value.full tr.extra                                                    { display: table-row; }
+.key-value.full tfoot .more                                                 { display: none; }
+.key-value.full tfoot .less                                                 { display: inline-block; }
