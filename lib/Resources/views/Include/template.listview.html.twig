@@ -5,21 +5,21 @@
             <a class="fa fa-navicon"></a>
         </span>
         <h1><span></span> › {{ t("Overview") }}</h1>
-        <div class="actions not-handheld">
-            <div class="action create">
-                <a class="btn btn-primary" href="#!/edit?new">{{ t("create new") }}</a>
-            </div>
-
-            <form class="action goto form-inline">
-                <div class="input-group">
-                    <input class="form-control" type="text" name="id" value="" placeholder="{{ t("ID") }}">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default">{{ t("edit") }}</button>
-                    </span>
-                </div>
-            </form>
-        </div>
+        <div class="actions not-handheld"></div>
     </div>
+
+    <div class="action create">
+        <a class="btn btn-primary" href="#!/edit?new">{{ t("create new") }}</a>
+    </div>
+
+    <form class="action goto form-inline">
+        <div class="input-group">
+            <input class="form-control" type="text" name="id" value="" placeholder="{{ t("ID") }}">
+            <span class="input-group-btn">
+                <button class="btn btn-default">{{ t("edit") }}</button>
+            </span>
+        </div>
+    </form>
 
     <div class="more container">
         <span class="ind"></span>

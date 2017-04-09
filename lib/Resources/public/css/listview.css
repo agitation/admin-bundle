@@ -6,8 +6,8 @@
     .listview-header                        { overflow: hidden; }
     .listview-header .goto input            { width: 85px !important; }
     .listview-header h1                     { float: left; }
-    .listview-header .actions               { overflow: hidden; }
-    .listview-header .action                { float: right; margin-left: 15px; }
+    .listview-header .actions               { overflow: hidden; float: right; }
+    .listview-header .action                { float: left; margin-left: 15px; }
 }
 
 @media  (max-width: 991px) /* handheld */
