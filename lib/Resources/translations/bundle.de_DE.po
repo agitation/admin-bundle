@@ -7,117 +7,145 @@ msgstr ""
 msgid "The settings have been saved successfully."
 msgstr "Die Einstellungen wurden erfolgreich gespeichert."
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:19
 msgid "Text"
 msgstr "Text"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:26
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:27
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:369
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
 msgid "Date"
 msgstr "Datum"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:33
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:34
 msgid "Period"
 msgstr "Zeitraum"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:41
-msgid "include deleted items"
-msgstr "auch gelöschte Objekte"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:42
+msgid "include inactive items"
+msgstr "auch inaktive Objekte"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListView.js:121
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:30
+msgid "Overview"
+msgstr "Übersicht"
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:39
 msgid "The object was updated successfully."
 msgstr "Das Objekt wurde erfolgreich aktualisiert."
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:39
 msgid "The object was created successfully."
 msgstr "Das Objekt wurde erfolgreich angelegt."
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
-msgid "The object was deleted successfully."
-msgstr "Das Objekt wurde erfolgreich gelöscht."
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
-msgid "The object was restored successfully."
-msgstr "Das Objekt wurde erfolgreich wiederhergestellt."
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:37
-msgid "The object was removed successfully."
-msgstr "Das Objekt wurde erfolgreich entfernt."
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:91
-msgid "The object has been successfully cloned, the new object’s ID is `%s`."
-msgstr "Das Objekt wurde erfolgreich dupliziert, die ID des neuen Objekts ist `%s`."
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:189
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:29
 msgid "Actions"
 msgstr "Aktionen"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:47
+msgid "The object was deactivated successfully."
+msgstr "Das Objekt wurde deaktiviert."
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:47
+msgid "The object was activated successfully."
+msgstr "Das Objekt wurde aktiviert."
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:64
+msgid "The object was deleted successfully."
+msgstr "Das Objekt wurde gelöscht."
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:132
+msgid "The object has been successfully cloned, the new object’s ID is `%s`."
+msgstr "Das Objekt wurde dupliziert, die ID des neuen Objekts ist `%s`."
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:338
 msgid "d/m/Y"
 msgstr "d.m.Y"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:335
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:347
 msgid "d/m H:i"
 msgstr "d.m. H:i"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:44
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:366
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
 #: @AgitAdminBundle/Api/Object/UserCapability.php
 #: @AgitAdminBundle/Api/Object/Setting.php
 #: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "ID"
 msgstr "ID"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:368
 msgid "Name"
 msgstr "Name"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:371
 msgid "Description"
 msgstr "Beschreibung"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:362
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:374
 msgid "User"
 msgstr "Benutzer"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:49
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:382
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:51
 msgid "edit"
 msgstr "bearbeiten"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:379
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:391
 msgid "duplicate"
 msgstr "duplizieren"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:395
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:407
 msgid "Are you sure you want to duplicate `%s`?"
 msgstr "Möchten Sie das Objekt `%s` wirklich duplizieren?"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:414
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:426
+msgid "deactivate"
+msgstr "deaktivieren"
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:435
+msgid "activate"
+msgstr "aktivieren"
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:445
 msgid "delete"
 msgstr "löschen"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:423
-msgid "restore"
-msgstr "wiederherstellen"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:449
+msgid "delete permanently"
+msgstr "endgültig löschen"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
-msgid "remove"
-msgstr "entfernen"
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:437
-msgid "remove permanently"
-msgstr "endgültig entfernen"
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:445
-msgid "Are you sure you want to permanently remove object %s?"
-msgstr "Möchten Sie das Objekt `%s` wirklich endgültig entfernen?"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:457
+msgid "Are you sure you want to permanently delete object %s?"
+msgstr "Sind Sie sicher, dass Sie das Objekt %s endgültig löschen möchten?"
 
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 msgid "Please select a location."
 msgstr "Bitte wählen Sie einen Geoposition aus."
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditView.js:20
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: @AgitAdminBundle/Seed/UserCapabilitySeed.php:20
+msgctxt "user capability"
+msgid "Load settings"
+msgstr "Einstellungen laden"
+
+#: @AgitAdminBundle/Seed/UserCapabilitySeed.php:21
+msgctxt "user capability"
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: @AgitAdminBundle/Seed/LogentryCategorySeed.php:21
+msgctxt "logging category"
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: @AgitAdminBundle/Api/Controller/Settings.php:82
+msgid "The following settings have been changed: %s."
+msgstr "Die folgenden Einstellungen wurden geändert: %s."
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:51
@@ -128,11 +156,7 @@ msgstr "zurücksetzen"
 msgid "submit"
 msgstr "absenden"
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:30
-msgid "Overview"
-msgstr "Übersicht"
-
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:36
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:38
 msgid "create new"
 msgstr "neu anlegen"
 
@@ -190,6 +214,10 @@ msgstr "Hinweis: Sie können die anderen Eigenschaften des neuen Objekts später
 msgid "(optional)"
 msgstr "(optional)"
 
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
+msgid "remove"
+msgstr "entfernen"
+
 #: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
 msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglich in die Karte. Wenn Sie die gewünschte Position gefunden haben, klicken Sie mit der Maus, um dort einen Marker zu setzen."
@@ -198,13 +226,17 @@ msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglic
 msgid "switch to overview"
 msgstr "zur Listenansicht wechseln"
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
-msgid "Edit"
-msgstr "Bearbeiten"
-
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:55
 msgid "save"
 msgstr "speichern"
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.autocomplete.html.twig:28
+msgid "change"
+msgstr "ändern"
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.autocomplete.html.twig:38
+msgid "Sorry, no results have been found."
+msgstr "Es wurden leider keine Ergebnisse gefunden."
 
 #: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1
 msgid "Administration"

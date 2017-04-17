@@ -7,116 +7,144 @@ msgstr ""
 msgid "The settings have been saved successfully."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:18
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:19
 msgid "Text"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:26
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:357
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:358
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:27
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:369
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
 msgid "Date"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:33
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:34
 msgid "Period"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:41
-msgid "include deleted items"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListSearch.js:42
+msgid "include inactive items"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListView.js:121
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:30
+msgid "Overview"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:39
 msgid "The object was updated successfully."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:48
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditForm.js:39
 msgid "The object was created successfully."
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
-msgid "The object was deleted successfully."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:20
-msgid "The object was restored successfully."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:37
-msgid "The object was removed successfully."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:91
-msgid "The object has been successfully cloned, the new object’s ID is `%s`."
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:189
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:29
 msgid "Actions"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:47
+msgid "The object was deactivated successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:47
+msgid "The object was activated successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:64
+msgid "The object was deleted successfully."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:132
+msgid "The object has been successfully cloned, the new object’s ID is `%s`."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:338
 msgid "d/m/Y"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:335
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:347
 msgid "d/m H:i"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:354
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:44
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:366
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
 #: @AgitAdminBundle/Api/Object/UserCapability.php
 #: @AgitAdminBundle/Api/Object/Setting.php
 #: @AgitAdminBundle/Api/Object/UserRole.php
 msgid "ID"
 msgstr "ID"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:356
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:368
 msgid "Name"
 msgstr "Name"
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:359
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:371
 msgid "Description"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:362
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:374
 msgid "User"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:370
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:49
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:382
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:51
 msgid "edit"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:379
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:391
 msgid "duplicate"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:395
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:407
 msgid "Are you sure you want to duplicate `%s`?"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:414
-msgid "delete"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:426
+msgid "deactivate"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:423
-msgid "restore"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:433
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
-msgid "remove"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:437
-msgid "remove permanently"
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:435
+msgid "activate"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:445
-msgid "Are you sure you want to permanently remove object %s?"
+msgid "delete"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:449
+msgid "delete permanently"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:457
+msgid "Are you sure you want to permanently delete object %s?"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/field/Location.js:62
 msgid "Please select a location."
+msgstr ""
+
+#: @AgitAdminBundle/Resources/public/js/lib/EntityEditView.js:20
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
+msgid "Edit"
+msgstr ""
+
+#: @AgitAdminBundle/Seed/UserCapabilitySeed.php:20
+msgctxt "user capability"
+msgid "Load settings"
+msgstr ""
+
+#: @AgitAdminBundle/Seed/UserCapabilitySeed.php:21
+msgctxt "user capability"
+msgid "Save settings"
+msgstr ""
+
+#: @AgitAdminBundle/Seed/LogentryCategorySeed.php:21
+msgctxt "logging category"
+msgid "Settings"
+msgstr ""
+
+#: @AgitAdminBundle/Api/Controller/Settings.php:82
+msgid "The following settings have been changed: %s."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:35
@@ -128,11 +156,7 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:30
-msgid "Overview"
-msgstr ""
-
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:36
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:38
 msgid "create new"
 msgstr ""
 
@@ -190,6 +214,10 @@ msgstr ""
 msgid "(optional)"
 msgstr ""
 
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:126
+msgid "remove"
+msgstr ""
+
 #: @AgitAdminBundle/Resources/views/Include/template.field.location.html.twig:26
 msgid "Please make sure to find the exact position: Zoom into the map as deep as possible. When you have found the location, click on it with the mouse to set a marker."
 msgstr ""
@@ -198,12 +226,16 @@ msgstr ""
 msgid "switch to overview"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
-msgid "Edit"
-msgstr ""
-
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:55
 msgid "save"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.autocomplete.html.twig:28
+msgid "change"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.field.autocomplete.html.twig:38
+msgid "Sorry, no results have been found."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1
