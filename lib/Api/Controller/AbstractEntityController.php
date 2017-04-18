@@ -24,15 +24,15 @@ abstract class AbstractEntityController extends BaseController
 {
     protected function createSearchQuery(RequestObjectInterface $requestObject)
     {
-        $query = parent::createSearchQuery($requestObject);
+        $qb = parent::createSearchQuery($requestObject);
 
         if ($requestObject instanceof SearchPaginationInterface) {
-            $query->setFirstResult($requestObject->get("offset"));
-            $query->setMaxResults($requestObject->get("limit"));
+            $qb->setFirstResult($requestObject->get("offset"));
+            $qb->setMaxResults($requestObject->get("limit"));
         }
 
         if ($requestObject instanceof SearchOrderInterface) {
-            $query->orderBy(
+            $qb->orderBy(
                 "e." . $requestObject->get("orderBy"),
                 $requestObject->get("orderDir")
             );
@@ -42,16 +42,16 @@ abstract class AbstractEntityController extends BaseController
             $name = $requestObject->get("name");
 
             if ($name) {
-                $query->andWhere("e.name LIKE :term");
-                $query->setParameter("term", "%$name%");
+                $qb->andWhere("e.name LIKE :term");
+                $qb->setParameter("term", "%$name%");
             }
         }
 
         if ($requestObject instanceof SearchDeletedInterface && ! $requestObject->get("deleted")) {
-            $query->andWhere("e.deleted = ?101");
-            $query->setParameter(101, false);
+            $qb->andWhere("e.deleted = ?101");
+            $qb->setParameter(101, false);
         }
 
-        return $query;
+        return $qb;
     }
 }
