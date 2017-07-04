@@ -59,15 +59,17 @@ msgid "The object has been successfully cloned, the new object’s ID is `%s`."
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:338
-msgid "d/m/Y"
+msgctxt "date format"
+msgid "Y-m-d"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:347
-msgid "d/m H:i"
+msgctxt "date format"
+msgid "Y-m-d H:i"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:366
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:46
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:50
 #: @AgitAdminBundle/Api/Object/UserCapability.php
 #: @AgitAdminBundle/Api/Object/Setting.php
 #: @AgitAdminBundle/Api/Object/UserRole.php
@@ -87,7 +89,7 @@ msgid "User"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:382
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:51
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:55
 msgid "edit"
 msgstr ""
 
@@ -157,26 +159,27 @@ msgid "submit"
 msgstr ""
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:38
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:42
 msgid "create new"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:61
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:65
 msgid "loading more items …"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:74
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:78
 msgid "Search"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:80
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:84
 msgid "Update list"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:84
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:88
 msgid "Reset parameters"
 msgstr ""
 
-#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:106
+#: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:110
 msgid "This list is currently empty. Please modify your search or create a new object."
 msgstr ""
 
