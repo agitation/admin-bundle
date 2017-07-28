@@ -4,4 +4,5 @@ html,body                                           { background: #fafafa; }
 {
     h1                                              { color: #666; }
     h1 span                                         { color: #222; }
+    header .title .control.back span                { margin-left: 5px; }
 }
