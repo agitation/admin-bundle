@@ -42,7 +42,7 @@
 .tomany > tfoot > tr > td:first-child                                       { padding-left: 0; }
 .tomany > tfoot > tr > td > select                                          { min-width: 13em }
 
-.tomany input[type=text]:not(.datepicker),
+/*.tomany input[type=text]:not(.datepicker),*/
 .tomany input[type=number], .tomany input.decimal                           { width: 9em; }
 
 
