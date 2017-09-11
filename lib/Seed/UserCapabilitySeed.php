@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/admin-bundle
  * @link       http://github.com/agitation/admin-bundle
@@ -17,12 +17,13 @@ class UserCapabilitySeed
     public function registerSeed(SeedEvent $event)
     {
         $capabilities = [
-            ["id" => "admin.setting.read", "name" => Translate::noopX("user capability", "Load settings")],
-            ["id" => "admin.setting.write", "name" => Translate::noopX("user capability", "Save settings")]
+            ['id' => 'admin.setting.read', 'name' => Translate::noopX('user capability', 'Load settings')],
+            ['id' => 'admin.setting.write', 'name' => Translate::noopX('user capability', 'Save settings')]
         ];
 
-        foreach ($capabilities as $capability) {
-            $event->addSeedEntry("AgitUserBundle:UserCapability", $capability);
+        foreach ($capabilities as $capability)
+        {
+            $event->addSeedEntry('AgitUserBundle:UserCapability', $capability);
         }
     }
 }

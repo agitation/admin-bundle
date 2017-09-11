@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/admin-bundle
  * @link       http://github.com/agitation/admin-bundle
@@ -26,29 +26,34 @@ abstract class AbstractEntityController extends BaseController
     {
         $qb = parent::createSearchQuery($requestObject);
 
-        if ($requestObject instanceof SearchPaginationInterface) {
-            $qb->setFirstResult($requestObject->get("offset"));
-            $qb->setMaxResults($requestObject->get("limit"));
+        if ($requestObject instanceof SearchPaginationInterface)
+        {
+            $qb->setFirstResult($requestObject->get('offset'));
+            $qb->setMaxResults($requestObject->get('limit'));
         }
 
-        if ($requestObject instanceof SearchOrderInterface) {
+        if ($requestObject instanceof SearchOrderInterface)
+        {
             $qb->orderBy(
-                "e." . $requestObject->get("orderBy"),
-                $requestObject->get("orderDir")
+                'e.' . $requestObject->get('orderBy'),
+                $requestObject->get('orderDir')
             );
         }
 
-        if ($requestObject instanceof SearchNameInterface) {
-            $name = $requestObject->get("name");
+        if ($requestObject instanceof SearchNameInterface)
+        {
+            $name = $requestObject->get('name');
 
-            if ($name) {
-                $qb->andWhere("e.name LIKE :term");
-                $qb->setParameter("term", "%$name%");
+            if ($name)
+            {
+                $qb->andWhere('e.name LIKE :term');
+                $qb->setParameter('term', "%$name%");
             }
         }
 
-        if ($requestObject instanceof SearchDeletedInterface && ! $requestObject->get("deleted")) {
-            $qb->andWhere("e.deleted = ?101");
+        if ($requestObject instanceof SearchDeletedInterface && ! $requestObject->get('deleted'))
+        {
+            $qb->andWhere('e.deleted = ?101');
             $qb->setParameter(101, false);
         }
 

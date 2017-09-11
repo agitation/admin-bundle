@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/admin-bundle
  * @link       http://github.com/agitation/admin-bundle
@@ -38,7 +38,7 @@ class Setting extends AbstractValueObject
 
     public function fill($data)
     {
-        $this->id = $data["id"];
-        $this->value = $data["value"];
+        $this->id = $data['id'];
+        $this->value = $data['value'];
     }
 }

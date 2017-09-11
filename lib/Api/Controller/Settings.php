@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/admin-bundle
  * @link       http://github.com/agitation/admin-bundle
@@ -43,8 +43,9 @@ class Settings extends AbstractController
         $result = [];
         $settings = $this->settingService->getValuesOf($names);
 
-        foreach ($settings as $name => $value) {
-            $result[] = $this->createObject("Setting", ["id" => $name, "value" => $value]);
+        foreach ($settings as $name => $value)
+        {
+            $result[] = $this->createObject('Setting', ['id' => $name, 'value' => $value]);
         }
 
         return $result;
@@ -62,24 +63,28 @@ class Settings extends AbstractController
         $oldSettings = [];
         $changedSettings = [];
 
-        foreach ($request as $entry) {
-            $settings[$entry->get("id")] = $entry->get("value");
+        foreach ($request as $entry)
+        {
+            $settings[$entry->get('id')] = $entry->get('value');
         }
 
         $oldSettings = $this->settingService->getValuesOf(array_keys($settings));
         $this->settingService->saveSettings($settings);
 
-        foreach ($oldSettings as $id => $value) {
-            if ($value !== $settings[$id]) {
+        foreach ($oldSettings as $id => $value)
+        {
+            if ($value !== $settings[$id])
+            {
                 $changedSettings[] = $this->settingService->getNameOf($id);
             }
         }
 
-        if (count($changedSettings)) {
+        if (count($changedSettings))
+        {
             $this->logger->log(
                 LogLevel::NOTICE,
-                "agit.settings",
-                sprintf(Translate::tl("The following settings have been changed: %s."), implode(", ", $changedSettings)),
+                'agit.settings',
+                sprintf(Translate::tl('The following settings have been changed: %s.'), implode(', ', $changedSettings)),
                 true
             );
         }
