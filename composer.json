@@ -2,8 +2,6 @@
     "name": "agitation/admin-bundle",
     "type": "symfony-bundle",
     "require": {
-        "php": ">=5.4.9",
-        "symfony/symfony": "2.8.*",
         "agitation/api-bundle": "~1.0",
         "agitation/page-bundle": "~1.0",
         "agitation/ui-bundle": "~1.0",
