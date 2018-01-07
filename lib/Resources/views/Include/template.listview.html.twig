@@ -1,20 +1,17 @@
 <template id="agitadmin-listview">
 
     <div class="listview-header title container">
-        <div class="control show-nav only-handheld">
-            <a class="fa fa-navicon"></a>
-        </div>
         <h1><span></span> › {{ t("Overview") }}</h1>
         <div class="actions control"></div>
     </div>
 
     <div class="action create">
-        <a class="fa fa-pencil only-handheld" href="#!/edit?new" title="{{ t("create new") }}"></a>
-        <a class="btn btn-primary not-handheld" href="#!/edit?new">{{ t("create new") }}</a>
+        <a class="btn btn-primary hidden-sm hidden-xs" href="#!/edit?new">{{ t("create new") }}</a>
+        <a class="btn btn-primary btn-sm hidden-md hidden-lg" href="#!/edit?new">{{ t("create new") }}</a>
     </div>
 
     <form class="action goto form-inline">
-        <div class="input-group not-handheld">
+        <div class="input-group hidden-xs hidden-sm">
             <input class="form-control" type="text" name="id" value="" placeholder="{{ t("ID") }}">
             <span class="input-group-btn">
                 <button class="btn btn-default">{{ t("edit") }}</button>

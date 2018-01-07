@@ -1,7 +1,7 @@
-@media (min-width: 992px) /*not handheld */
-{
-}
+.editview-header a                          { display: inline-block; margin-top: 3px }
+.editview-header i                          { margin-right: 5px }
 
-@media  (max-width: 991px) /* handheld */
+@media (max-width: 992px)
 {
+    .editview-header a                      { font-size: 0.9em }
 }

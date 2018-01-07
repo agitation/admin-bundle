@@ -1,15 +1,12 @@
 <template id="agitadmin-editview">
 
     <div class="editview-header title container">
-        <span class="control back">
-            <a class="fa fa-caret-left" href="#!/list"><span>{{ t("switch to overview") }}</span></a>
-        </span>
-
         <h1><span></span> › {{ t("Edit") }}</h1>
 
-        <span class="control show-nav only-handheld">
-            <a class="fa fa-navicon"></a>
-        </span>
+        <a href="#!/list">
+            <i class="back fa fa-caret-left"></i>
+            <span>{{ t("return to overview") }}</span>
+        </a>
     </div>
 
 
