@@ -1,36 +1,46 @@
 /* HEADER */
-.listview-header                        { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; }
+.listview-header .container             { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; }
 .listview-header h1                     { flex-grow: 1; }
+.listview-header .goto                  { display: none }
 .listview-header .goto input            { width: 85px !important; }
 .listview-header .actions               { overflow: hidden; float: right; }
 .listview-header .action                { float: left; margin-left: 15px; }
 
 /* SEARCH FORM */
 
-.listview-search table                      { margin: 0; border-collapse: collapse; width: 100%; }
-.listview-search th                         { background: #d4d4d4; font-weight: 300; font-size: 20px; line-height: 34px; vertical-align: top; color: #444; }
-.listview-search td                         { background: #ececec; border: 0; vertical-align: top; text-align: left; line-height: 1em; border-left: 1px solid #f7f7f7; }
-.listview-search tr.captions > *            { padding: 15px 30px 0; }
-.listview-search tr.fields > *              { padding: 10px 30px 15px; }
-.listview-search .caption label             { white-space: nowrap; font-weight: normal; margin: 0; vertical-align: middle; text-indent: 3px }
+.listview-search                            { background: #fff; border-top: 1px solid #eee; }
+.listview-search table                      { margin: 0; border-collapse: collapse; }
+
+.listview-search svg                        { height: 32px; margin: 0; padding: 0; fill: #333; opacity: 0.7; }
+
+.listview-search td                         { padding: 15px 10px 5px 0; vertical-align: top; }
+.listview-search .labels                    { display: none }
+.listview-search .labels td                 { padding: 15px 10px 0 15px; }
+.listview-search th                         { display: none; font-weight: 300; font-size: 20px; line-height: 34px; vertical-align: top; color: #444; padding-left: 0 }
+.listview-search .caption label             { white-space: nowrap; font-weight: normal; margin: 0; vertical-align: middle; color: #555; font-size: 0.9em; }
 .listview-search input[type=text],
 .listview-search input[type=number],
-.listview-search select                     { min-width: 120px; display: inline-block; margin-bottom: 5px }
-.listview-search td.actions                 { width: 100% }
-.listview-search td.actions a               { display: block; font-size: 0.9em; white-space: nowrap }
+.listview-search select                     { min-width: 75px; display: inline-block; }
+.listview-search .priority-1 input[type=text] { width: 100%; max-width: 300px }
+.listview-search .actions                   { white-space: nowrap; }
+.listview-search .actions button span       { display: none }
+.listview-search .actions button.reset      { margin-left: 5px; }
+.listview-search.default .reset             { display: none }
+.listview-search .period.priority-1 input   { min-width: 0; width: 7em }
 
 
 /* TABLE */
 
 .listview-table                             { margin-top: 30px; }
+.listview-table.wide                        { max-width: 100%; padding: 0; margin: 0; }
 .listview-table .extra                      { overflow: hidden; }
 .listview-table .exporter                   { float: right; }
 .listview-table > table                     { width: 100%; margin: 0; }
 .listview-table > table > tbody > tr:hover  { background: #f9f9f9; }
 
 .listview-table > table > thead > tr > th,
-.listview-table > table > tbody > tr > td   { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
-.listview-table > table > tbody > tr:last-child > td { border-bottom: 0 }
+.listview-table > table > tbody > tr > td               { border: 0; border-bottom: 1px solid #ddd; padding: 10px; color: #444; overflow: hidden; vertical-align: top; font-weight: normal }
+.listview-table > table > tbody > tr:last-child > td    { border-bottom: 0 }
 
 .listview-table > table > thead > tr > th   { background: #222; color: #fff; border: 0; padding: 8px 10px }
 .listview-table tr.noresults td             { text-align: center; color: #888 }
@@ -42,12 +52,13 @@
 .listview-table > table > tfoot             { display: none; }
 .listview-table > table > tfoot > tr > td   { font-weight: bold; background: #f4f4f4; border-bottom: 1px solid #aaa; }
 
-.listview-table .action                     { white-space: nowrap; margin: 0 15px 3px 0; }
 .listview-table .action:last-child          { margin-right: 0; }
-.listview-table td.actions a                { display: inline-block; margin: 0 1em 0 0; white-space: nowrap }
+.listview-table td.actions                  { white-space: nowrap }
+.listview-table td.actions a                { display: inline-block; margin: 0 0.5em 0 0; white-space: nowrap }
 .listview-table td.actions a.invisible      { display: none; }
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
-.listview-table td.actions a i.fa           { font-size: .9em; margin-right: .3em; color: #444; }
+.listview-table td.actions a span           { display: none }
+.listview-table td.actions a i.fa           { color: #444; padding: 4px; background: #ddd; border-radius: 2px }
 
 .listview-table tr.deleted td.actions a     { color: #777 }
 .listview-table td.longtext                 { max-width: 30% }
@@ -58,28 +69,38 @@
 .view.list .more > *                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #888; text-transform: uppercase; }
 .view.list .more .spinner                   { height: 26px; width: 26px; margin-right: 20px; }
 
-.listview-search .priority-1,
 .view.list .priority-2,
 .view.list .priority-3,
 .view.list .priority-4                      { display: none; }
 
 @media (min-width: 480px)
 {
-    .view.list .priority-1                  { display: table-cell; }
+    .view.list .priority-2                  { display: table-cell; }
 }
 
 @media (min-width: 768px)
 {
-    .view.list .priority-2                  { display: table-cell; }
+    .view.list .priority-3                  { display: table-cell; }
+    .listview-search .fields > *            { padding: 10px 10px 20px 10px; }
+
+    .listview-search input[type=text],
+    .listview-search input[type=number],
+    .listview-search select                 { min-width: 140px; }
 }
 
 @media (min-width: 992px)
 {
-    .listview-table td.actions              { white-space: nowrap }
-    .view.list .priority-3                  { display: table-cell; }
-}
-
-@media (min-width: 1200px)
-{
+    .listview-header .goto                  { display: block }
+    .listview-search ::placeholder          { color: transparent }
+    .listview-search tr th                  { display: table-cell; }
+    .listview-search .labels                { display: table-row; }
+    .listview-search .fields > *            { padding-top: 5px }
+    .listview-search tr th                  { padding-left: 0 !important }
+    .listview-search .actions button span   { display: inline }
+    .listview-search .actions .submit i     { display: none }
+    .listview-table td.actions a            { margin-right: 1em }
+    .listview-table td.actions a i.fa       { font-size: .9em; margin-right: .3em; background: none; padding: 0 }
+    .listview-table td.actions a span       { display: inline; }
+    .listview-search tr.fields .actions     { padding-right: 0 }
     .view.list .priority-4                  { display: table-cell; }
 }
