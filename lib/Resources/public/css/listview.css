@@ -13,7 +13,7 @@
 
 .listview-search svg                        { height: 32px; margin: 0; padding: 0; fill: #333; opacity: 0.7; }
 
-.listview-search td                         { padding: 15px 10px 5px 0; vertical-align: top; }
+.listview-search td                         { padding: 15px 10px 5px 0; vertical-align: middle }
 .listview-search .labels                    { display: none }
 .listview-search .labels td                 { padding: 15px 10px 0 15px; }
 .listview-search th                         { display: none; font-weight: 300; font-size: 20px; line-height: 34px; vertical-align: top; color: #444; padding-left: 0 }
@@ -58,7 +58,7 @@
 .listview-table td.actions a.invisible      { display: none; }
 .listview-table td.actions a *              { vertical-align: middle; display: inline-block; }
 .listview-table td.actions a span           { display: none }
-.listview-table td.actions a i.fa           { color: #444; padding: 4px; background: #ddd; border-radius: 2px }
+.listview-table td.actions a i.fa           { color: #fff; padding: 5px; background: #666; border-radius: 2px }
 
 .listview-table tr.deleted td.actions a     { color: #777 }
 .listview-table td.longtext                 { max-width: 30% }
@@ -99,7 +99,7 @@
     .listview-search .actions button span   { display: inline }
     .listview-search .actions .submit i     { display: none }
     .listview-table td.actions a            { margin-right: 1em }
-    .listview-table td.actions a i.fa       { font-size: .9em; margin-right: .3em; background: none; padding: 0 }
+    .listview-table td.actions a i.fa       { font-size: .9em; margin-right: .3em; background: none; padding: 0; color: #222 }
     .listview-table td.actions a span       { display: inline; }
     .listview-search tr.fields .actions     { padding-right: 0 }
     .view.list .priority-4                  { display: table-cell; }
