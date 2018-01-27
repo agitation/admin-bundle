@@ -3,5 +3,6 @@
 
 @media (max-width: 992px)
 {
+    header .title .control.back spa         { margin-left: 5px; }
     .editview-header a                      { font-size: 0.9em }
 }
