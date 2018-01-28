@@ -1,16 +1,9 @@
-{% extends "AgitUiBundle:Include:page.html.twig" %}
+{% extends "AgitWebappBundle:Include:page.html.twig" %}
 
-{% block area_css %}
+{% block area_extra_css %}
     {% stylesheets
-        "@AgitUiBundle/Resources/public/css/spinner.css"
-        "@AgitUiBundle/Resources/public/css/indicator.css"
-        "@AgitUiBundle/Resources/public/css/calendar.css"
-        "@AgitUiBundle/Resources/public/css/datepicker.css"
-
         "@AgitMultilangBundle/Resources/public/css/field.css"
 
-        "@AgitAdminBundle/Resources/public/css/layout.css"
-        "@AgitUiBundle/Resources/public/css/font.awesome.css"
         "@AgitAdminBundle/Resources/public/css/message.bubbles.css"
         "@AgitAdminBundle/Resources/public/css/forms.css"
         "@AgitAdminBundle/Resources/public/css/listview.css"
@@ -21,79 +14,17 @@
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
-
-    <style type="text/css">
-        .init { margin: 100px 30px 0; text-align: center; color: #888 }
-        #init-upgrade { color: #944; }
-        #init-loading, #init-upgrade, #init.failed #init-loading { display: none; }
-        #init.failed #init-upgrade { display: block; }
-    </style>
-
-    <script type="text/javascript">document.write("<style type='text/css'>#init-nojs { display: none; } #init-loading { display: block; }</style>");</script>
-
-    {% block area_extra_css %}{% endblock %}
+    {% block admin_css %}{% endblock %}
 {% endblock %}
 
-{% block config_js %}
-    <script type="text/javascript">/* <![CDATA[ */
-        window.ag = {
-            cfg : {
-                locale : "{{ locale }}",
-                baseUrl : "{{ getAppUrlBase() }}",
-                apiBaseUrl : "{{ getApiUrlBase() }}",
-                csrfToken : "{{ getCsrfToken() }}",
-                reloadOn401 : true,
-                languages : {{ getPageLocaleUrls()|json_encode(64 + 256)|raw }},
-                pages : {{ getPageUrls("/admin")|json_encode(64 + 256)|raw }}
-            }
-        };
-        {% block config_js_extra %}{# allow setting custom values #}{% endblock %}
-    /* ]]> */</script>
+{% block config_js_extra %}
+        window.ag.cfg.pages = {{ getPageUrls("/admin")|json_encode(64 + 256)|raw }}
+        {% block admin_config_js %}{# allow setting custom values #}{% endblock %}
 {% endblock %}
 
-{% block area_meta %}
-    {% include "AgitPageBundle:Include:include.links.html.twig" %}
-{% endblock %}
-
-{% block area_js %}
+{% block area_extra_js %}
     {% javascripts
-        "@AgitApiBundle/Resources/public/js/lib/Api.js"
-        "@AgitApiBundle/Resources/public/js/lib/Extractor.js"
-        "@AgitApiBundle/Resources/public/js/lib/Endpoint.js"
-        "@AgitApiBundle/Resources/public/js/lib/Object.js"
-        "@AgitApiBundle/Resources/public/js/lib/Indicator.js"
-        "@AgitApiBundle/Resources/public/js/var/api.js"
-
-        "@AgitValidationBundle/Resources/public/js/lib/ValidationError.js"
-        "@AgitValidationBundle/Resources/public/js/lib/Validation.js"
-        "@AgitValidationBundle/Resources/public/js/var/translations.js"
-
-        "@AgitMultilangBundle/Resources/public/js/lib/mlang.js"
         "@AgitMultilangBundle/Resources/public/js/lib/field/Multilang.js"
-
-        "@AgitPageBundle/Resources/public/js/lib/tool.js"
-
-        "@AgitUiBundle/Resources/public/js/lib/elem/Spinner.js"
-        "@AgitUiBundle/Resources/public/js/lib/elem/OverlayIndicator.js"
-        "@AgitUiBundle/Resources/public/js/lib/elem/InlineIndicator.js"
-        "@AgitUiBundle/Resources/public/js/lib/elem/Form.js"
-        "@AgitUiBundle/Resources/public/js/lib/elem/FormRow.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/Integer.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/Decimal.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/Boolean.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/EntitySelect.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/Calendar.js"
-        "@AgitUiBundle/Resources/public/js/lib/field/Datepicker.js"
-
-        "@AgitProfileBundle/Resources/public/js/lib/NavigationLogout.js"
-        "@AgitProfileBundle/Resources/public/js/var/translations.js"
-        "@AgitProfileBundle/Resources/public/js/var/api.js"
-
-        "@AgitWebappBundle/Resources/public/js/lib/Navigation.js"
-        "@AgitWebappBundle/Resources/public/js/lib/NavigationItem.js"
-        "@AgitWebappBundle/Resources/public/js/lib/NavigationPages.js"
-        "@AgitWebappBundle/Resources/public/js/lib/NavigationLanguages.js"
-        "@AgitWebappBundle/Resources/public/js/lib/View.js"
 
         "@AgitAdminBundle/Resources/public/js/var/translations.js"
         "@AgitAdminBundle/Resources/public/js/lib/tool.js"
@@ -149,41 +80,16 @@
     <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}
 
-    {% block area_extra_js %}{% endblock %}
+    {% block admin_js %}{% endblock %}
 {% endblock %}
 
-{% block content %}
-    <main>
-        <div id="init">
-            <div class="init" id="init-nojs">{{ t("Please activate JavaScript in your web browser to use this application.") }}</div>
-            <div class="init" id="init-loading">{{ t("Please wait while the application is loading.") }}</div>
-            <div class="init" id="init-upgrade">{{ t("The application could not be initialized. This might be because of a network outage or an obsolete browser. Please check your network connection and make sure you have the latest version of your browser.") }}</div>
-        </div>
-
-        <script type="text/javascript">
-            setTimeout(function(){
-                var init = document.getElementById("init"); if (init) init.className += "failed";
-            }, 10000)
-        </script>
-    </main>
-{% endblock %}
-
-
-{% block area_templates %}
-    {% include "AgitUiBundle:Include:template.indicator.html.twig" %}
-    {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
-
+{% block area_extra_templates %}
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
-
-    {% include "AgitWebappBundle:Include:template.page.html.twig" %}
-
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
     {% include "AgitAdminBundle:Include:template.message.bubble.html.twig" %}
     {% include "AgitAdminBundle:Include:template.listview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.editview.html.twig" %}
     {% include "AgitAdminBundle:Include:template.settings.html.twig" %}
 
-    {% include "AgitProfileBundle:Include:template.menu.html.twig" %}
-
-    {% block area_extra_templates %}{% endblock %}
+    {% block admin_templates %}{% endblock %}
 {% endblock %}
