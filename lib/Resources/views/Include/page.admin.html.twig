@@ -89,6 +89,12 @@
         "@AgitProfileBundle/Resources/public/js/var/translations.js"
         "@AgitProfileBundle/Resources/public/js/var/api.js"
 
+        "@AgitWebappBundle/Resources/public/js/lib/Navigation.js"
+        "@AgitWebappBundle/Resources/public/js/lib/NavigationItem.js"
+        "@AgitWebappBundle/Resources/public/js/lib/NavigationPages.js"
+        "@AgitWebappBundle/Resources/public/js/lib/NavigationLanguages.js"
+        "@AgitWebappBundle/Resources/public/js/lib/View.js"
+
         "@AgitAdminBundle/Resources/public/js/var/translations.js"
         "@AgitAdminBundle/Resources/public/js/lib/tool.js"
         "@AgitAdminBundle/Resources/public/js/lib/Preloader.js"
@@ -168,6 +174,8 @@
     {% include "AgitUiBundle:Include:template.calendar.html.twig" %}
 
     {% include "AgitMultilangBundle:Include:template.formfield.html.twig" %}
+
+    {% include "AgitWebappBundle:Include:template.page.html.twig" %}
 
     {% include "AgitAdminBundle:Include:template.forms.html.twig" %}
     {% include "AgitAdminBundle:Include:template.message.bubble.html.twig" %}
