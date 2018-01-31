@@ -1,5 +1,7 @@
 {% extends "AgitWebappBundle:Include:page.html.twig" %}
 
+{% block title %}{{ getSetting("agit.name") }} › {{ t("Administration") }} › {{ breadcrumb("/admin/") }}{% endblock %}
+
 {% block area_extra_css %}
     {% stylesheets
         "@AgitMultilangBundle/Resources/public/css/field.css"
