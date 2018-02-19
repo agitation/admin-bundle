@@ -11,21 +11,26 @@
 .listview-search                            { background: #fff; border-top: 1px solid #eee; }
 .listview-search table                      { margin: 0; border-collapse: collapse; }
 
-.listview-search svg                        { height: 32px; margin: 0; padding: 0; fill: #333; opacity: 0.7; }
 
 .listview-search td                         { padding: 10px 10px 10px 0; vertical-align: middle }
 .listview-search .labels td                 { padding: 15px 10px 0 5px; display: none; }
-.listview-search th                         { display: none; font-weight: 300; font-size: 20px; line-height: 34px; vertical-align: top; color: #444; padding-left: 0 }
-.listview-search .caption label             { white-space: nowrap; font-weight: normal; margin: 0; vertical-align: middle; color: #555; font-size: 0.9em; }
+.listview-search th                         { display: none; font-weight: 300; font-size: 20px; line-height: 34px; color: #444; padding-left: 0 }
+.listview-search .caption label             { white-space: nowrap; font-weight: normal; margin: 0; color: #555; font-size: 0.9em; }
 .listview-search input[type=text],
 .listview-search input[type=number],
 .listview-search select                     { min-width: 75px; display: inline-block; }
 .listview-search .priority-1 input[type=text] { width: 100%; max-width: 300px }
-.listview-search .actions                   { white-space: nowrap; }
+.listview-search .actions                   { white-space: nowrap; line-height: 0 }
 .listview-search .actions button span       { display: none }
-.listview-search .actions button.reset      { margin-left: 5px; }
+.listview-search .actions button.reset      { margin-left: 10px; padding: 0; }
 .listview-search.default .reset             { display: none }
 .listview-search .period.priority-1 input   { min-width: 0; width: 7em }
+
+
+.listview-search .svg                       { line-height: 0; outline: 0 }
+.listview-search .svg:focus                 { outline: 0 }
+.listview-search svg                        { height: 32px; margin: 0; padding: 0; fill: #333; opacity: 0.7; }
+.listview-search .reset svg                 { stroke: #755050; stroke-width: 1; height: 20px }
 
 
 /* TABLE */
