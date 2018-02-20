@@ -19,11 +19,6 @@
         </div>
     </form>
 
-    <div class="more container">
-        <span class="ind"></span>
-        <span>{{ t("loading more items …") }}</span>
-    </div>
-
     <form class="listview-search">
         <div class="container">
             <table>
@@ -53,10 +48,6 @@
     </form>
 
     <div class="listview-table container">
-        <div class="extra">
-            <div class="exporter"></div>
-        </div>
-
         <table>
             <thead><tr></tr></thead>
             <tbody>
@@ -70,6 +61,10 @@
             </tbody>
             <tfoot><tr></tr></tfoot>
         </table>
+    </div>
+
+    <div class="more container">
+        <button type="submit">{{ t("load more results") }}</button>
     </div>
 
     <table class="dummy"><tr>

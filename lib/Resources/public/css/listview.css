@@ -35,7 +35,7 @@
 
 /* TABLE */
 
-.listview-table                             { margin-top: 30px; }
+.listview-table                             { margin: 30px auto 20px; }
 .listview-table.wide                        { max-width: 100%; padding: 0; margin: 0; }
 .listview-table .extra                      { overflow: hidden; }
 .listview-table .exporter                   { float: right; }
@@ -67,11 +67,11 @@
 .listview-table tr.deleted td.actions a     { color: #777 }
 .listview-table td.longtext                 { max-width: 30% }
 
-
-.list-view .more                            { margin-top: 25px; text-align: center; visibility: hidden; }
+.list-view .more                            { margin: 10px auto 20px; text-align: center; visibility: hidden; text-align: center; }
 .list-view .more.visible                    { visibility: visible }
-.list-view .more > *                        { display: inline-block; vertical-align: middle; font-size: 22px; font-weight: 300; color: #888; text-transform: uppercase; }
-.list-view .more .spinner                   { height: 26px; width: 26px; margin-right: 20px; }
+.list-view .more button                     { display: inline-block; padding: 8px 0; border-radius: 2px; border: 1px solid #6aaec2; background: #5bc0de; color: #fff; width: 100%; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2) }
+.list-view .more button:hover               { background: #55bad7 }
+.list-view .more button:focus               { outline: 0 }
 
 .list-view .priority-2,
 .list-view .priority-3,
