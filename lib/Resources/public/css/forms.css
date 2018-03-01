@@ -3,7 +3,9 @@ th                                                                          { te
 .edit-form                                                                  { padding: 15px }
 .edit-form > table                                                          { width: 100%; border-collapse: separate }
 .edit-form > table > tbody > tr > th,
-.edit-form > table > tbody > tr > td                                        { border-bottom: 1px solid #ddd; padding: 20px 0 }
+.edit-form > table > tbody > tr > td                                        { padding: 20px 0 }
+.edit-form > table > tbody > tr:last-child > th,
+.edit-form > table > tbody > tr:last-child > td                             { border-bottom: 1px solid #ddd; }
 .edit-form > table > tbody > tr > th                                        { vertical-align: top; padding: 30px 40px 30px 0; font-weight: normal; width: 1%; }
 .edit-form > table > tfoot tr > td                                          { padding-top: 40px; vertical-align: middle; white-space: nowrap; }
 .edit-form tfoot button                                                     { margin-right: 15px; }
@@ -96,23 +98,6 @@ th                                                                          { te
 
 .readonly                                                                   { }
 .readonly .empty                                                            { color: #aaa; font-style: italic }
-
-
-/* key-value-table */
-
-.key-value                                                                  { margin-top: 12px; font-size: 0.9em; }
-.key-value tbody                                                            { }
-.key-value tbody tr > *                                                     { font-weight: normal; padding: 0 30px 5px 0 }
-.key-value tr.extra                                                         { display: none; }
-.key-value tfoot                                                            { display: none; }
-.key-value.long tfoot                                                       { display: table-row-group; }
-.key-value tfoot td                                                         { padding-top: 10px; }
-.key-value tfoot a                                                          { display: none; }
-.key-value tfoot .more                                                      { display: inline-block; }
-.key-value.full tr.extra                                                    { display: table-row; }
-.key-value.full tfoot .more                                                 { display: none; }
-.key-value.full tfoot .less                                                 { display: inline-block; }
-
 
 /* MISC */
 
