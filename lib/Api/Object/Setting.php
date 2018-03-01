@@ -30,7 +30,7 @@ class Setting extends AbstractValueObject
 
     /**
      * @Property\Name("Value")
-     * @Property\PolymorphicType
+     * @Property\RawType
      *
      * The setting value.
      */
