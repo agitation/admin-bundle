@@ -5,8 +5,8 @@
 .autocomplete p.static :first-child:not(:empty) + .change           { display: inline-block; margin-left: 15px }
 
 .autocomplete p.input                                               { position: relative; }
-.autocomplete span.indicator                                        { position: absolute; top: 6px; right: 6px; }
-.autocomplete .spinner                                              { width: 22px; height: 22px }
+.autocomplete .spinner                                              { position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-width: 2px; display: none }
+.autocomplete.loading .spinner                                      { display: inline-block; }
 
 .autocomplete ul                                                    { display: none; position: absolute; z-index: 510; margin-top: -1px; border: 0; box-shadow: 0px 0px 2px #333; overflow-y: auto; max-height: 10em }
 .autocomplete ul.preview, .autocomplete ul:focus                    { display: block; outline: 0; }
