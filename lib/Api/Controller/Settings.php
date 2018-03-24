@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 /*
  * @package    agitation/admin-bundle
  * @link       http://github.com/agitation/admin-bundle
