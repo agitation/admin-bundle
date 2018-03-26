@@ -34,7 +34,7 @@ class Settings extends AbstractController
     }
 
     /**
-     * @Endpoint\Endpoint(request="common.v1/ScalarString[]",response="Setting[]")
+     * @Endpoint\Endpoint(request="string[]",response="Setting[]")
      * @Endpoint\Security(capability="entity.setting.read")
      *
      * Load application settings by setting names.
