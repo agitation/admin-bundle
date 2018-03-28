@@ -22,8 +22,8 @@
 .listview-search .priority-1 input[type=text] { width: 100%; max-width: 300px }
 .listview-search .actions                   { white-space: nowrap; line-height: 0 }
 .listview-search .actions button span       { display: none }
-.listview-search .actions button.reset      { margin-left: 10px; padding: 0; }
-.listview-search.default .reset             { display: none }
+.listview-search .actions button.reset      { margin-right: 15px; padding: 0; }
+.listview-search.default .reset             { visibility: hidden; }
 .listview-search .period.priority-1 input   { min-width: 0; width: 7em }
 
 

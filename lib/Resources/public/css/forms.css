@@ -48,7 +48,7 @@ th                                                                          { te
 .tomany > * > tr > th                                                       { background: #e1e1e1; padding: 7px 10px; font-weight: bold; white-space: nowrap; border-bottom: 1px solid #fcfcfc; }
 .tomany > tbody:first-of-type > tr:first-child > td                         { padding-top: 10px; }
 .tomany > tbody:last-of-type > tr:last-child > td                           { padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
-.tomany > tfoot > tr > td                                                   { background: none; padding-top: 10px; white-space: nowrap }
+.tomany > tfoot > tr > td                                                   { background: none; padding-top: 15px; white-space: nowrap }
 .tomany > tfoot > tr > td:first-child                                       { padding-left: 0; }
 .tomany > tfoot > tr > td > select                                          { min-width: 13em }
 
