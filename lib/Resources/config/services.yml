@@ -1,5 +1,0 @@
-services:
-    agit.admin.seed.user_capability:
-        private: true
-        class: Agit\AdminBundle\Seed\UserCapabilitySeed
-        tags: [{ name: kernel.event_listener, event: agit.seed, method: registerSeed }]
