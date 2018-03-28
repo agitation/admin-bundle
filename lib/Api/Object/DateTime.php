@@ -22,7 +22,6 @@ use Agit\ApiBundle\Api\Object\DateTime as BaseDateTime;
 class DateTime extends BaseDateTime
 {
     /**
-     * @Property\Name("Second")
      * @Property\IntegerType(minValue=0, maxValue=59)
      */
     public $second;
