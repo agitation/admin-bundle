@@ -1,6 +1,6 @@
 {% extends "AgitWebappBundle:Include:page.html.twig" %}
 
-{% block title %}{{ getSetting("tixys.name") }} › {{ t("Administration") }} › {{ breadcrumb("/admin/") }}{% endblock %}
+{% block title %}{{ t("Administration") }} › {{ breadcrumb("/admin/") }}{% endblock %}
 
 {% block area_extra_css %}
     {% stylesheets
