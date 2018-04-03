@@ -7,8 +7,7 @@
         "agitation/ui-bundle": "~1.0",
         "agitation/user-bundle": "~1.0",
         "agitation/multilang-bundle": "~1.0",
-        "agitation/validation-bundle": "~1.1",
-        "agitation/webapp-bundle": "~1.0"
+        "agitation/validation-bundle": "~1.1"
     },
     "autoload": {
         "psr-4": {
