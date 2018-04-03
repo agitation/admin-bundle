@@ -1,6 +1,6 @@
 {% extends "AgitWebappBundle:Include:page.html.twig" %}
 
-{% block title %}{{ getSetting("agit.name") }} › {{ t("Administration") }} › {{ breadcrumb("/admin/") }}{% endblock %}
+{% block title %}{{ getSetting("tixys.name") }} › {{ t("Administration") }} › {{ breadcrumb("/admin/") }}{% endblock %}
 
 {% block area_extra_css %}
     {% stylesheets
@@ -33,6 +33,7 @@
         "@AgitAdminBundle/Resources/public/js/lib/Preloader.js"
         "@AgitAdminBundle/Resources/public/js/lib/BubblesMessageHandler.js"
         "@AgitAdminBundle/Resources/public/js/lib/Page.js"
+        "@AgitAdminBundle/Resources/public/js/lib/NavigationLogout.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityListView.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityListTable.js"
         "@AgitAdminBundle/Resources/public/js/lib/EntityListTableDeleteAction.js"
