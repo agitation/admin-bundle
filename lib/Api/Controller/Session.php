@@ -15,7 +15,11 @@ use Agit\ApiBundle\Annotation\Depends;
 use Agit\ApiBundle\Annotation\Endpoint;
 use Agit\ApiBundle\Api\Controller\AbstractController;
 use Agit\ApiBundle\Api\Object\RequestObjectInterface;
+use Agit\IntlBundle\Tool\Translate;
 use Agit\UserBundle\Service\UserService;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+
+use Throwable;
 
 /**
  * @Controller(namespace="admin.v1")
@@ -38,10 +42,17 @@ class Session extends AbstractController
      */
     public function login(RequestObjectInterface $requestObject)
     {
-        $this->userService->login(
-            $requestObject->get('email'),
-            $requestObject->get('password')
-        );
+        try
+        {
+            $this->userService->login(
+                $requestObject->get('email'),
+                $requestObject->get('password')
+            );
+        }
+        catch (Throwable $e)
+        {
+            throw new UnauthorizedHttpException(Translate::t('Authentication has failed. Please check your user name and your password.'));
+        }
     }
 
     /**
