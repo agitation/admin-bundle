@@ -110,11 +110,6 @@ msgstr "ID"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: @AgitAdminBundle/Resources/views/Page/admin.html.twig:1
-#: @AgitAdminBundle/Resources/views/Include/page.admin.html.twig:62
-msgid "Administration"
-msgstr "Administration"
-
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:34
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -133,40 +128,52 @@ msgid "save"
 msgstr "speichern"
 
 #: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:74
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:117
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:129
 msgid "(optional)"
 msgstr "(optional)"
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:33
+#: @AgitAdminBundle/Resources/views/Include/template.page.html.twig:55
+msgid "Pages"
+msgstr "Seiten"
+
+#: @AgitAdminBundle/Resources/views/Include/template.page.html.twig:67
+msgid "Language"
+msgstr "Sprache"
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:36
+msgid "log out"
+msgstr ""
+
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:45
 msgid "This value will be set on the server after saving the object."
 msgstr "Dieser Wert wird auf dem Server gesetzt, nachdem das Objekt gespeichert wurde."
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:40
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:58
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:52
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:70
 msgid "Please add one or more entries to this list."
 msgstr "Bitte fügen Sie der Liste ein oder mehrere Elemente hinzu."
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:69
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:81
 msgid "add"
 msgstr "hinzufügen"
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:83
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:95
 msgid "show all …"
 msgstr "alles zeigen …"
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:87
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:99
 msgid "collapse …"
 msgstr "einklappen …"
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:96
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:108
 msgid "Please enter the main properties of the new object."
 msgstr "Bitte geben Sie die Eigenschaften des neuen Objektes an."
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:100
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:112
 msgid "Note: You can edit other properties of the new object later."
 msgstr "Hinweis: Sie können die anderen Eigenschaften des neuen Objekts später ändern."
 
-#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:137
+#: @AgitAdminBundle/Resources/views/Include/template.forms.html.twig:149
 msgid "remove"
 msgstr "entfernen"
 
@@ -185,6 +192,14 @@ msgstr "Bitte legen Sie die exakte Position fest: Zoomen Sie so tief wie möglic
 #: @AgitAdminBundle/Resources/views/Include/template.settings.html.twig:46
 msgid "submit"
 msgstr "absenden"
+
+#: @AgitAdminBundle/Resources/views/Include/page.admin.html.twig:62
+msgid "Administration"
+msgstr "Administration"
+
+#: @AgitAdminBundle/Resources/views/Include/page.admin.html.twig:820
+msgid "Please wait while the application is loading."
+msgstr "Bitte warten Sie, die Anwendung wird geladen."
 
 #: @AgitAdminBundle/Resources/views/Include/template.listview.html.twig:34
 msgid "Overview"
